@@ -4,9 +4,9 @@
 		this.gameMap.load();
 		this.rootScene.attach(this.gameMap);
 		
-		this.practice = new Practice();
-		this.practice.load();
-		this.rootScene.attach(this.practice.pic);
+		//this.practice = new Practice();
+		//this.practice.load();
+		//this.rootScene.attach(this.practice.pic);
 		
 	    var characterPosition;
 		
@@ -16,6 +16,30 @@
 			y: 100
 		}
 		this.rootScene.attach(this.pic);
+		
+		
+		this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
+		this.pic2.position = {
+			x: 80,
+			y: 850
+		}
+		this.rootScene.attach(this.pic2);
+		var c = 80;
+		for(let i=0;i<=10;i++){
+		this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
+			c += (64 );
+			this.pic3.position = {
+				x: c,
+				y: 850
+			}
+			this.rootScene.attach(this.pic3);
+		}
+		this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
+		this.pic4.position = {
+			x: (c + 64),
+			y: 850
+		}
+		this.rootScene.attach(this.pic4);
 
 		this.position = {
 			x: 100,
@@ -99,7 +123,7 @@
         });
 
         //播放時, 需要給name, 其餘參數可參考W3C
-        this.audio.play({name: 'song2', loop: true});
+        //this.audio.play({name: 'song2', loop: true});
 
         this.rectPosition = { 
             x: Framework.Game.getCanvasWidth() / 2 - 130,
@@ -122,7 +146,7 @@
         var game = this;
         this.rootScene.update(); 
 		
-		this.practice.update();
+		//this.practice.update();
 		
 		this.gameMap.update();
 		
@@ -131,7 +155,7 @@
             this.isStop = true;
             this.isPlayed = true;
             //當碰攻擊時, 播放音效(可一次播放多首音樂)
-            this.audio.play({name: 'kick'});
+            //this.audio.play({name: 'kick'});
             this.firen.hit(function() {
                 game.freeze.beHit(function() {
                     game.isStop = false;
@@ -165,6 +189,8 @@
     draw:function(parentCtx){
         this.rootScene.draw();
         //可支援畫各種單純的圖形和字
+		
+		/*
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
         parentCtx.font = '65pt bold';
@@ -172,12 +198,21 @@
         parentCtx.textBaseline = 'top';
         parentCtx.textAlign = 'center';
         parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);
-        this.pic.draw();
+        */
+		//this.pic.draw();
         
     },
 	keypress:function(e, list)
 	{
 		console.log("run me");
+		
+	},
+
+    keydown:function(e, list){
+		//this.practice.keydown(e, list);
+        Framework.DebugInfo.Log.warning(e.key);
+		console.log(e.key);
+		
 		if(e.key === 'Up') {
             this.gameMap.position.y += 10;
         }
@@ -185,14 +220,6 @@
 		if(e.key === 'Down') {
             this.gameMap.position.y -= 10;
         }
-	},
-
-    keydown:function(e, list){
-		this.practice.keydown(e, list);
-        Framework.DebugInfo.Log.warning(e.key);
-		console.log(e.key);
-		
-		
 		
 		if(e.key === 'Left') {
             this.gameMap.position.x += 10;
