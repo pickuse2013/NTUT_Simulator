@@ -20,15 +20,15 @@ var GameMap = function(){
 	];
 	
 	this.map2 = [
-		[3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,0,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[7,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,2],
+		[3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,2],
+		[3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+		[3,0,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,2],
+		[3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
 	];
 	
 	
@@ -36,11 +36,14 @@ var GameMap = function(){
 	{
 		this.white_floor = new Framework.Sprite(define.imagePath + 'floor3.png');
 		this.wall_dark_left = new Framework.Sprite(define.imagePath + 'build/wall_dark_left.png');
+		this.wall_light_left = new Framework.Sprite(define.imagePath + 'build/wall_light_left.png');
 		this.wall_dark_right = new Framework.Sprite(define.imagePath + 'build/wall_dark_right.png');
+		this.wall_light_right = new Framework.Sprite(define.imagePath + 'build/wall_light_right.png');
 		this.full_light_wall = new Framework.Sprite(define.imagePath + 'build/full_light_wall.png');
-		this.wood_board_left = new Framework.Sprite(define.imagePath + 'build/wood_board_left.png');
-		this.chair_left = new Framework.Sprite(define.imagePath + 'build/chair_left.png');
-		this.desk_right = new Framework.Sprite(define.imagePath + 'build/desk_right.png');
+		this.wood_board_dark = new Framework.Sprite(define.imagePath + 'build/wood_board_dark.png');
+		this.wood_board_light = new Framework.Sprite(define.imagePath + 'build/wood_board_light.png');
+		this.chair = new Framework.Sprite(define.imagePath + 'build/chair.png');
+		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
 		
 	};
 	
@@ -77,7 +80,7 @@ var GameMap = function(){
 			}
 		}
 		
-		
+		/*1右牆暗 2右牆淺 3左牆暗 7左牆淺*/
 		for(let i in this.map2)
 		{
 			for(let j in this.map2[i])
@@ -96,13 +99,13 @@ var GameMap = function(){
 						
 						break;
 					case 2:
-						this.wall_dark_left.position = picPosition;
-						this.wall_dark_left.draw(ctx)
+						this.wall_light_right.position = picPosition;
+						this.wall_light_right.draw(ctx)
 						
 						break;
 					case 3:
-						this.full_light_wall.position = picPosition;
-						this.full_light_wall.draw(ctx)
+						this.wall_dark_left.position = picPosition;
+						this.wall_dark_left.draw(ctx)
 						
 						break;
 					case 4:
@@ -111,15 +114,21 @@ var GameMap = function(){
 						
 						break;
 					case 5:
-						this.desk_right.position = picPosition;
-						this.desk_right.draw(ctx)
+						this.desk.position = picPosition;
+						this.desk.draw(ctx)
 						
 						break;
 					case 6:
-						this.chair_left.position = picPosition;
-						this.chair_left.draw(ctx)
+						this.chair.position = picPosition;
+						this.chair.draw(ctx)
+					
+						break;
+					case 7:
+						this.wall_light_left.position = picPosition;
+						this.wall_light_left.draw(ctx)
 						
 						break;
+					
 				}
 			}
 		}
