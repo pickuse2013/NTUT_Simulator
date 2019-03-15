@@ -8,27 +8,39 @@ var GameMap = function(){
 	};
 	
 	this.map = [
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-		[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
+		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
+		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
+		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
+		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
+		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 	];
 	
 	this.map2 = [
-		[7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[7,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[7,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
-		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,2],
-		[3,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
-		[3,4,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,2],
-		[3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
-		[3,0,0,0,5,6,0,5,6,0,0,0,0,0,0,0,0,0,0,0,0,2],
-		[3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[1,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[0,0,0,0,2,3,0,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	];
 	
 	
@@ -45,6 +57,10 @@ var GameMap = function(){
 		this.chair = new Framework.Sprite(define.imagePath + 'build/chair.png');
 		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
 		
+		this.left_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/left_wall_full_dark.png');
+		this.left_wall_full_light = new Framework.Sprite(define.imagePath + 'build/left_wall_full_light.png');
+		this.right_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/right_wall_full_dark.png');
+		this.right_wall_full_light = new Framework.Sprite(define.imagePath + 'build/right_wall_full_light.png');
 	};
 	
 	this.initialize = function()
@@ -69,6 +85,7 @@ var GameMap = function(){
 				}
 				switch(this.map[i][j])
 				{
+					/*54 32   */
 					case 0:
 						break;
 					case 1:
@@ -76,6 +93,45 @@ var GameMap = function(){
 						this.white_floor.draw(ctx)
 						
 						break;
+					case 2:
+						this.wall_dark_right.position = picPosition;
+						this.wall_dark_right.draw(ctx)
+						
+						break;
+					case 3:
+						this.wall_light_right.position = picPosition;
+						this.wall_light_right.draw(ctx)
+						
+						break;
+					case 4:
+						this.wall_dark_left.position = picPosition;
+						this.wall_dark_left.draw(ctx)
+						break;		
+					case 5:
+						this.wall_light_left.position = picPosition;
+						this.wall_light_left.draw(ctx)
+						
+						break;
+					case 6:
+						this.left_wall_full_dark.position = picPosition;
+						this.left_wall_full_dark.draw(ctx)
+						
+						break;				
+					case 7:
+						this.left_wall_full_light.position = picPosition;
+						this.left_wall_full_light.draw(ctx)
+						
+						break;				
+					case 8:
+						this.right_wall_full_dark.position = picPosition;
+						this.right_wall_full_dark.draw(ctx)
+						
+						break;				
+					case 9:
+						this.right_wall_full_light.position = picPosition;
+						this.right_wall_full_light.draw(ctx)
+						
+						break;										
 				}
 			}
 		}
@@ -93,42 +149,27 @@ var GameMap = function(){
 				{
 					case 0:
 						break;
+
 					case 1:
-						this.wall_dark_right.position = picPosition;
-						this.wall_dark_right.draw(ctx)
+						this.wood_board_dark.position = picPosition;
+						this.wood_board_dark.draw(ctx)
 						
 						break;
 					case 2:
-						this.wall_light_right.position = picPosition;
-						this.wall_light_right.draw(ctx)
-						
-						break;
-					case 3:
-						this.wall_dark_left.position = picPosition;
-						this.wall_dark_left.draw(ctx)
-						
-						break;
-					case 4:
-						this.wood_board_left.position = picPosition;
-						this.wood_board_left.draw(ctx)
-						
-						break;
-					case 5:
 						this.desk.position = picPosition;
 						this.desk.draw(ctx)
 						
 						break;
-					case 6:
+					case 3:
 						this.chair.position = picPosition;
 						this.chair.draw(ctx)
 					
 						break;
-					case 7:
-						this.wall_light_left.position = picPosition;
-						this.wall_light_left.draw(ctx)
-						
+
+					case 4:
+						this.wood_board_light.position = picPosition;
+						this.wood_board_light.draw(ctx)
 						break;
-					
 				}
 			}
 		}
