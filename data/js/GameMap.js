@@ -96,8 +96,8 @@ var GameMap = function(){
 						
 						break;
 					case 2:
-						this.wall_dark_right.position = picPosition;
-						this.wall_dark_right.draw(ctx)
+						this.wall_dark_left.position = picPosition;
+						this.wall_dark_left.draw(ctx)
 						
 						break;
 					case 3:
