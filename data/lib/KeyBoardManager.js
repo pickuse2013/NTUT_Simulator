@@ -114,7 +114,8 @@ var Framework = (function (Framework) {
 			window.addEventListener('keyup', keyupEvent, false);
 			
 			//add keypress event
-			window.addEventListener('keypress', keypressEvent, false);
+			window.addEventListener('keypress', keypressEvent, true);
+			console.log(keypressEvent);
 			clearHistory();
 		};
 

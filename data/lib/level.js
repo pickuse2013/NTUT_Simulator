@@ -388,6 +388,7 @@ var Framework = (function (Framework) {
         */
         keyup: function (e) {
         },
+		
         keypress: function (e) {
         },
 
