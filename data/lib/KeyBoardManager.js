@@ -114,8 +114,19 @@ var Framework = (function (Framework) {
 			window.addEventListener('keyup', keyupEvent, false);
 			
 			//add keypress event
-			window.addEventListener('keypress', keypressEvent, true);
-			console.log(keypressEvent);
+			/*window.addEventListener('keypress', function(e) {
+				
+				if (e.keyCode == 27) {
+					alert("escape pressed");
+				}
+			}, true);*/
+			
+			window.onkeypress = function(e)
+			{
+				alert("any key pressed");
+			}
+			//window.addEventListener('keypress', keypressEvent, true);
+			//console.log(keypressEvent);
 			clearHistory();
 		};
 
