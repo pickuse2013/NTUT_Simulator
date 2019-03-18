@@ -40,8 +40,8 @@ var GameMap = function(){
 		this.wall_dark_right = new Framework.Sprite(define.imagePath + 'build/wall_dark_right.png');
 		this.wall_light_right = new Framework.Sprite(define.imagePath + 'build/wall_light_right.png');
 		this.full_light_wall = new Framework.Sprite(define.imagePath + 'build/full_light_wall.png');
-		this.wood_board_dark = new Framework.Sprite(define.imagePath + 'build/wood_board_dark.png');
-		this.wood_board_light = new Framework.Sprite(define.imagePath + 'build/wood_board_light.png');
+		this.wood_board_left = new Framework.Sprite(define.imagePath + 'build/wood_board_dark_left.png');
+		this.wood_board_right = new Framework.Sprite(define.imagePath + 'build/wood_board_dark_right.png');
 		this.chair = new Framework.Sprite(define.imagePath + 'build/chair.png');
 		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
 		
