@@ -12,6 +12,8 @@ var listScript =
     { src: 'data/lib/loadFramework.js',lookFor: 'loadFrameworkEnd'},
     { src: 'data/js/loadGame.js',lookFor: 'loadGameEnd'},
 ]*/
+
+
 </script>
 <script type="text/javascript" src="data/lib/load.js"></script>
 <!---->
@@ -22,9 +24,56 @@ var listScript =
             padding:0;
             margin:0;
         }
+		
+	#centerpoint {
+		top: 50%;
+		left: 50%;
+		position: absolute;
+	}
+
+	#favDialog {
+		position: relative;
+
+		width: 600px;
+		margin-left: -300px;
+
+		height: 400px;
+		margin-top: -200px;
+		
+		background-color: white;
+		
+		display:none;
+		padding: 20px;
+	}
 </style>
 <body>
-1234
+	<div id="centerpoint">
+		<div id="favDialog">
+		  <form method="dialog">
+			<div><a href="#" id="test">X</a></div>
+			<p><label><h1>功能測試</h1>
+			  <select>
+				<option></option>
+				<option>測試1</option>
+				<option>測試2</option>
+				<option>測試3</option>
+			  </select>
+			</label></p>
+			<div id="message"></div>
+			<menu>
+			  <button value="cancel">Cancel</button>
+			  <button id="confirmBtn" value="default">Confirm</button>
+			</menu>
+		  </form>
+		</div>
+	</div>
+	<script>
+	(function () {
+	document.getElementById("test").addEventListener("click", function(){
+		favDialog.style.display = "none";
+	});
+})();
+	</script>
 </body>
 </head>
 </html>

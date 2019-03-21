@@ -37,9 +37,9 @@ var GameMap = function(){
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
 		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
-		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-		[1,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
-		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	];
@@ -152,8 +152,8 @@ var GameMap = function(){
 						break;
 
 					case 1:
-						this.wood_board_dark.position = picPosition;
-						this.wood_board_dark.draw(ctx)
+						this.wood_board_left.position = picPosition;
+						this.wood_board_left.draw(ctx)
 						
 						break;
 					case 2:
@@ -168,8 +168,8 @@ var GameMap = function(){
 						break;
 
 					case 4:
-						this.wood_board_light.position = picPosition;
-						this.wood_board_light.draw(ctx)
+						this.wood_board_right.position = picPosition;
+						this.wood_board_right.draw(ctx)
 						break;
 				}
 			}

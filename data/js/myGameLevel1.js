@@ -4,6 +4,8 @@
 		this.gameMap.load();
 		this.rootScene.attach(this.gameMap);
 		
+		this.isKeyPress = false;
+		
 		//this.practice = new Practice();
 		//this.practice.load();
 		//this.rootScene.attach(this.practice.pic);
@@ -202,31 +204,66 @@
 		//this.pic.draw();
         
     },
-	keypress:function(e, list)
+	keyup:function(e, list)
 	{
-		console.log("run me");
-		
+		console.log("up");
+		this.isKeyPress = false;
 	},
+	
+	moveUp: function(){this.gameMap.position.y += 10;},
+	moveLeft: function(){this.gameMap.position.x += 10;},
+	moveRight: function(){this.gameMap.position.x -= 10;},
+	moveDown: function(){this.gameMap.position.y -= 10;},
 
     keydown:function(e, list){
 		//this.practice.keydown(e, list);
+		var self = this;
+		this.isKeyPress = true;
         Framework.DebugInfo.Log.warning(e.key);
 		console.log(e.key);
 		
 		if(e.key === 'Up') {
-            this.gameMap.position.y += 10;
+			console.log("check+")
+			
+            let moveUpInterval = setInterval(function(){
+				if(self.isKeyPress == true){
+					self.moveUp();
+				}else{
+					 clearInterval(moveUpInterval);
+				}		
+			}, 10);
+			
+			return
         }
 		
 		if(e.key === 'Down') {
-            this.gameMap.position.y -= 10;
+            let moveDownInterval = setInterval(function(){
+				if(self.isKeyPress == true){
+					self.moveDown();
+				}else{
+					 clearInterval(moveDownInterval);
+				}		
+			}, 10);
         }
 		
 		if(e.key === 'Left') {
-            this.gameMap.position.x += 10;
+            let moveLeftInterval = setInterval(function(){
+				if(self.isKeyPress == true){
+					self.moveLeft();
+				}else{
+					 clearInterval(moveLeftInterval);
+				}		
+			}, 10);
         }
 		
 		if(e.key === 'Right') {
-            this.gameMap.position.x -= 10;
+            let moveRightInterval = setInterval(function(){
+				if(self.isKeyPress == true){
+					self.moveRight();
+				}else{
+					 clearInterval(moveRightInterval);
+				}		
+			}, 10);
         }
 		
         if(e.key === 'Numpad +' || e.key === '=') {
@@ -266,7 +303,15 @@
     },
     
     click: function (e) {  
+		alert("你點了一下");
+		var favDialog = document.getElementById('favDialog');
 
+		  // “Update details” button opens the <dialog> modally
+		
+		favDialog.style.display = "block";
+		
+		document.getElementById("message").innerText = "你剛才點擊了" + e.x + ":" + e.y;
+	    /*
         console.log(e.x, e.y);
         if (!this.rectPosition) {
             return;
@@ -290,6 +335,6 @@
             this.audio.stopAll();
             Framework.Game.goToPreviousLevel();            
             return;
-        }
+        }*/
     },
 });
