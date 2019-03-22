@@ -4,6 +4,11 @@
 		this.gameMap.load();
 		this.rootScene.attach(this.gameMap);
 		
+		
+		this.peopleMap = new PeopleMap();
+		this.peopleMap.load();
+		this.rootScene.attach(this.peopleMap);
+		
 		this.isKeyPress = false;
 		
 		//this.practice = new Practice();
@@ -210,10 +215,22 @@
 		this.isKeyPress = false;
 	},
 	
-	moveUp: function(){this.gameMap.position.y += 10;},
-	moveLeft: function(){this.gameMap.position.x += 10;},
-	moveRight: function(){this.gameMap.position.x -= 10;},
-	moveDown: function(){this.gameMap.position.y -= 10;},
+	moveUp: function(){
+		this.gameMap.position.y += 10;
+		this.peopleMap.position.y += 10;
+		},
+	moveLeft: function(){
+		this.gameMap.position.x += 10;
+		this.peopleMap.position.x += 10;
+		},
+	moveRight: function(){
+		this.gameMap.position.x -= 10;
+		this.peopleMap.position.x -= 10;
+		},
+	moveDown: function(){
+		this.gameMap.position.y -= 10;
+		this.peopleMap.position.y -= 10;
+		},
 
     keydown:function(e, list){
 		//this.practice.keydown(e, list);
