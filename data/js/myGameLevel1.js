@@ -12,7 +12,7 @@
 		
 	    var characterPosition;
 		
-		this.pic = new Framework.Sprite(define.imagePath + '169.bmp');
+		this.pic = new Framework.Sprite(define.imagePath + '169.png');
 		this.pic.position = {
 			x: 100,
 			y: 100

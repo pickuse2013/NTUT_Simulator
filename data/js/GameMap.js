@@ -37,9 +37,9 @@ var GameMap = function(){
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
 		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
-		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
-		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[1,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
+		[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	];
@@ -53,8 +53,8 @@ var GameMap = function(){
 		this.wall_dark_right = new Framework.Sprite(define.imagePath + 'build/wall_dark_right.png');
 		this.wall_light_right = new Framework.Sprite(define.imagePath + 'build/wall_light_right.png');
 		this.full_light_wall = new Framework.Sprite(define.imagePath + 'build/full_light_wall.png');
-		this.wood_board_left = new Framework.Sprite(define.imagePath + 'build/wood_board_dark_left.png');
-		this.wood_board_right = new Framework.Sprite(define.imagePath + 'build/wood_board_dark_right.png');
+		this.wood_board_dark = new Framework.Sprite(define.imagePath + 'build/wood_board_dark_right.png');
+		this.wood_board_light = new Framework.Sprite(define.imagePath + 'build/wood_board_light.png');
 		this.chair = new Framework.Sprite(define.imagePath + 'build/chair.png');
 		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
 		
@@ -152,8 +152,8 @@ var GameMap = function(){
 						break;
 
 					case 1:
-						this.wood_board_left.position = picPosition;
-						this.wood_board_left.draw(ctx)
+						this.wood_board_dark.position = picPosition;
+						this.wood_board_dark.draw(ctx)
 						
 						break;
 					case 2:
@@ -168,8 +168,8 @@ var GameMap = function(){
 						break;
 
 					case 4:
-						this.wood_board_right.position = picPosition;
-						this.wood_board_right.draw(ctx)
+						this.wood_board_light.position = picPosition;
+						this.wood_board_light.draw(ctx)
 						break;
 				}
 			}
