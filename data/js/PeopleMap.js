@@ -1,4 +1,4 @@
-var GameMap = function(){
+var PeopleMap = function(){
 	this.MW = 64;
 	this.MH = 64;
 
@@ -7,6 +7,7 @@ var GameMap = function(){
 		y: 100
 	};
 	
+	/*
 	this.map = [
 
 		[7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
@@ -43,12 +44,11 @@ var GameMap = function(){
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 	];
-	
-	this.
-	
-	
+
+	*/
 	this.load = function()
 	{
+		/*
 		this.white_floor = new Framework.Sprite(define.imagePath + 'floor3.png');
 		this.wall_dark_left = new Framework.Sprite(define.imagePath + 'build/wall_dark_left.png');
 		this.wall_light_left = new Framework.Sprite(define.imagePath + 'build/wall_light_left.png');
@@ -59,11 +59,11 @@ var GameMap = function(){
 		this.wood_board_light = new Framework.Sprite(define.imagePath + 'build/wood_board_light.png');
 		this.chair = new Framework.Sprite(define.imagePath + 'build/chair.png');
 		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
-		this.teacher=new Framework.Sprite(define.imagePath + '169.png'); /*老師*/
+		//this.teacher=new Framework.Sprite(define.imagePath + '169.png'); //老師
 		this.left_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/left_wall_full_dark.png');
 		this.left_wall_full_light = new Framework.Sprite(define.imagePath + 'build/left_wall_full_light.png');
 		this.right_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/right_wall_full_dark.png');
-		this.right_wall_full_light = new Framework.Sprite(define.imagePath + 'build/right_wall_full_light.png');
+		this.right_wall_full_light = new Framework.Sprite(define.imagePath + 'build/right_wall_full_light.png');*/
 	};
 	
 	this.initialize = function()
@@ -78,6 +78,7 @@ var GameMap = function(){
 	
 	this.draw = function(ctx)
 	{
+		/*
 		for(let i in this.map)
 		{
 			for(let j in this.map[i])
@@ -88,7 +89,7 @@ var GameMap = function(){
 				}
 				switch(this.map[i][j])
 				{
-					/*54 32   */
+					
 					case 0:
 						break;
 					case 1:
@@ -138,8 +139,9 @@ var GameMap = function(){
 				}
 			}
 		}
-		
+		*/
 		/*1右牆暗 2右牆淺 3左牆暗 7左牆淺*/
+		/*
 		for(let i in this.map2)
 		{
 			for(let j in this.map2[i])
@@ -175,7 +177,7 @@ var GameMap = function(){
 						break;
 				}
 			}
-		}
+		}*/
 	};
 	
 };
