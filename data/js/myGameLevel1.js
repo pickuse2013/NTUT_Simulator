@@ -231,7 +231,7 @@
 				}else{
 					 clearInterval(moveUpInterval);
 				}		
-			}, 10);
+			}, 1);
 			
 			return
         }
@@ -243,7 +243,9 @@
 				}else{
 					 clearInterval(moveDownInterval);
 				}		
-			}, 10);
+			}, 1);
+
+            return
         }
 		
 		if(e.key === 'Left') {
@@ -253,7 +255,9 @@
 				}else{
 					 clearInterval(moveLeftInterval);
 				}		
-			}, 10);
+			}, 1);
+
+            return
         }
 		
 		if(e.key === 'Right') {
@@ -263,7 +267,9 @@
 				}else{
 					 clearInterval(moveRightInterval);
 				}		
-			}, 10);
+			}, 1);
+
+            return
         }
 		
         if(e.key === 'Numpad +' || e.key === '=') {
