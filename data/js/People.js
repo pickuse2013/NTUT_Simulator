@@ -10,16 +10,12 @@ var People = function(){
 	this.SW=450;
 	this.SH=150;
 
-	//this.teacherPos = [
-	//	[1.5,3]
-	//];
 	this.studentPos =[
 		[1.5,3]
 	];
 
 	this.load = function()
 	{
-		//this.teacher=new Framework.Sprite(define.imagePath + 'teacher.png');
 		this.student=new Framework.Sprite(define.imagePath + 'student.png');
 	};
 	
@@ -35,7 +31,7 @@ var People = function(){
 	
 	this.draw = function(ctx)
 	{
-		this.dianwo(ctx);
+		//this.dianwo(ctx);
 	};
 
     this.dianwo = function(ctx){

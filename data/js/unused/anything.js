@@ -29,9 +29,32 @@ parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 2
 //this.pic.draw();
 
 
-        //this.isPlayHit = this.firen.collide(this.freeze)
+//this.isPlayHit = this.firen.collide(this.freeze)
 
-        //this.position.x++;
-        //this.rotation++;
-        //this.pic.position = this.position;
-        //this.pic.rotation = this.rotation;	
+//this.position.x++;
+//this.rotation++;
+//this.pic.position = this.position;
+//this.pic.rotation = this.rotation;	
+//載入要被播放的音樂清單
+//資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
+/*
+注意: 音樂已死
+this.audio = new Framework.Audio({
+    kick: {
+        mp3: define.musicPath + 'kick2.mp3',
+        //ogg: define.musicPath + 'kick2.ogg',
+        //wav: define.musicPath + 'kick2.wav'
+    }, song1: {
+        mp3: define.musicPath + 'NTUT_classic.mp3',
+        //ogg: define.musicPath + 'Hot_Heat.ogg',
+        //wav: define.musicPath + 'Hot_Heat.wav'
+    }, song2: {
+        mp3: define.musicPath + 'NTUT_modern.mp3',
+        //ogg: define.musicPath + 'The_Messenger.ogg',
+        //wav: define.musicPath + 'The_Messenger.wav'
+    }
+});
+*/
+
+//播放時, 需要給name, 其餘參數可參考W3C
+//this.audio.play({name: 'song2', loop: true});

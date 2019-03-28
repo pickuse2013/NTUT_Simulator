@@ -22,30 +22,28 @@
 	<link rel="stylesheet" type="text/css" href="data/css/main.css">
 
 <body>
+	<div id="blackscreen"></div>
 	<div id="centerpoint">
 		<div id="favDialog">
-			<form method="dialog">
-				<div><a href="#" id="test">X</a></div>
-				<p><label>
-						<h1>功能測試</h1>
-						<select>
-							<option></option>
-							<option>測試1</option>
-							<option>測試2</option>
-							<option>測試3</option>
-						</select>
-					</label></p>
-				<div id="message"></div>
-				<menu>
-					<button value="cancel">Cancel</button>
-					<button id="confirmBtn" value="default">Confirm</button>
-				</menu>
-			</form>
+			<div class="header">info <a href="#" id="closedialog">X</a></div>
+			<div class="content">
+				<h1>功能測試</h1>
+				<select>
+					<option></option>
+					<option>測試1</option>
+					<option>測試2</option>
+					<option>測試3</option>
+				</select>
+			</div>
+			<menu>
+				<button value="cancel">Cancel</button>
+				<button id="confirmBtn" value="default">Confirm</button>
+			</menu>
 		</div>
 	</div>
 	<script>
 		(function () {
-			document.getElementById("test").addEventListener("click", function () {
+			document.getElementById("closedialog").addEventListener("click", function () {
 				favDialog.style.display = "none";
 			});
 		})();
