@@ -22,10 +22,10 @@
 	<link rel="stylesheet" type="text/css" href="data/css/main.css">
 
 <body>
-	<div id="blackscreen"></div>
+	<div id="blackScreen"></div>
 	<div id="centerpoint">
 		<div id="favDialog">
-			<div class="header">info <a href="#" id="closedialog">X</a></div>
+			<div class="header">teacher info <a href="#" id="closedialog">X</a></div>
 			<div class="content">
 				<h1>功能測試</h1>
 				<select>
@@ -35,16 +35,21 @@
 					<option>測試3</option>
 				</select>
 			</div>
-			<menu>
-				<button value="cancel">Cancel</button>
-				<button id="confirmBtn" value="default">Confirm</button>
-			</menu>
+			<div class="footer">
+				<button id="cancel">確認</button>
+			</div>
 		</div>
 	</div>
 	<script>
 		(function () {
 			document.getElementById("closedialog").addEventListener("click", function () {
 				favDialog.style.display = "none";
+				blackScreen.style.display = "none";
+			});
+			
+			document.getElementById("cancel").addEventListener("click", function () {
+				favDialog.style.display = "none";
+				blackScreen.style.display = "none";
 			});
 		})();
 	</script>

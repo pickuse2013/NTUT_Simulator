@@ -77,14 +77,43 @@ class Teacher {
 		   event.y <= currentPosition.y + this.minHeight
 		) {
 			console.log("teacher");
-			let blackscreen = document.getElementById('blackscreen');
-			blackscreen.style.display = "block";
+			let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
 
 			let favDialog = document.getElementById('favDialog');
 			favDialog.style.display = "block";
-			favDialog.getElementsByClassName("content")[0].innerHTML = "1234";
-
 			
+
+			let html = `
+			<table border="1" align="center" width="100%">
+				<tr>
+					<th><img src="data/image/wkc.jpg" style="max-width: 130px;"></th>
+					<th>陳偉凱<small>教授</small><br/> <small></small></th>
+				</tr>
+				<tr>
+					<td>職位</td>
+					<td>資訊工程系教授</td>
+				</tr>
+				<tr>
+					<td>能力值</td>
+					<td>
+						知識點: <progress max="100" value="80"></progress><br/>
+						體力值: <progress max="100" value="30"></progress><br/>
+						有趣度: <progress max="100" value="30"></progress>
+					
+					</td>
+				</tr>
+				<tr>
+					<td>專長</td>
+					<td>物件導向分析與設計、物件導向程式設計</td>
+				</tr>
+				<tr>
+					<td>薪水</td>
+					<td>每天 -3900.00</td>
+				</tr>
+			</table>
+			`;
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 		}
 
 		
