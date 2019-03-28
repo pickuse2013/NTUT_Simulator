@@ -5,9 +5,9 @@
         this.rootScene.attach(this.gameMap);
 
 
-        this.peopleMap = new PeopleMap();
-        this.peopleMap.load();
-        this.rootScene.attach(this.peopleMap);
+        this.people = new People();
+        this.people.load();
+        this.rootScene.attach(this.people);
 
         this.isKeyPress = false;
 
@@ -156,40 +156,16 @@
         //this.practice.update();
 
         this.gameMap.update();
+        game.isStop = false;
+        //game.freeze.run();
+        this.isPlayed = true;
 
-        //以下為當被攻擊時會停下來, 並且當被攻擊的動畫播放完時便繼續跑的Scenario
-        if (this.firen.collide(this.freeze) && !this.isStop && !this.isPlayed) {
-            this.isStop = true;
-            this.isPlayed = true;
-            //當碰攻擊時, 播放音效(可一次播放多首音樂)
-            //this.audio.play({name: 'kick'});
-            this.firen.hit(function () {
-                game.freeze.beHit(function () {
-                    game.isStop = false;
-                    game.freeze.run();
-                });
-                game.firen.run();
-            });
+        //this.isPlayHit = this.firen.collide(this.freeze)
 
-        }
-        else if (!this.firen.collide(this.freeze)) {
-            this.isPlayed = false;
-            this.clockCenter.rotation += this.secondHandRotationRate;
-            this.clockCenterNeg.rotation = -this.clockCenter.rotation;
-        }
-        else if (this.firen.collide(this.freeze) && !this.isStop) {
-            this.clockCenter.rotation += this.secondHandRotationRate;
-            this.clockCenterNeg.rotation = -this.clockCenter.rotation;
-        }
-        //以上為當被攻擊時會停下來, 並且當被撞到的動畫播放完時便繼續跑的Scenario
-
-
-        this.isPlayHit = this.firen.collide(this.freeze)
-
-        this.position.x++;
-        this.rotation++;
-        this.pic.position = this.position;
-        this.pic.rotation = this.rotation;
+        //this.position.x++;
+        //this.rotation++;
+        //this.pic.position = this.position;
+        //this.pic.rotation = this.rotation;
     },
 
     draw: function (parentCtx) {
@@ -215,19 +191,19 @@
 
     moveUp: function () {
         this.gameMap.position.y += 10;
-        this.peopleMap.position.y += 10;
+        this.people.position.y += 10;
     },
     moveLeft: function () {
         this.gameMap.position.x += 10;
-        this.peopleMap.position.x += 10;
+        this.people.position.x += 10;
     },
     moveRight: function () {
         this.gameMap.position.x -= 10;
-        this.peopleMap.position.x -= 10;
+        this.people.position.x -= 10;
     },
     moveDown: function () {
         this.gameMap.position.y -= 10;
-        this.peopleMap.position.y -= 10;
+        this.people.position.y -= 10;
     },
 
     keydown: function (e, list) {
