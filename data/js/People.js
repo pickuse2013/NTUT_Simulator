@@ -1,11 +1,14 @@
 var People = function(){
 	this.MW = 64;
 	this.MH = 64;
-
+	
 	this.position = {
 		x: 64,
 		y: 64
 	};
+	
+	this.SW=450;
+	this.SH=150;
 
 	this.teacherPos = [
 		[1.5,3]
@@ -45,8 +48,8 @@ var People = function(){
 	};
     this.dianwo = function(ctx){
 		
-        var xx = this.position.x + (this.MW * 1)*this.studentPos[0][0];
-        var yy = this.position.y + (this.MH * 1)*this.studentPos[0][1];
+        var xx = this.position.x + (this.SW * 1)*this.studentPos[0][0];
+        var yy = this.position.y + (this.SH * 1)*this.studentPos[0][1];
 		max=200;
 		min=-200;
         xx += Math.random() * (max - min) + min;
