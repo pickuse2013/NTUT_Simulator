@@ -1,60 +1,60 @@
-﻿var MyGame = Framework.Class(Framework.Level , {
-	load: function(){
-		this.gameMap = new GameMap();
-		this.gameMap.load();
-		this.rootScene.attach(this.gameMap);
-		
-		
-		this.peopleMap = new PeopleMap();
-		this.peopleMap.load();
-		this.rootScene.attach(this.peopleMap);
-		
-		this.isKeyPress = false;
-		
-		//this.practice = new Practice();
-		//this.practice.load();
-		//this.rootScene.attach(this.practice.pic);
-		
-	    var characterPosition;
-		
-		this.pic = new Framework.Sprite(define.imagePath + 'teacher_left.png');
-		this.pic.position = {
-			x: 100,
-			y: 100
-		}
-		this.rootScene.attach(this.pic);
-		
-		
-		this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
-		this.pic2.position = {
-			x: 80,
-			y: 850
-		}
-		this.rootScene.attach(this.pic2);
-		var c = 80;
-		for(let i=0;i<=10;i++){
-		this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
-			c += (64 );
-			this.pic3.position = {
-				x: c,
-				y: 850
-			}
-			this.rootScene.attach(this.pic3);
-		}
-		this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
-		this.pic4.position = {
-			x: (c + 64),
-			y: 850
-		}
-		this.rootScene.attach(this.pic4);
+﻿var MyGame = Framework.Class(Framework.Level, {
+    load: function () {
+        this.gameMap = new GameMap();
+        this.gameMap.load();
+        this.rootScene.attach(this.gameMap);
 
-		this.position = {
-			x: 100,
-			y: 100
-		}
-		
-		this.rotation = 0;
-		
+
+        this.peopleMap = new PeopleMap();
+        this.peopleMap.load();
+        this.rootScene.attach(this.peopleMap);
+
+        this.isKeyPress = false;
+
+        //this.practice = new Practice();
+        //this.practice.load();
+        //this.rootScene.attach(this.practice.pic);
+
+        var characterPosition;
+
+        this.pic = new Framework.Sprite(define.imagePath + 'teacher_left.png');
+        this.pic.position = {
+            x: 100,
+            y: 100
+        }
+        this.rootScene.attach(this.pic);
+
+
+        this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
+        this.pic2.position = {
+            x: 40,
+            y: 870
+        }
+        this.rootScene.attach(this.pic2);
+        var c = 80;
+        for (let i = 0; i <= 10; i++) {
+            this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
+            c += (64);
+            this.pic3.position = {
+                x: c,
+                y: 870
+            }
+            this.rootScene.attach(this.pic3);
+        }
+        this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
+        this.pic4.position = {
+            x: (c + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic4);
+
+        this.position = {
+            x: 100,
+            y: 100
+        }
+
+        this.rotation = 0;
+
         this.isStop = false;
         this.isPlayed = false;
 
@@ -66,10 +66,10 @@
             y: 0
         };
 
-        characterPosition = {x: 0, y: -1138 * this.clock.scale};
-        this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg'); 
-        this.firen = new Character(define.imagePath + 'firen.png', {position: characterPosition, run: {from: 20, to: 22}, beHit: {from:30, to: 35}, hit: {from: 10, to: 13}}); 
-        this.freeze = new Character(define.imagePath + 'freeze.png', {position: characterPosition, scale: 1, run: {from: 29, to: 27}, beHit: {from:39, to: 35}, hit: {from: 19, to: 16}});
+        characterPosition = { x: 0, y: -1138 * this.clock.scale };
+        this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg');
+        this.firen = new Character(define.imagePath + 'firen.png', { position: characterPosition, run: { from: 20, to: 22 }, beHit: { from: 30, to: 35 }, hit: { from: 10, to: 13 } });
+        this.freeze = new Character(define.imagePath + 'freeze.png', { position: characterPosition, scale: 1, run: { from: 29, to: 27 }, beHit: { from: 39, to: 35 }, hit: { from: 19, to: 16 } });
 
         this.clockCenter = new Framework.Scene();
         this.clockCenter.position = {
@@ -100,11 +100,11 @@
         this.clockCenter.attach(this.secondHand);
         this.clockCenter.attach(this.firen.sprite);
         this.clockCenterNeg.attach(this.freeze.sprite);
-        this.wholeClock.attach(this.clockCenterNeg); 
-        this.wholeClock.attach(this.clockCenter);                    
-        
-		
-		//this.rootScene.attach(this.wholeClock);
+        this.wholeClock.attach(this.clockCenterNeg);
+        this.wholeClock.attach(this.clockCenter);
+
+
+        //this.rootScene.attach(this.wholeClock);
 
         //繪製Sprite的boundry (Debug用)
         this.firen.sprite.isDrawBoundry = true;
@@ -112,17 +112,17 @@
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
-		
+
         this.audio = new Framework.Audio({
             kick: {
                 mp3: define.musicPath + 'kick2.mp3',
                 //ogg: define.musicPath + 'kick2.ogg',
                 //wav: define.musicPath + 'kick2.wav'
-            }, song1:{
+            }, song1: {
                 mp3: define.musicPath + 'NTUT_classic.mp3',
                 //ogg: define.musicPath + 'Hot_Heat.ogg',
                 //wav: define.musicPath + 'Hot_Heat.wav'
-            }, song2:{
+            }, song2: {
                 mp3: define.musicPath + 'NTUT_modern.mp3',
                 //ogg: define.musicPath + 'The_Messenger.ogg',
                 //wav: define.musicPath + 'The_Messenger.wav'
@@ -132,71 +132,70 @@
         //播放時, 需要給name, 其餘參數可參考W3C
         //this.audio.play({name: 'song2', loop: true});
 
-        this.rectPosition = { 
+        this.rectPosition = {
             x: Framework.Game.getCanvasWidth() / 2 - 130,
             y: Framework.Game.getCanvasHeight() / 2 - 90
         };
-		
-		this.position = {
-			x: 100,
-			y: 100
-		}
-		this.rotation = 0;
-	},
 
-    initialize: function() {
-        
-                           
+        this.position = {
+            x: 100,
+            y: 100
+        }
+        this.rotation = 0;
     },
 
-    update: function() {
+    initialize: function () {
+
+
+    },
+
+    update: function () {
         var game = this;
-        this.rootScene.update(); 
-		
-		//this.practice.update();
-		
-		this.gameMap.update();
-		
+        this.rootScene.update();
+
+        //this.practice.update();
+
+        this.gameMap.update();
+
         //以下為當被攻擊時會停下來, 並且當被攻擊的動畫播放完時便繼續跑的Scenario
-        if(this.firen.collide(this.freeze) && !this.isStop && !this.isPlayed) {
+        if (this.firen.collide(this.freeze) && !this.isStop && !this.isPlayed) {
             this.isStop = true;
             this.isPlayed = true;
             //當碰攻擊時, 播放音效(可一次播放多首音樂)
             //this.audio.play({name: 'kick'});
-            this.firen.hit(function() {
-                game.freeze.beHit(function() {
+            this.firen.hit(function () {
+                game.freeze.beHit(function () {
                     game.isStop = false;
                     game.freeze.run();
                 });
                 game.firen.run();
             });
-            
+
         }
-        else if(!this.firen.collide(this.freeze)){
+        else if (!this.firen.collide(this.freeze)) {
             this.isPlayed = false;
             this.clockCenter.rotation += this.secondHandRotationRate;
             this.clockCenterNeg.rotation = -this.clockCenter.rotation;
         }
-        else if(this.firen.collide(this.freeze) && !this.isStop)
-        {
+        else if (this.firen.collide(this.freeze) && !this.isStop) {
             this.clockCenter.rotation += this.secondHandRotationRate;
             this.clockCenterNeg.rotation = -this.clockCenter.rotation;
         }
         //以上為當被攻擊時會停下來, 並且當被撞到的動畫播放完時便繼續跑的Scenario
 
 
-        this.isPlayHit = this.firen.collide(this.freeze)    
+        this.isPlayHit = this.firen.collide(this.freeze)
 
-		this.position.x++;
-		this.rotation++;
-		this.pic.position = this.position;
-		this.pic.rotation = this.rotation;
+        this.position.x++;
+        this.rotation++;
+        this.pic.position = this.position;
+        this.pic.rotation = this.rotation;
     },
 
-    draw:function(parentCtx){
+    draw: function (parentCtx) {
         this.rootScene.draw();
         //可支援畫各種單純的圖形和字
-		
+
 		/*
         parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
         parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
@@ -206,116 +205,115 @@
         parentCtx.textAlign = 'center';
         parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);
         */
-		//this.pic.draw();
-        
+        //this.pic.draw();
+
     },
-	keyup:function(e, list)
-	{
-		console.log("up");
-		this.isKeyPress = false;
-	},
-	
-	moveUp: function(){
-		this.gameMap.position.y += 10;
-		this.peopleMap.position.y += 10;
-		},
-	moveLeft: function(){
-		this.gameMap.position.x += 10;
-		this.peopleMap.position.x += 10;
-		},
-	moveRight: function(){
-		this.gameMap.position.x -= 10;
-		this.peopleMap.position.x -= 10;
-		},
-	moveDown: function(){
-		this.gameMap.position.y -= 10;
-		this.peopleMap.position.y -= 10;
-		},
+    keyup: function (e, list) {
+        console.log("up");
+        this.isKeyPress = false;
+    },
 
-    keydown:function(e, list){
-		//this.practice.keydown(e, list);
-		var self = this;
-		this.isKeyPress = true;
+    moveUp: function () {
+        this.gameMap.position.y += 10;
+        this.peopleMap.position.y += 10;
+    },
+    moveLeft: function () {
+        this.gameMap.position.x += 10;
+        this.peopleMap.position.x += 10;
+    },
+    moveRight: function () {
+        this.gameMap.position.x -= 10;
+        this.peopleMap.position.x -= 10;
+    },
+    moveDown: function () {
+        this.gameMap.position.y -= 10;
+        this.peopleMap.position.y -= 10;
+    },
+
+    keydown: function (e, list) {
+        //this.practice.keydown(e, list);
+        var self = this;
+        this.isKeyPress = true;
         Framework.DebugInfo.Log.warning(e.key);
-		console.log(e.key);
-		
-		if(e.key === 'Up') {
-			console.log("check+")
-			
-            let moveUpInterval = setInterval(function(){
-				if(self.isKeyPress == true){
-					self.moveUp();
-				}else{
-					 clearInterval(moveUpInterval);
-				}		
-			}, 1);
-			
-			return
-        }
-		
-		if(e.key === 'Down') {
-            let moveDownInterval = setInterval(function(){
-				if(self.isKeyPress == true){
-					self.moveDown();
-				}else{
-					 clearInterval(moveDownInterval);
-				}		
-			}, 1);
+        console.log(e.key);
+
+        if (e.key === 'Up') {
+            console.log("check+")
+
+            let moveUpInterval = setInterval(function () {
+                if (self.isKeyPress == true) {
+                    self.moveUp();
+                } else {
+                    clearInterval(moveUpInterval);
+                }
+            }, 1);
 
             return
         }
-		
-		if(e.key === 'Left') {
-            let moveLeftInterval = setInterval(function(){
-				if(self.isKeyPress == true){
-					self.moveLeft();
-				}else{
-					 clearInterval(moveLeftInterval);
-				}		
-			}, 1);
+
+        if (e.key === 'Down') {
+            let moveDownInterval = setInterval(function () {
+                if (self.isKeyPress == true) {
+                    self.moveDown();
+                } else {
+                    clearInterval(moveDownInterval);
+                }
+            }, 1);
 
             return
         }
-		
-		if(e.key === 'Right') {
-            let moveRightInterval = setInterval(function(){
-				if(self.isKeyPress == true){
-					self.moveRight();
-				}else{
-					 clearInterval(moveRightInterval);
-				}		
-			}, 1);
+
+        if (e.key === 'Left') {
+            let moveLeftInterval = setInterval(function () {
+                if (self.isKeyPress == true) {
+                    self.moveLeft();
+                } else {
+                    clearInterval(moveLeftInterval);
+                }
+            }, 1);
 
             return
         }
-		
-        if(e.key === 'Numpad +' || e.key === '=') {
+
+        if (e.key === 'Right') {
+            let moveRightInterval = setInterval(function () {
+                if (self.isKeyPress == true) {
+                    self.moveRight();
+                } else {
+                    clearInterval(moveRightInterval);
+                }
+            }, 1);
+
+            return
+        }
+
+        if (e.key === 'Numpad +' || e.key === '=') {
             this.secondHandRotationRate += 0.05;
         }
 
-        if(e.key === 'Numpad -' || e.key === '-') {
+        if (e.key === 'Numpad -' || e.key === '-') {
             this.secondHandRotationRate -= 0.05;
         }
 
-        if(e.key === 'Pause/Break') {
+        if (e.key === 'Pause/Break') {
             //AnimationSprite支援停止正在播放的圖片
             this.firen.sprite.stop();
         }
 
-        if(e.key === 'F5') {
+        if (e.key === 'F5') {
             //AnimationSprite可以恢復暫停正在播放的圖片
             this.firen.sprite.resume();
         }
 
-        if(e.key === 'Enter') {
-            if(!this.isFullScreen) {
+        if (e.key === 'Enter') {
+            if (!this.isFullScreen) {
                 Framework.Game.fullScreen();
                 this.isFullScreen = true;
             } else {
                 Framework.Game.exitFullScreen();
                 this.isFullScreen = false;
             }
-            
+
         }
     },
 
@@ -324,16 +322,16 @@
         //又要減少Duplicated code, 故在Touch事件被觸發時, 去Trigger Mouse事件
         this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     },
-    
-    click: function (e) {  
-		alert("你點了一下");
-		var favDialog = document.getElementById('favDialog');
 
-		  // “Update details” button opens the <dialog> modally
-		
-		favDialog.style.display = "block";
-		
-		document.getElementById("message").innerText = "你剛才點擊了" + e.x + ":" + e.y;
+    click: function (e) {
+        alert("你點了一下");
+        var favDialog = document.getElementById('favDialog');
+
+        // “Update details” button opens the <dialog> modally
+
+        favDialog.style.display = "block";
+
+        document.getElementById("message").innerText = "你剛才點擊了" + e.x + ":" + e.y;
 	    /*
         console.log(e.x, e.y);
         if (!this.rectPosition) {

@@ -1,79 +1,56 @@
 <html>
+
 <head>
-<script>
+	<script>
+		/*
+		這個程式很可怕
+		陣列和載入JS檔的順序相同, lookFor為在要載入的檔案中,
+		有用到的全域變數, importJS這個function, 會在找到lookFor的變數後
+		才會繼續loading下一個檔案, 如果沒有需要lookFor, 則以空字串代表
+		*/
+		/*
+		var listScript =
+		[
+				{ src: 'data/lib/loadFramework.js',lookFor: 'loadFrameworkEnd'},
+				{ src: 'data/js/loadGame.js',lookFor: 'loadGameEnd'},
+		]*/
 
-//這個程式很可怕
-//陣列和載入JS檔的順序相同, lookFor為在要載入的檔案中, 
-//有用到的全域變數, importJS這個function, 會在找到lookFor的變數後
-//才會繼續loading下一個檔案, 如果沒有需要lookFor, 則以空字串代表
-/*
-var listScript = 
-[
-    { src: 'data/lib/loadFramework.js',lookFor: 'loadFrameworkEnd'},
-    { src: 'data/js/loadGame.js',lookFor: 'loadGameEnd'},
-]*/
 
+	</script>
+	<script type="text/javascript" src="data/lib/load.js"></script>
+	<style type="text/css"></style>
+	<link rel="stylesheet" type="text/css" href="data/css/main.css">
 
-</script>
-<script type="text/javascript" src="data/lib/load.js"></script>
-<!---->
-
-<style type="text/css">
-        /* DOM之間不要留空間 */
-        *{
-            padding:0;
-            margin:0;
-        }
-		
-	#centerpoint {
-		top: 50%;
-		left: 50%;
-		position: absolute;
-	}
-
-	#favDialog {
-		position: relative;
-
-		width: 600px;
-		margin-left: -300px;
-
-		height: 400px;
-		margin-top: -200px;
-		
-		background-color: white;
-		
-		display:none;
-		padding: 20px;
-	}
-</style>
 <body>
 	<div id="centerpoint">
 		<div id="favDialog">
-		  <form method="dialog">
-			<div><a href="#" id="test">X</a></div>
-			<p><label><h1>功能測試</h1>
-			  <select>
-				<option></option>
-				<option>測試1</option>
-				<option>測試2</option>
-				<option>測試3</option>
-			  </select>
-			</label></p>
-			<div id="message"></div>
-			<menu>
-			  <button value="cancel">Cancel</button>
-			  <button id="confirmBtn" value="default">Confirm</button>
-			</menu>
-		  </form>
+			<form method="dialog">
+				<div><a href="#" id="test">X</a></div>
+				<p><label>
+						<h1>功能測試</h1>
+						<select>
+							<option></option>
+							<option>測試1</option>
+							<option>測試2</option>
+							<option>測試3</option>
+						</select>
+					</label></p>
+				<div id="message"></div>
+				<menu>
+					<button value="cancel">Cancel</button>
+					<button id="confirmBtn" value="default">Confirm</button>
+				</menu>
+			</form>
 		</div>
 	</div>
 	<script>
-	(function () {
-	document.getElementById("test").addEventListener("click", function(){
-		favDialog.style.display = "none";
-	});
-})();
+		(function () {
+			document.getElementById("test").addEventListener("click", function () {
+				favDialog.style.display = "none";
+			});
+		})();
 	</script>
 </body>
 </head>
+
 </html>
