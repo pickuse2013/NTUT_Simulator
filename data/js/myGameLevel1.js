@@ -4,6 +4,10 @@
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
 
+        /**載入老師**/
+        this.teacher = new Teacher();
+        this.rootScene.attach(this.teacher);
+
 
         this.people = new People();
         this.people.load();
@@ -212,6 +216,10 @@
         this.isKeyPress = true;
         Framework.DebugInfo.Log.warning(e.key);
         console.log(e.key);
+
+        //更新基礎起始畫圖位置
+        this.teacher.basePosition = this.gameMap.position;
+
 
         if (e.key === 'Up') {
             console.log("check+")
