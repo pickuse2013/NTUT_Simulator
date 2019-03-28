@@ -10,7 +10,7 @@ var People = function(){
 	this.teacherPos = [
 		[1.5,3]
 	];
-	this.sudentPos =[
+	this.studentPos =[
 		[1.5,3]
 	];
 
@@ -27,7 +27,7 @@ var People = function(){
 	
 	this.update = function()
 	{
-		this.dianwo();
+		
 	};
 	
 	this.draw = function(ctx)
@@ -40,13 +40,13 @@ var People = function(){
 
 		this.teacher.position = picPosition;
 		this.teacher.draw(ctx)
-		
+		this.dianwo(ctx);
 
 	};
     this.dianwo = function(ctx){
 		
-        var xx = 64;
-        var yy = 64;
+        var xx = this.position.x + (this.MW * 1)*this.studentPos[0][0];
+        var yy = this.position.y + (this.MH * 1)*this.studentPos[0][1];
 		max=200;
 		min=-200;
         xx += Math.random() * (max - min) + min;
@@ -63,10 +63,10 @@ var People = function(){
 		
 		var stuPosition ={
 			
-			x:xx,
-			y:yy
+			x: xx,
+			y: yy
 		}
-		this.student.position=this.sudentPos;
+		this.student.position=stuPosition;
 		this.student.draw(ctx)
             
     };
