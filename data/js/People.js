@@ -35,16 +35,7 @@ var People = function(){
 	
 	this.draw = function(ctx)
 	{
-		
-		//var picPosition = {
-		//	x: this.position.x + (this.MW * 1) * this.teacherPos[0][0] + this.MW /2,
-		//	y: this.position.y + (this.MH * 1) * this.teacherPos[0][1] + this.MH/2
-		//}
-
-		//this.teacher.position = picPosition;
-		//this.teacher.draw(ctx)
-		//this.dianwo(ctx);
-
+		this.dianwo(ctx);
 	};
 
     this.dianwo = function(ctx){

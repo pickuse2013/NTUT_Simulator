@@ -15,7 +15,7 @@ class Teacher {
 		}
 
 		this.position = {
-			x: 2,
+			x: 1,
 			y: 2
 		};
 
