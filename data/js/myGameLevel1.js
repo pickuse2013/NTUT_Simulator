@@ -157,7 +157,7 @@
 
         this.gameMap.update();
         game.isStop = false;
-        //game.freeze.run();
+        game.freeze.run();
         this.isPlayed = true;
 
         //this.isPlayHit = this.firen.collide(this.freeze)
@@ -165,7 +165,7 @@
         //this.position.x++;
         //this.rotation++;
         //this.pic.position = this.position;
-        //this.pic.rotation = this.rotation;
+        //this.pic.rotation = this.rotation;	
     },
 
     draw: function (parentCtx) {

@@ -47,10 +47,20 @@ var People = function(){
 		
         var xx = 64;
         var yy = 64;
-		max=20;
-		min=-20;
+		max=200;
+		min=-200;
         xx += Math.random() * (max - min) + min;
+		if(xx<10){
+		
+			xx+=100;
+		}
         yy += Math.random() * (max - min) + min;
+		if(yy<10){
+		
+			yy+=100;
+		}		
+		
+		
 		var stuPosition ={
 			
 			x:xx,

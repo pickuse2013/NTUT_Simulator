@@ -29,7 +29,7 @@ var GameMap = function(){
 	this.map2 = [
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
 		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
@@ -57,6 +57,8 @@ var GameMap = function(){
 		this.wood_board_light = new Framework.Sprite(define.imagePath + 'build/wood_board_light.png');
 		this.chair = new Framework.Sprite(define.imagePath + 'build/chair.png');
 		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
+		
+		this.podium_mic = new Framework.Sprite(define.imagePath + 'build/podium-mic.png');
 		
 		this.left_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/left_wall_full_dark.png');
 		this.left_wall_full_light = new Framework.Sprite(define.imagePath + 'build/left_wall_full_light.png');
@@ -171,6 +173,9 @@ var GameMap = function(){
 						this.wood_board_light.position = picPosition;
 						this.wood_board_light.draw(ctx)
 						break;
+					case 5:
+						this.podium_mic.position=picPosition;
+						this.podium_mic.draw(ctx)
 				}
 			}
 		}
