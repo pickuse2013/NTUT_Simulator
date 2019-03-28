@@ -17,7 +17,7 @@
 
         var characterPosition;
 
-        this.pic = new Framework.Sprite(define.imagePath + 'teacher_left.png');
+        this.pic = new Framework.Sprite(define.imagePath + 'teacher.png');
         this.pic.position = {
             x: 100,
             y: 100

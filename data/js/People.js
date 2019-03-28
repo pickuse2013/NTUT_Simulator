@@ -16,7 +16,7 @@ var People = function(){
 
 	this.load = function()
 	{
-		this.teacher=new Framework.Sprite(define.imagePath + 'teacher_left.png');
+		this.teacher=new Framework.Sprite(define.imagePath + 'teacher.png');
 		this.student=new Framework.Sprite(define.imagePath + 'treeStone.png');
 	};
 	
