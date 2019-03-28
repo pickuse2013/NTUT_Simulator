@@ -10,9 +10,10 @@ var PeopleMap = function(){
 	this.teacherPos = [
 		[1.5,3]
 	];
-	this.studentPos = [
+	this.sudentPos =[
 		[1.5,3]
 	];
+
 	this.load = function()
 	{
 		this.teacher=new Framework.Sprite(define.imagePath + 'teacher_left.png');
@@ -26,7 +27,7 @@ var PeopleMap = function(){
 	
 	this.update = function()
 	{
-
+		this.dianwo();
 	};
 	
 	this.draw = function(ctx)
@@ -40,23 +41,35 @@ var PeopleMap = function(){
 		this.teacher.position = picPosition;
 		this.teacher.draw(ctx)
 		
-		
-		var studentPosition={
-			var x = this.student.offsetLeft
-			var y = this.student.offsetTop;
-			max=20;
-			min=-20;
-			x += Math.random() * (max - min) + min;
-			y += Math.random() * (max - min) + min;
-			this.studentPos.x = x;
-			this.studentPos.y = y;
-			
-			
-		}
-
-		this.student.position=studentPosition;
-		this.student.draw(ctx)
 
 	};
-
+    this.dianwo = function(ctx){
+		
+        var x = this.student.offsetLeft
+        var y = this.student.offsetTop;
+		max=20;
+		min=-20;
+        x += Math.random() * (max - min) + min;
+        y += Math.random() * (max - min) + min;
+        this.student.position.x = x;
+        this.student.position.y = y;
+		this.student.draw(ctx)
+            
+    };
+	/*
+		this.student=new Framework.Sprite(define.imagePath + 'treeStone.png');
+        var x = this.student.offsetLeft
+        var y = this.student.offsetTop;
+		max=20;
+		min=-20;
+        x += Math.random() * (max - min) + min;
+        y += Math.random() * (max - min) + min;
+        this.student.position.x = x;
+        this.student.position.y = y;
+		this.student.draw(ctx)
+            
+        }
+	
+	*/
+	
 };
