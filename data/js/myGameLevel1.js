@@ -1,5 +1,7 @@
 ﻿var MyGame = Framework.Class(Framework.Level, {
     load: function () {
+        let self = this;
+
         this.isKeyPress = false;
         this.gameMap = new GameMap();
         this.gameMap.load();
@@ -14,16 +16,15 @@
         this.teacher.basePosition = this.gameMap.position;
         this.rootScene.attach(this.teacher);
 
-
         this.people = new People();
         this.people.load();
         this.rootScene.attach(this.people);
 
-        
+        setInterval(function(){
+            self.people.doRandomMove();
+        }, 1000);
 
-
-        
-
+        /*
         this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
         this.pic2.position = {
             x: 40,
@@ -45,7 +46,7 @@
             x: (c + 64),
             y: 870
         }
-        this.rootScene.attach(this.pic4);
+        this.rootScene.attach(this.pic4);*/
 
         this.position = {
             x: 100,

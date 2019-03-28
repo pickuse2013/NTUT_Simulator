@@ -29,46 +29,23 @@ var People = function(){
 		
 	};
 	
+	this.doRandomMove = function()
+	{
+		this.max = 200;
+		this.min = -200;
+		this.position.x = Math.random() * (this.max - this.min) + this.min;
+		this.position.y = Math.random() * (this.max - this.min) + this.min;
+	}
+
 	this.draw = function(ctx)
 	{
-		//this.dianwo(ctx);
-	};
+		let studentPosition = {
+			x: this.position.x + (this.SW * 1) * this.studentPos[0][0],
+			y: this.position.y + (this.SH * 1) * this.studentPos[0][1]
+		}
 
-    this.dianwo = function(ctx){
-        var xx = this.position.x + (this.SW * 1)*this.studentPos[0][0];
-        var yy = this.position.y + (this.SH * 1)*this.studentPos[0][1];
-		max=200;
-		min=-200;
-        xx += Math.random() * (max - min) + min;
-		if(xx<10){
-		
-			xx+=100;
-		}
-		
-		var stuPosition ={
-			
-			x: xx,
-			y: yy
-		}
-		this.student.position=stuPosition;
+		this.student.position = studentPosition;
 		this.student.draw(ctx)
-		
-            
-    };
-	/*
-		this.student=new Framework.Sprite(define.imagePath + 'treeStone.png');
-        var x = this.student.offsetLeft
-        var y = this.student.offsetTop;
-		max=20;
-		min=-20;
-        x += Math.random() * (max - min) + min;
-        y += Math.random() * (max - min) + min;
-        this.student.position.x = x;
-        this.student.position.y = y;
-		this.student.draw(ctx)
-            
-        }
-	
-	*/
+	};
 	
 };
