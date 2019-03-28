@@ -44,12 +44,6 @@ var People = function(){
 		
 			xx+=100;
 		}
-        yy += Math.random() * (max - min) + min;
-		if(yy<10){
-		
-			yy+=100;
-		}		
-		
 		
 		var stuPosition ={
 			
@@ -58,6 +52,7 @@ var People = function(){
 		}
 		this.student.position=stuPosition;
 		this.student.draw(ctx)
+		
             
     };
 	/*
