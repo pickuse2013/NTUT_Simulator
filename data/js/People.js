@@ -37,32 +37,43 @@ var People = function(){
 	{
 		
 		var picPosition = {
-			x: this.position.x + (this.MW * 1) * this.teacherPos[0][0] + this.MW /2,
+			x: this.position.x + (this.MW * 1) * this.teacherPos[0][0] + this.MW/2,
 			y: this.position.y + (this.MH * 1) * this.teacherPos[0][1] + this.MH/2
 		}
 
 		this.teacher.position = picPosition;
 		this.teacher.draw(ctx)
 		this.dianwo(ctx);
-
+		
 	};
     this.dianwo = function(ctx){
-		
-        var xx = this.position.x + (this.SW * 1)*this.studentPos[0][0];
-        var yy = this.position.y + (this.SH * 1)*this.studentPos[0][1];
-		max=200;
-		min=-200;
-        xx += Math.random() * (max - min) + min;
-		if(xx<10){
-		
-			xx+=100;
+		c=0;
+		if(c==0){
+			var xx = this.position.x + (this.SW * 1)*this.studentPos[0][0];
+			var yy = this.position.y + (this.SH * 1)*this.studentPos[0][1];
+			c++;
 		}
-        yy += Math.random() * (max - min) + min;
-		if(yy<10){
-		
-			yy+=100;
-		}		
-		
+		else{
+			var xx = this.student.position;
+			var yy = this.student.position;
+		}
+		max=300;
+		min=-300;		
+		ra1=Math.random();
+		ra2=Math.random();
+		if(ra1>=0.5){
+			xx += (Math.random() * (max - min) + min)*0.8;
+			if(ra2>=0.5){
+				yy += (Math.random() * (max - min) + min)*0.8;
+			}	
+
+		}
+		else{
+			yy += (Math.random() * (max - min) + min)*0.8;		
+			if(ra2>=0.5){
+				xx += (Math.random() * (max - min) + min)*0.8;
+			}
+		}
 		
 		var stuPosition ={
 			
@@ -71,6 +82,7 @@ var People = function(){
 		}
 		this.student.position=stuPosition;
 		this.student.draw(ctx)
+		
             
     };
 	/*
