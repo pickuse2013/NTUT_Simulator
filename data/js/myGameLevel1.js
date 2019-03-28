@@ -1,29 +1,28 @@
 ﻿var MyGame = Framework.Class(Framework.Level, {
     load: function () {
+        this.isKeyPress = false;
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
+
+
+
+        //載入老師
+        this.teacher = new Teacher();
+
+        //強制更新基礎起始畫圖位置
+        this.teacher.basePosition = this.gameMap.position;
+        this.rootScene.attach(this.teacher);
 
 
         this.people = new People();
         this.people.load();
         this.rootScene.attach(this.people);
 
-        this.isKeyPress = false;
+        
 
-        //this.practice = new Practice();
-        //this.practice.load();
-        //this.rootScene.attach(this.practice.pic);
 
-        var characterPosition;
-
-        this.pic = new Framework.Sprite(define.imagePath + 'teacher.png');
-        this.pic.position = {
-            x: 100,
-            y: 100
-        }
-        this.rootScene.attach(this.pic);
-
+        
 
         this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
         this.pic2.position = {
@@ -65,8 +64,9 @@
             x: 0,
             y: 0
         };
+        
 
-        characterPosition = { x: 0, y: -1138 * this.clock.scale };
+        let characterPosition = { x: 0, y: -1138 * this.clock.scale };
         this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg');
         this.firen = new Character(define.imagePath + 'firen.png', { position: characterPosition, run: { from: 20, to: 22 }, beHit: { from: 30, to: 35 }, hit: { from: 10, to: 13 } });
         this.freeze = new Character(define.imagePath + 'freeze.png', { position: characterPosition, scale: 1, run: { from: 29, to: 27 }, beHit: { from: 39, to: 35 }, hit: { from: 19, to: 16 } });
@@ -150,45 +150,21 @@
     },
 
     update: function () {
-        var game = this;
         this.rootScene.update();
 
-        //this.practice.update();
-
         this.gameMap.update();
-        game.isStop = false;
-        game.freeze.run();
+        
+        this.isStop = false;
+        
+        this.freeze.run();
+
         this.isPlayed = true;
-
-        //this.isPlayHit = this.firen.collide(this.freeze)
-
-        //this.position.x++;
-        //this.rotation++;
-        //this.pic.position = this.position;
-        //this.pic.rotation = this.rotation;	
     },
 
     draw: function (parentCtx) {
         this.rootScene.draw();
-        //可支援畫各種單純的圖形和字
-
-		/*
-        parentCtx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
-        parentCtx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
-        parentCtx.font = '65pt bold';
-        parentCtx.fillStyle = 'white';
-        parentCtx.textBaseline = 'top';
-        parentCtx.textAlign = 'center';
-        parentCtx.fillText('Click Me', this.rectPosition.x + 130, this.rectPosition.y, 260);
-        */
-        //this.pic.draw();
-
     },
-    keyup: function (e, list) {
-        console.log("up");
-        this.isKeyPress = false;
-    },
-
+   
     moveUp: function () {
         this.gameMap.position.y += 10;
         this.people.position.y += 10;
@@ -205,13 +181,19 @@
         this.gameMap.position.y -= 10;
         this.people.position.y -= 10;
     },
-
+    keyup: function (e, list) {
+        this.isKeyPress = false;
+    },
     keydown: function (e, list) {
         //this.practice.keydown(e, list);
         var self = this;
         this.isKeyPress = true;
         Framework.DebugInfo.Log.warning(e.key);
         console.log(e.key);
+
+        //更新基礎起始畫圖位置
+        this.teacher.basePosition = this.gameMap.position;
+
 
         if (e.key === 'Up') {
             console.log("check+")
