@@ -40,15 +40,17 @@ var People = function(){
 	this.draw = function(ctx)
 	{
 		let studentPosition = {
-			x: this.position.x + (this.SW * 1) * this.studentPos[0][0],
-			y: this.position.y + (this.SH * 1) * this.studentPos[0][1]
+			x: this.position.x + (this.SW * 1) ,
+			y: this.position.y + (this.SH * 1) 
 		}
 		ran=Math.random();
 		if(ran>=0.5){
 			this.student.position.x=studentPosition.x;
+			this.studentPos[0][0]=studentPosition.x;
 		}
 		else{
 			this.student.position.y=studentPosition.y;
+			this.studentPos[0][1]=studentPosition.y;
 		}
 		this.student.draw(ctx)
 		
