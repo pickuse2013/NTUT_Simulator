@@ -31,10 +31,10 @@ var People = function(){
 	
 	this.doRandomMove = function()
 	{
-		this.max = 64;
-		this.min = -64;
-		this.position.x += Math.random() * (this.max - this.min) + this.min;
-		this.position.y += Math.random() * (this.max - this.min) + this.min;
+		this.max = 200;
+		this.min = -200;
+		this.position.x = Math.random() * (this.max - this.min) + this.min;
+		this.position.y = Math.random() * (this.max - this.min) + this.min;
 	}
 
 	this.draw = function(ctx)
@@ -43,15 +43,9 @@ var People = function(){
 			x: this.position.x + (this.SW * 1) * this.studentPos[0][0],
 			y: this.position.y + (this.SH * 1) * this.studentPos[0][1]
 		}
-		ran=Math.random();
-		if(ran>=0.5){
-			this.student.position.x=studentPosition.x;
-		}
-		else{
-			this.student.position.y=studentPosition.y;
-		}
+
+		this.student.position = studentPosition;
 		this.student.draw(ctx)
-		
 	};
 	
 };
