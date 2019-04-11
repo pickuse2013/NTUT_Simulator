@@ -234,7 +234,8 @@ var GameMap = function(){
 					case 7:
 						this.top_right.position=picPosition;
 						this.top_right.draw(ctx)
-						break;				}
+						break;				
+				}
 			}
 		}
 	};
