@@ -53,7 +53,7 @@ var GameMap = function(){
 	
 	this.load = function()
 	{
-		this.white_floor = new Framework.Sprite(define.imagePath + 'floor3.png');
+		this.white_floor = new Framework.Sprite(define.imagePath + 'build/floor3.png');
 		this.wall_dark_left = new Framework.Sprite(define.imagePath + 'build/wall_dark_left.png');
 		this.wall_light_left = new Framework.Sprite(define.imagePath + 'build/wall_light_left.png');
 		this.wall_dark_right = new Framework.Sprite(define.imagePath + 'build/wall_dark_right.png');
