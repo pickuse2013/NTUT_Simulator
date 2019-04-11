@@ -8,8 +8,11 @@ var GameMap = function(){
 	};
 	
 	this.map = [
-
-		[7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
+		[7,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,9],
+		[7,14,14,10,12,14,14,10,12,14,14,10,12,14,14,10,12,14,14,14,14,9],
+		[7,14,14,11,13,14,14,11,13,14,14,11,13,14,14,11,13,14,14,14,14,9],
+		[7,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,9],
+		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
 		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
 		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
 		[5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9],
@@ -21,13 +24,16 @@ var GameMap = function(){
 		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
-		[4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
+		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 	];
 	
 	this.map2 = [
-		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
+		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
+		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
@@ -52,6 +58,7 @@ var GameMap = function(){
 		this.wall_light_left = new Framework.Sprite(define.imagePath + 'build/wall_light_left.png');
 		this.wall_dark_right = new Framework.Sprite(define.imagePath + 'build/wall_dark_right.png');
 		this.wall_light_right = new Framework.Sprite(define.imagePath + 'build/wall_light_right.png');
+		this.wall_top = new Framework.Sprite(define.imagePath + 'build/wall_top.png');
 		this.full_light_wall = new Framework.Sprite(define.imagePath + 'build/full_light_wall.png');
 		this.wood_board_dark = new Framework.Sprite(define.imagePath + 'build/wood_board_dark_right.png');
 		this.wood_board_light = new Framework.Sprite(define.imagePath + 'build/wood_board_light.png');
@@ -64,6 +71,13 @@ var GameMap = function(){
 		this.left_wall_full_light = new Framework.Sprite(define.imagePath + 'build/left_wall_full_light.png');
 		this.right_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/right_wall_full_dark.png');
 		this.right_wall_full_light = new Framework.Sprite(define.imagePath + 'build/right_wall_full_light.png');
+		this.top_left = new Framework.Sprite(define.imagePath + 'build/top_left.png');
+		this.top_right = new Framework.Sprite(define.imagePath + 'build/top_right.png');
+		
+		this.window_lu = new Framework.Sprite(define.imagePath + 'build/window_lu.png');
+		this.window_ld = new Framework.Sprite(define.imagePath + 'build/window_ld.png');
+		this.window_ru = new Framework.Sprite(define.imagePath + 'build/window_ru.png');
+		this.window_rd = new Framework.Sprite(define.imagePath + 'build/window_rd.png');
 	};
 	
 	this.initialize = function()
@@ -134,7 +148,36 @@ var GameMap = function(){
 						this.right_wall_full_light.position = picPosition;
 						this.right_wall_full_light.draw(ctx)
 						
-						break;										
+						break;	
+
+						
+						
+					case 10:
+						this.window_lu.position = picPosition;
+						this.window_lu.draw(ctx)
+						
+						break;	
+					case 11:
+						this.window_ld.position = picPosition;
+						this.window_ld.draw(ctx)
+						
+						break;	
+					case 12:
+						this.window_ru.position = picPosition;
+						this.window_ru.draw(ctx)
+						
+						break;	
+					case 13:
+						this.window_rd.position = picPosition;
+						this.window_rd.draw(ctx)
+						
+						break;	
+					case 14:
+						this.wall_top.position = picPosition;
+						this.wall_top.draw(ctx)
+						
+						break;	
+						
 				}
 			}
 		}
@@ -176,7 +219,15 @@ var GameMap = function(){
 					case 5:
 						this.podium_mic.position=picPosition;
 						this.podium_mic.draw(ctx)
-				}
+						break;
+					case 6:
+						this.top_left.position=picPosition;
+						this.top_left.draw(ctx)
+						break;						
+					case 7:
+						this.top_right.position=picPosition;
+						this.top_right.draw(ctx)
+						break;				}
 			}
 		}
 	};
