@@ -8,6 +8,7 @@ var GameMap = function(){
 	};
 	
 	this.map = [
+		[15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15],
 		[7,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,9],
 		[7,14,14,10,12,14,14,10,12,14,14,10,12,14,14,10,12,14,14,14,14,9],
 		[7,14,14,11,13,14,14,11,13,14,14,11,13,14,14,11,13,14,14,14,14,9],
@@ -30,6 +31,7 @@ var GameMap = function(){
 	];
 	
 	this.map2 = [
+		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
 		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
 		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
@@ -66,7 +68,7 @@ var GameMap = function(){
 		this.desk = new Framework.Sprite(define.imagePath + 'build/desk.png');
 		
 		this.podium_mic = new Framework.Sprite(define.imagePath + 'build/podium-mic.png');
-		
+		this.roof = new Framework.Sprite(define.imagePath + 'build/roof.png');
 		this.left_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/left_wall_full_dark.png');
 		this.left_wall_full_light = new Framework.Sprite(define.imagePath + 'build/left_wall_full_light.png');
 		this.right_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/right_wall_full_dark.png');
@@ -176,7 +178,12 @@ var GameMap = function(){
 						this.wall_top.position = picPosition;
 						this.wall_top.draw(ctx)
 						
-						break;	
+						break;
+					case 15:
+						this.roof.position = picPosition;
+						this.roof.draw(ctx)
+						
+						break;							
 						
 				}
 			}
