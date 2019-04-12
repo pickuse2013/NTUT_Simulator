@@ -17,6 +17,10 @@ class Teacher {
 		};
 
 		this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
+		this.b1=new Framework.Sprite(define.imagePath + 'build/bubble1.png');
+		this.b2=new Framework.Sprite(define.imagePath + 'build/bubble2.png');
+		this.b3=new Framework.Sprite(define.imagePath + 'build/bubble3.png');
+		this.count = 1;
 	}
 
 	moveScreen()
@@ -66,7 +70,37 @@ class Teacher {
 		//console.log("畫圖至x:y :" + newPosition.x + ":" + newPosition.y)
 
 		this.sprite.position = newPosition;
+		
+		
+			
+
+		if(this.count<=10){
+			this.b1.position=newPosition;
+			this.b1.position.y-=64;
+			this.count+=1;
+			this.b1.draw(ctx);
+				
+		}
+		else if(this.count>=10 && this.count<=30){
+			this.b2.position=newPosition;
+			this.b2.position.y-=64;
+			this.count+=1;
+			this.b2.draw(ctx);		
+		
+		}
+		else if(this.count>=20 && this.count<=40) {
+			this.b3.position=newPosition;
+			this.b3.position.y-=64;
+			this.count+=1;
+			this.b3.draw(ctx);
+			if(this.count>=40){
+				this.count=1;
+			}
+			
+		}
+				
 		this.sprite.draw(ctx);
+
 	}
 
 	//判斷點擊位置 (天快亮了
