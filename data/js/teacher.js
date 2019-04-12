@@ -13,7 +13,7 @@ class Teacher {
 
 		this.position = {
 			x: 1,
-			y: 2
+			y: 5
 		};
 
 		this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
