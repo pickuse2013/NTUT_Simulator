@@ -1,7 +1,5 @@
-/**
- * 老師專用Class
- * 變更前請務必洽詢作者
- **/
+//老師專用Class
+//變更前請務必洽詢作者
 class Teacher {
 	constructor() {
 

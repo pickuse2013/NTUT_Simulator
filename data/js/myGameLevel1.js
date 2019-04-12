@@ -24,30 +24,41 @@
             self.people.doRandomMove();
         }, 1000);
 
-        /*
+		
+		//螢幕底下的黑板
+        let UI_Board_StartAt = 30;
         this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
         this.pic2.position = {
-            x: 40,
+            x: UI_Board_StartAt,
             y: 870
         }
         this.rootScene.attach(this.pic2);
-        var c = 80;
         for (let i = 0; i <= 10; i++) {
             this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
-            c += (64);
+            UI_Board_StartAt += 64;
             this.pic3.position = {
-                x: c,
+                x: UI_Board_StartAt,
                 y: 870
             }
             this.rootScene.attach(this.pic3);
         }
         this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
         this.pic4.position = {
-            x: (c + 64),
+            x: (UI_Board_StartAt + 64),
             y: 870
         }
-        this.rootScene.attach(this.pic4);*/
-
+        this.rootScene.attach(this.pic4);
+		//底下黑板結束
+		
+		this.people = new People();
+        this.people.load();
+        this.rootScene.attach(this.people);
+		
+		this.gui = new Gui();
+		this.gui.load();
+		this.rootScene.attach(this.gui);
+		
+		
         this.position = {
             x: 100,
             y: 100
@@ -72,6 +83,7 @@
         this.firen = new Character(define.imagePath + 'firen.png', { position: characterPosition, run: { from: 20, to: 22 }, beHit: { from: 30, to: 35 }, hit: { from: 10, to: 13 } });
         this.freeze = new Character(define.imagePath + 'freeze.png', { position: characterPosition, scale: 1, run: { from: 29, to: 27 }, beHit: { from: 39, to: 35 }, hit: { from: 19, to: 16 } });
 
+		/*
         this.clockCenter = new Framework.Scene();
         this.clockCenter.position = {
             x: -10.5 * this.clock.scale,
@@ -93,7 +105,7 @@
         this.wholeClock.position = {
             x: Framework.Game.getCanvasWidth() / 2,
             y: Framework.Game.getCanvasHeight() / 2
-        };
+        };*/
 
 /*
         this.secondHandRotationRate = 0.3;
