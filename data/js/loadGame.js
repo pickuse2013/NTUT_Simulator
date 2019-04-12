@@ -42,6 +42,7 @@ var loadGameEnd;
     var listScript = 
     [
         { src: 'data/js/define.js', lookFor: 'define' },
+        { src: 'data/js/TickManager.js', lookFor: 'TickManager' },
         { src: 'data/js/myMenu.js', lookFor: 'MyMenu' },
         { src: 'data/js/character.js', lookFor: 'Character' },
 		{ src: 'data/js/GameMap.js',lookFor: 'GameMap'},

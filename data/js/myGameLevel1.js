@@ -1,13 +1,15 @@
 ﻿var MyGame = Framework.Class(Framework.Level, {
     load: function () {
         let self = this;
-
+        console.log(this);
         this.isKeyPress = false;
+        
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
 
-
+        this.ticker = new TickManager();
+       
 
         //載入老師
         this.teacher = new Teacher();
@@ -57,8 +59,10 @@
 		this.gui = new Gui();
 		this.gui.load();
 		this.rootScene.attach(this.gui);
-		
-		
+		//this.ticker.gui = this.gui;
+        setInterval(function(){
+            self.ticker.Tick();
+        });
         this.position = {
             x: 100,
             y: 100
