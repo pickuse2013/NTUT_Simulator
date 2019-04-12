@@ -35,6 +35,11 @@ class Teacher {
 	update() {
 
 	};
+	
+	move(newX, newY){
+		this.position.x = newX;
+		this.position.y = newY;
+	}
 
 	getCurrPos()
 	{
