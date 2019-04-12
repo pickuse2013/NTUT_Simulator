@@ -15,12 +15,15 @@
         //強制更新基礎起始畫圖位置
         this.teacher.basePosition = this.gameMap.position;
         this.rootScene.attach(this.teacher);
+		
+	
 
         this.people = new People();
         this.people.load();
         this.rootScene.attach(this.people);
 
         setInterval(function(){
+				self.teacher.move();
             self.people.doRandomMove();
         }, 1000);
 

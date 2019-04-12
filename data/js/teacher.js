@@ -21,6 +21,8 @@ class Teacher {
 		this.b2=new Framework.Sprite(define.imagePath + 'build/bubble2.png');
 		this.b3=new Framework.Sprite(define.imagePath + 'build/bubble3.png');
 		this.count = 1;
+		this.teacherStep = 5;
+		this.teacherup=0;
 	}
 
 	moveScreen()
@@ -40,10 +42,7 @@ class Teacher {
 
 	};
 	
-	move(newX, newY){
-		this.position.x = newX;
-		this.position.y = newY;
-	}
+
 
 	getCurrPos()
 	{
@@ -71,9 +70,6 @@ class Teacher {
 
 		this.sprite.position = newPosition;
 		
-		
-			
-
 		if(this.count<=10){
 			this.b1.position=newPosition;
 			this.b1.position.y-=64;
@@ -96,12 +92,32 @@ class Teacher {
 			if(this.count>=40){
 				this.count=1;
 			}
-			
 		}
-				
+		
 		this.sprite.draw(ctx);
+		
 
 	}
+	move(){
+		
+		if(this.teacherup==0){
+			this.position.y=this.teacherStep;
+			this.teacherStep+=1;
+			if(this.teacherStep==15){
+				this.teacherup=1;			
+			}
+		}
+		else{
+			this.position.y=this.teacherStep;
+			this.teacherStep-=1;
+			if(this.teacherStep==5){
+				this.teacherup=0;			
+			}	
+		
+		}
+		
+	}
+
 
 	//判斷點擊位置 (天快亮了
 	isInClickArea(event)
