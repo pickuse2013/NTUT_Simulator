@@ -50,9 +50,9 @@
         this.rootScene.attach(this.pic4);
 		//底下黑板結束
 		
-		this.people = new People();
-        this.people.load();
-        this.rootScene.attach(this.people);
+		//this.people = new People();
+        //this.people.load();
+        //this.rootScene.attach(this.people);
 		
 		this.gui = new Gui();
 		this.gui.load();

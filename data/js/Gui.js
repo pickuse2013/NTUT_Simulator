@@ -15,7 +15,7 @@ class Gui {
 			y: 2
 		};
 
-		this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
+		//this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
 	}
 
 	moveScreen()
