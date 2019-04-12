@@ -64,6 +64,7 @@ var People = function(){
 		}
 		this.student.draw(ctx)
 		
+		/*
 		if(this.count==1){
 		
 			this.b1.position=this.bubblePos;
@@ -84,7 +85,7 @@ var People = function(){
 			
 			this.b3.draw(ctx)
 		
-		}		
+		}		*/
 		
 	};
 	
