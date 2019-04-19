@@ -73,12 +73,12 @@ var People = function(){
 				y: this.position.y + (this.SH * 1) 
 			}
 
-			this.student.position.x=studentPosition.x;
-			this.student.position.y=studentPosition.y;
+			this.student.position=studentPosition;
 
 			this.student.draw(ctx)				
 			this.bell+=1;
-			if(this.bell==400){
+			
+			if(this.bell==500){
 				this.stroll=0;
 				this.bell=0;
 			}
@@ -90,27 +90,28 @@ var People = function(){
 				y: this.position.y + (this.SH * 1) 
 			}
 			
-			if(this.position.x <384){
+			if(studentPosition.x <384){
 				this.position.x+=32;
-				this.student.position.x=studentPosition.x;
-
 			}
-			else if(this.position.x >384){
+			else if(studentPosition.x >384){
 				this.position.x-=32;
-				this.student.position.x=studentPosition.x;
 			}
-			if(this.position.y <512){
+			if(studentPosition.y <512){
 				this.position.y+=32;
-				this.student.position.y=studentPosition.y;
 			}
-			
-			else if(this.position.y >512){
+			else if(studentPosition.y >512){
 				this.position.y-=32;
-				this.student.position.y=studentPosition.y;
-			}
 
-			this.student.draw(ctx)					
-		}		
+			}
+			this.student.position=studentPosition;
+
+			this.student.draw(ctx)
+			this.bell+=1;
+			if(this.bell==50){
+				this.stroll=1;
+				this.bell=0;
+			}
+		}
 	};
 	
 };
