@@ -51,6 +51,7 @@ var loadGameEnd;
 		{ src: 'data/js/Teacher.js',lookFor: 'Teacher'},
 		{ src: 'data/js/Gui.js',lookFor: 'Gui'},
         { src: 'data/js/TickManager.js', lookFor: 'TickManager' },
+        { src: 'data/js/Student.js', lookFor: 'Student' },
         { src: 'data/js/Game.js', lookFor: 'Game' },
         { src: 'data/js/mainGame.js'},
     ]

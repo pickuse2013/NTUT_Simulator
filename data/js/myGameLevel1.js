@@ -3,13 +3,13 @@
         let self = this;
         console.log(this);
         this.isKeyPress = false;
-        
+
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
 
         this.ticker = new TickManager();
-       
+
 
         this.game = new Game();
 
@@ -19,20 +19,26 @@
         //強制更新基礎起始畫圖位置
         this.teacher.basePosition = this.gameMap.position;
         this.rootScene.attach(this.teacher);
-		
-	
+
+        //載入學生
+        this.student = new Student();
+
+        //強制更新基礎起始畫圖位置
+        this.student.basePosition = this.gameMap.position;
+        this.rootScene.attach(this.student);
+
 
         this.people = new People();
         this.people.load();
         this.rootScene.attach(this.people);
 
-        setInterval(function(){
-				self.teacher.move();
+        setInterval(function () {
+            self.teacher.move();
             self.people.doRandomMove();
         }, 1000);
 
-		
-		//螢幕底下的黑板
+
+        //螢幕底下的黑板
         let UI_Board_StartAt = 30;
         this.pic2 = new Framework.Sprite(define.imagePath + 'UI/左.png');
         this.pic2.position = {
@@ -55,18 +61,18 @@
             y: 870
         }
         this.rootScene.attach(this.pic4);
-		//底下黑板結束
-		
-		//this.people = new People();
+        //底下黑板結束
+
+        //this.people = new People();
         //this.people.load();
         //this.rootScene.attach(this.people);
-		
-		this.gui = new Gui();
+
+        this.gui = new Gui();
         this.ticker.gui = this.gui;
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
-        
-        setInterval(function(){
+
+        setInterval(function () {
             self.ticker.Tick();
         }, 1000);
         this.position = {
@@ -86,14 +92,46 @@
             x: 0,
             y: 0
         };
-        
 
-        let characterPosition = { x: 0, y: -1138 * this.clock.scale };
+
+        let characterPosition = {
+            x: 0,
+            y: -1138 * this.clock.scale
+        };
         this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg');
-        this.firen = new Character(define.imagePath + 'firen.png', { position: characterPosition, run: { from: 20, to: 22 }, beHit: { from: 30, to: 35 }, hit: { from: 10, to: 13 } });
-        this.freeze = new Character(define.imagePath + 'freeze.png', { position: characterPosition, scale: 1, run: { from: 29, to: 27 }, beHit: { from: 39, to: 35 }, hit: { from: 19, to: 16 } });
+        this.firen = new Character(define.imagePath + 'firen.png', {
+            position: characterPosition,
+            run: {
+                from: 20,
+                to: 22
+            },
+            beHit: {
+                from: 30,
+                to: 35
+            },
+            hit: {
+                from: 10,
+                to: 13
+            }
+        });
+        this.freeze = new Character(define.imagePath + 'freeze.png', {
+            position: characterPosition,
+            scale: 1,
+            run: {
+                from: 29,
+                to: 27
+            },
+            beHit: {
+                from: 39,
+                to: 35
+            },
+            hit: {
+                from: 19,
+                to: 16
+            }
+        });
 
-		/*
+        /*
         this.clockCenter = new Framework.Scene();
         this.clockCenter.position = {
             x: -10.5 * this.clock.scale,
@@ -117,14 +155,14 @@
             y: Framework.Game.getCanvasHeight() / 2
         };*/
 
-/*
-        this.secondHandRotationRate = 0.3;
-        this.wholeClock.attach(this.clock);
-        this.clockCenter.attach(this.secondHand);
-        this.clockCenter.attach(this.firen.sprite);
-        this.clockCenterNeg.attach(this.freeze.sprite);
-        this.wholeClock.attach(this.clockCenterNeg);
-        this.wholeClock.attach(this.clockCenter);*/
+        /*
+                this.secondHandRotationRate = 0.3;
+                this.wholeClock.attach(this.clock);
+                this.clockCenter.attach(this.secondHand);
+                this.clockCenter.attach(this.firen.sprite);
+                this.clockCenterNeg.attach(this.freeze.sprite);
+                this.wholeClock.attach(this.clockCenterNeg);
+                this.wholeClock.attach(this.clockCenter);*/
 
 
         //this.rootScene.attach(this.wholeClock);
@@ -141,11 +179,13 @@
                 mp3: define.musicPath + 'kick2.mp3',
                 //ogg: define.musicPath + 'kick2.ogg',
                 //wav: define.musicPath + 'kick2.wav'
-            }, song1: {
+            },
+            song1: {
                 mp3: define.musicPath + 'NTUT_classic.mp3',
                 //ogg: define.musicPath + 'Hot_Heat.ogg',
                 //wav: define.musicPath + 'Hot_Heat.wav'
-            }, song2: {
+            },
+            song2: {
                 mp3: define.musicPath + 'NTUT_modern.mp3',
                 //ogg: define.musicPath + 'The_Messenger.ogg',
                 //wav: define.musicPath + 'The_Messenger.wav'
@@ -176,9 +216,9 @@
         this.rootScene.update();
 
         this.gameMap.update();
-        
+
         this.isStop = false;
-        
+
         this.freeze.run();
 
         this.isPlayed = true;
@@ -187,7 +227,7 @@
     draw: function (parentCtx) {
         this.rootScene.draw();
     },
-   
+
     moveUp: function () {
         this.gameMap.position.y += 10;
         this.people.position.y += 10;
@@ -212,15 +252,11 @@
         var self = this;
         this.isKeyPress = true;
         Framework.DebugInfo.Log.warning(e.key);
-        console.log(e.key);
 
         //更新基礎起始畫圖位置
         this.teacher.basePosition = this.gameMap.position;
 
-
         if (e.key === 'Up') {
-            console.log("check+")
-
             let moveUpInterval = setInterval(function () {
                 if (self.isKeyPress == true) {
                     self.moveUp();
@@ -301,7 +337,10 @@
     touchstart: function (e) {
         //為了要讓Mouse和Touch都有一樣的事件
         //又要減少Duplicated code, 故在Touch事件被觸發時, 去Trigger Mouse事件
-        this.click({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        this.click({
+            x: e.touches[0].clientX,
+            y: e.touches[0].clientY
+        });
     },
 
     click: function (e) {

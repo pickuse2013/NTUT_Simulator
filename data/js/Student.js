@@ -1,6 +1,5 @@
-//老師專用Class
-//變更前請務必洽詢作者
-class Teacher {
+class Student {
+	
 	constructor() {
 
 		this.minWidth = 64;
@@ -16,11 +15,7 @@ class Teacher {
 			y: 5
 		};
 
-		this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
-
-		this.b1=new Framework.Sprite(define.imagePath + 'build/bubble1.png');
-		this.b2=new Framework.Sprite(define.imagePath + 'build/bubble2.png');
-		this.b3=new Framework.Sprite(define.imagePath + 'build/bubble3.png');
+		this.sprite = new Framework.Sprite(define.imagePath + 'student.png');
 
 		this.count = 1;
 		this.teacherStep = 5;
@@ -28,6 +23,74 @@ class Teacher {
 
 		this.name = "test";
 	}
+	/*
+	this.MW = 64;
+	this.MH = 64;
+	
+	this.position = {
+		x: 64,
+		y: 64
+	};
+
+	this.count=1;
+	this.SW=450;
+	this.SH=150;
+
+	this.studentPos =[
+		[5,3]
+	];
+	
+	this.bubblePos={
+		x:64,
+		y:64	
+	};
+	
+
+	this.load = function()
+	{
+		this.student=new Framework.Sprite(define.imagePath + 'student.png');
+		this.b1=new Framework.Sprite(define.imagePath + 'build/bubble1.png');
+		this.b2=new Framework.Sprite(define.imagePath + 'build/bubble2.png');
+		this.b3=new Framework.Sprite(define.imagePath + 'build/bubble3.png');
+	};
+	
+	this.initialize = function()
+	{
+		
+	};
+	
+	this.update = function()
+	{
+		
+	};
+	
+	this.doRandomMove = function()
+	{
+		this.max = 64;
+		this.min = -64;
+		this.position.x += Math.random() * (this.max - this.min) + this.min;
+		this.position.y += Math.random() * (this.max - this.min) + this.min;
+	};
+	
+	
+	this.draw = function(ctx)
+	{
+		let studentPosition = {
+			x: this.position.x + (this.SW * 1) ,
+			y: this.position.y + (this.SH * 1) 
+		}
+		ran=Math.random();
+		if(ran>=0.5){
+			this.student.position.x=studentPosition.x;
+			this.studentPos[0][0]=studentPosition.x;
+		}
+		else{
+			this.student.position.y=studentPosition.y;
+			this.studentPos[0][1]=studentPosition.y;
+		}
+		this.student.draw(ctx)
+	};*/
+
 
 	moveScreen()
 	{
@@ -74,29 +137,7 @@ class Teacher {
 
 		this.sprite.position = newPosition;
 		
-		if(this.count<=10){
-			this.b1.position=newPosition;
-			this.b1.position.y-=64;
-			this.count+=1;
-			this.b1.draw(ctx);
-				
-		}
-		else if(this.count>=10 && this.count<=30){
-			this.b2.position=newPosition;
-			this.b2.position.y-=64;
-			this.count+=1;
-			this.b2.draw(ctx);		
-		
-		}
-		else if(this.count>=20 && this.count<=40) {
-			this.b3.position=newPosition;
-			this.b3.position.y-=64;
-			this.count+=1;
-			this.b3.draw(ctx);
-			if(this.count>=40){
-				this.count=1;
-			}
-		}
+	
 		
 		this.sprite.draw(ctx);
 		
@@ -145,11 +186,11 @@ class Teacher {
 			<table border="1" align="center" width="100%">
 				<tr>
 					<th><img src="data/image/wkc.jpg" style="max-width: 130px;"></th>
-					<th>陳偉凱<small>教授</small><br/> <small></small></th>
+					<th>某學生<small></small><br/> <small></small></th>
 				</tr>
 				<tr>
-					<td>職位</td>
-					<td>資訊工程系教授</td>
+					<td></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td>能力值</td>
@@ -178,4 +219,5 @@ class Teacher {
 		console.log(currentPosition)
 		
 	}
-}
+	
+};
