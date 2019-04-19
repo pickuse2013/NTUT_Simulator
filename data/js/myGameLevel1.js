@@ -25,7 +25,7 @@
 
         //強制更新基礎起始畫圖位置
         this.student.basePosition = this.gameMap.position;
-        this.rootScene.attach(this.student);
+      //  this.rootScene.attach(this.student);
 
 
         this.people = new People();

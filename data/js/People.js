@@ -19,6 +19,8 @@ var People = function(){
 		y:64	
 	};
 	
+	this.bell = 0;
+	this.stroll=1;
 
 	this.load = function()
 	{
@@ -40,53 +42,75 @@ var People = function(){
 	
 	this.doRandomMove = function()
 	{
-		this.max = 64;
-		this.min = -64;
-		this.position.x += Math.random() * (this.max - this.min) + this.min;
-		this.position.y += Math.random() * (this.max - this.min) + this.min;
+		this.ma=0;
+		this.mi=0;
+		this.ra=Math.random();
+		if(this.ra>=0.75){
+			this.ma=32;
+		}
+		else if(this.ra >=0.5) {
+			this.ma=-32;
+		}
+		if(this.ra >=0.25) {
+			this.mi=32;
+		}
+		else if(this.ra >=0.0) {
+			this.mi=-32
+		}
+		if(this.stroll==1)
+		{
+			this.position.x += this.ma;
+			this.position.y += this.mi;
+		}
 	};
-	
 	
 	this.draw = function(ctx)
 	{
-		let studentPosition = {
-			x: this.position.x + (this.SW * 1) ,
-			y: this.position.y + (this.SH * 1) 
-		}
-		ran=Math.random();
-		if(ran>=0.5){
+		if(this.stroll==1)
+		{
+			let studentPosition = {
+				x: this.position.x + (this.SW * 1) ,
+				y: this.position.y + (this.SH * 1) 
+			}
+
 			this.student.position.x=studentPosition.x;
-			this.studentPos[0][0]=studentPosition.x;
-		}
-		else{
 			this.student.position.y=studentPosition.y;
-			this.studentPos[0][1]=studentPosition.y;
+
+			this.student.draw(ctx)				
+			this.bell+=1;
+			if(this.bell==400){
+				this.stroll=0;
+				this.bell=0;
+			}
 		}
-		this.student.draw(ctx)
-		
-		/*
-		if(this.count==1){
-		
-			this.b1.position=this.bubblePos;
-			this.count+=1;
+		else if(this.stroll==0) 
+		{	
+			let studentPosition = {
+				x: this.position.x + (this.SW * 1) ,
+				y: this.position.y + (this.SH * 1) 
+			}
 			
-			this.b1.draw(ctx)
-		}
-		else if(this.count==2){
-		
-			this.b2.position=this.bubblePos;
-			this.count+=1;
+			if(this.position.x <384){
+				this.position.x+=32;
+				this.student.position.x=studentPosition.x;
+
+			}
+			else if(this.position.x >384){
+				this.position.x-=32;
+				this.student.position.x=studentPosition.x;
+			}
+			if(this.position.y <512){
+				this.position.y+=32;
+				this.student.position.y=studentPosition.y;
+			}
 			
-			this.b2.draw(ctx)
-		}
-		else{
-			this.b3.position=this.bubblePos;
-			this.count=1;
-			
-			this.b3.draw(ctx)
-		
-		}		*/
-		
+			else if(this.position.y >512){
+				this.position.y-=32;
+				this.student.position.y=studentPosition.y;
+			}
+
+			this.student.draw(ctx)					
+		}		
 	};
 	
 };
