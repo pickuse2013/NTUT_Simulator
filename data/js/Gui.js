@@ -16,6 +16,8 @@ class Gui {
 		};
 
 		//this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
+
+		this.gameDate = null;
 	}
 
 	moveScreen()
@@ -23,12 +25,14 @@ class Gui {
 
 	}
 
-	load() {
+	initialize() {
 
 	}
 
-	initialize() {
-
+	UpdateGameDate(game)
+	{
+		//this.drawDate(ctx, );
+		this.gameDate = game.DateToString();
 	}
 
 	update() {
@@ -42,6 +46,7 @@ class Gui {
 		ctx.fillStyle = 'white';
 		ctx.textBaseline = 'top';
 		ctx.textAlign = 'center';
-		ctx.fillText('000年4月11日 11點00分', 130, 855);
+		//ctx.fillText('000年4月11日 11點00分', 130, 855);
+		ctx.fillText(this.gameDate, 130, 855);
 	}
 }

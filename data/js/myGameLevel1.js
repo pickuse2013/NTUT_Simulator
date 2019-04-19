@@ -11,6 +11,8 @@
         this.ticker = new TickManager();
        
 
+        this.game = new Game();
+
         //載入老師
         this.teacher = new Teacher();
 
@@ -60,12 +62,13 @@
         //this.rootScene.attach(this.people);
 		
 		this.gui = new Gui();
-		this.gui.load();
-		this.rootScene.attach(this.gui);
-		//this.ticker.gui = this.gui;
+        this.ticker.gui = this.gui;
+        this.rootScene.attach(this.gui);
+        this.ticker.game = this.game;
+        
         setInterval(function(){
             self.ticker.Tick();
-        });
+        }, 1000);
         this.position = {
             x: 100,
             y: 100

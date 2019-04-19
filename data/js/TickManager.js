@@ -1,18 +1,25 @@
 class TickManager {
     constructor() {
-        this.canvas = document.getElementsByTagName("canvas");
-        this.ctx = canvas.getContext('2d');
+        this.canvas = document.getElementsByTagName("canvas")[0];
+        this.ctx = this.canvas.getContext('2d');
+        this.game = null;
+        this.gui = null;
     }
 
     StartTicker() {
-        setInterval(function () {
-
-        }, 1000);
+        //setInterval(function () {
+        //    
+        //}, 1000);
     }
 
     Tick() {
-
-        this.gui.draw(this.ctx);
+        this.UpdateGui();
+        this.game.AddInGameSec();
         console.log("tick");
+    }
+
+    UpdateGui()
+    {
+        this.gui.UpdateGameDate(this.game);
     }
 }
