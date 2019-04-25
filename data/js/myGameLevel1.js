@@ -3,14 +3,11 @@
         let self = this;
         console.log(this);
         this.isKeyPress = false;
-
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
 
         this.ticker = new TickManager();
-
-
         this.game = new Game();
 
         //載入老師
@@ -379,5 +376,30 @@
     click: function (e) {
         //alert("你點了一下");
         this.teacher.isInClickArea(e);
-    },
+		
+		if(e.x >= 539 && 
+		   e.x <= 603&&
+	       e.y >= 821&&
+		   e.y <= 885
+		) {
+			console.log("money");
+			let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+			
+
+			let html = `
+				<th><img src="data/image/UI/moneyXD.png" style="max-width: 130px;"></th>
+				<td>
+					目前剩餘資金：沒錢
+				</td>
+			`;
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+		}
+		console.log(event);
+    },	
+	
+
 });
