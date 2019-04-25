@@ -46,7 +46,8 @@
             y: 870
         }
         this.rootScene.attach(this.pic2);
-        for (let i = 0; i <= 10; i++) {
+		
+        for (let i = 0; i <= 4; i++) {
             this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
             UI_Board_StartAt += 64;
             this.pic3.position = {
@@ -55,6 +56,38 @@
             }
             this.rootScene.attach(this.pic3);
         }
+		this.pic5 = new Framework.Sprite(define.imagePath + 'UI/stop.png');
+        this.pic5.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic5);		
+		UI_Board_StartAt += 64;
+		
+		this.pic6 = new Framework.Sprite(define.imagePath + 'UI/continue.png');
+        this.pic6.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic6);	
+		UI_Board_StartAt += 64;
+		
+		this.pic7 = new Framework.Sprite(define.imagePath + 'UI/hurry.png');
+        this.pic7.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic7);
+		UI_Board_StartAt += 64;
+		this.pic8 = new Framework.Sprite(define.imagePath + 'UI/money.png');
+        this.pic8.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic8);
+		UI_Board_StartAt += 64;		
+		
+		
         this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
         this.pic4.position = {
             x: (UI_Board_StartAt + 64),
