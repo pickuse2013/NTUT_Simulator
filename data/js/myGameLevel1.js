@@ -3,14 +3,11 @@
         let self = this;
         console.log(this);
         this.isKeyPress = false;
-
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
 
         this.ticker = new TickManager();
-
-
         this.game = new Game();
 
         //載入老師
@@ -46,7 +43,8 @@
             y: 870
         }
         this.rootScene.attach(this.pic2);
-        for (let i = 0; i <= 10; i++) {
+		
+        for (let i = 0; i <= 4; i++) {
             this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
             UI_Board_StartAt += 64;
             this.pic3.position = {
@@ -55,6 +53,38 @@
             }
             this.rootScene.attach(this.pic3);
         }
+		this.pic5 = new Framework.Sprite(define.imagePath + 'UI/stop.png');
+        this.pic5.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic5);		
+		UI_Board_StartAt += 64;
+		
+		this.pic6 = new Framework.Sprite(define.imagePath + 'UI/continue.png');
+        this.pic6.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic6);	
+		UI_Board_StartAt += 64;
+		
+		this.pic7 = new Framework.Sprite(define.imagePath + 'UI/hurry.png');
+        this.pic7.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic7);
+		UI_Board_StartAt += 64;
+		this.pic8 = new Framework.Sprite(define.imagePath + 'UI/money.png');
+        this.pic8.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.pic8);
+		UI_Board_StartAt += 64;		
+		
+		
         this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
         this.pic4.position = {
             x: (UI_Board_StartAt + 64),
@@ -349,5 +379,31 @@
         //alert("你點了一下");
         this.teacher.isInClickArea(e);
         this.student.isInClickArea(e);
-    },
+    
+		
+		if(e.x >= 539 && 
+		   e.x <= 603&&
+	       e.y >= 821&&
+		   e.y <= 885
+		) {
+			console.log("money");
+			let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+			
+
+			let html = `
+				<th><img src="data/image/UI/moneyXD.png" style="max-width: 130px;"></th>
+				<td>
+					目前剩餘資金：沒錢
+				</td>
+			`;
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+		}
+		console.log(event);
+    },	
+	
+
 });
