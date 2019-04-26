@@ -2,10 +2,21 @@ class Game {
     constructor() {
         this.gameDate = ""
         this.inGameSecond = 0;
+        this.students = [];
+        this.map = [];
     }
 
     AddInGameSec() {
         this.inGameSecond++;
+        console.log("add second in game")
+
+        if(this.inGameSecond == 3)
+        {
+            for(let student of this.students)
+            {
+                student.moveTo(10, 10, this.map);
+            }
+        }
     }
 
     DateToString() {
@@ -15,6 +26,5 @@ class Game {
 
         return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";
     }
-
     
 }

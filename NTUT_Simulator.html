@@ -1,8 +1,8 @@
 <html>
 
 <head>
-	
-	
+
+
 	<style type="text/css"></style>
 	<link rel="stylesheet" type="text/css" href="data/css/main.css">
 
@@ -25,7 +25,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script>
 		/*
 		這個程式很可怕
@@ -39,9 +39,15 @@
 				{ src: 'data/lib/loadFramework.js',lookFor: 'loadFrameworkEnd'},
 				{ src: 'data/js/loadGame.js',lookFor: 'loadGameEnd'},
 		]*/
-
+		Array.prototype.clone = function () {
+			return this.slice(0);
+		};
+		Array.prototype.deepclone = function () {
+			return JSON.parse(JSON.stringify(this));
+		};
 
 	</script>
+	<script type="text/javascript" src="data/js/astar.js"></script>
 	<script type="text/javascript" src="data/lib/load.js"></script>
 	<script>
 		(function () {
@@ -49,7 +55,7 @@
 				favDialog.style.display = "none";
 				blackScreen.style.display = "none";
 			});
-			
+
 			document.getElementById("cancel").addEventListener("click", function () {
 				favDialog.style.display = "none";
 				blackScreen.style.display = "none";

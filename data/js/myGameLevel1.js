@@ -22,7 +22,7 @@
 
         //強制更新基礎起始畫圖位置
         this.student.basePosition = this.gameMap.position;
-      //  this.rootScene.attach(this.student);
+        this.rootScene.attach(this.student);
 
 
         this.people = new People();
@@ -99,6 +99,8 @@
 
         this.gui = new Gui();
         this.ticker.gui = this.gui;
+        this.game.map = this.gameMap;
+        this.game.students.push(this.student);
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
 
@@ -376,6 +378,8 @@
     click: function (e) {
         //alert("你點了一下");
         this.teacher.isInClickArea(e);
+        this.student.isInClickArea(e);
+    
 		
 		if(e.x >= 539 && 
 		   e.x <= 603&&

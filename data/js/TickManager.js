@@ -15,6 +15,7 @@ class TickManager {
     Tick() {
         this.UpdateGui();
         this.game.AddInGameSec();
+
         console.log("tick");
     }
 
