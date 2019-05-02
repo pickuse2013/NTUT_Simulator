@@ -29,11 +29,11 @@
         this.people.load();
         this.rootScene.attach(this.people);
 
-        setInterval(function () {
+
+		var set0 =setInterval(function () {
             self.teacher.move();
             self.people.doRandomMove();
-        }, timeControl);
-
+        }, timeControl); 
 
         //螢幕底下的黑板
         let UI_Board_StartAt = 30;
@@ -103,10 +103,11 @@
         this.game.students.push(this.student);
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
-
-        setInterval(function () {
+			
+		var set1=setInterval(function () {
             self.ticker.Tick();
         }, timeControl);
+		
         this.position = {
             x: 100,
             y: 100
@@ -411,10 +412,17 @@
 		   e.y <= 853
 		){	
 			timeControl=50;	
-		}	
-		
-		
-		
+			clearInterval(set0);
+			clearInterval(set1);
+			set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, timeControl);
+			
+			set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, timeControl);
+		}		
 	},	
 	
 
