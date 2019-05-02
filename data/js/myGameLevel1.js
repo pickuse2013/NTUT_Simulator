@@ -381,10 +381,10 @@
         this.student.isInClickArea(e);
     
 		
-		if(e.x >= 539 && 
-		   e.x <= 603&&
-	       e.y >= 821&&
-		   e.y <= 885
+		if(e.x >= 571 && 
+		   e.x <= 635&&
+	       e.y >= 853&&
+		   e.y <= 917
 		) {
 			console.log("money");
 			let blackScreen = document.getElementById('blackScreen');
