@@ -379,7 +379,7 @@
         //alert("你點了一下");
         this.teacher.isInClickArea(e);
         this.student.isInClickArea(e);
-		this.ticker.isInClickArea(e);
+
 		/*錢錢*/
 		if(e.x >= 571 && 
 		   e.x <= 635&&
