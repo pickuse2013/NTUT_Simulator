@@ -6,10 +6,10 @@
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
-
+		let timeControl=1000;
         this.ticker = new TickManager();
         this.game = new Game();
-
+		
         //載入老師
         this.teacher = new Teacher();
 
@@ -32,7 +32,7 @@
         setInterval(function () {
             self.teacher.move();
             self.people.doRandomMove();
-        }, 1000);
+        }, timeControl);
 
 
         //螢幕底下的黑板
@@ -106,7 +106,7 @@
 
         setInterval(function () {
             self.ticker.Tick();
-        }, 1000);
+        }, timeControl);
         this.position = {
             x: 100,
             y: 100
@@ -379,8 +379,8 @@
         //alert("你點了一下");
         this.teacher.isInClickArea(e);
         this.student.isInClickArea(e);
-    
-		
+		this.ticker.isInClickArea(e);
+		/*錢錢*/
 		if(e.x >= 571 && 
 		   e.x <= 635&&
 	       e.y >= 853&&
@@ -401,9 +401,21 @@
 				</td>
 			`;
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+			
 		}
 		console.log(event);
-    },	
+		/*加速*/
+		if(e.x >= 507 && 
+		   e.x <= 571&&
+	       e.y >= 789&&
+		   e.y <= 853
+		){	
+			timeControl=50;	
+		}	
+		
+		
+		
+	},	
 	
 
 });
