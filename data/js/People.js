@@ -76,14 +76,14 @@ var People = function(){
 			this.student.position=studentPosition;
 
 			this.student.draw(ctx)				
-			this.bell+=1;
+			//this.bell+=1;
 			
-			if(this.bell==500){
-				this.stroll=0;
-				this.bell=0;
-			}
+			//if(this.bell==500){
+				//this.stroll=0;
+				//this.bell=0;
+			//}
 		}
-		else if(this.stroll==0) 
+		/*else if(this.stroll==0) 
 		{	
 			let studentPosition = {
 				x: this.position.x + (this.SW * 1) ,
@@ -111,7 +111,7 @@ var People = function(){
 				this.stroll=1;
 				this.bell=0;
 			}
-		}
+		}*/
 	};
 	
 };
