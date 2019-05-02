@@ -1,7 +1,7 @@
 var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 	//初始化loadingProgress需要用到的圖片
     initializeProgressResource: function() {
-        this.loading = new Framework.Sprite(define.imagePath + 'ntut_bg.jpg');
+        this.loading = new Framework.Sprite(define.imagePath + 'loading.jpg');
         this.loading.position = {x: Framework.Game.getCanvasWidth() / 2 , y: Framework.Game.getCanvasHeight() / 2};
 
         //為了或得到this.loading這個Sprite的絕對位置, 故需要先計算一次(在Game Loop執行時, 則會自動計算, 但因為loadingProgress只支援draw故需要自行計算)                  
@@ -27,7 +27,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             define.imagePath + 'image4.png',
             define.imagePath + 'image5.png'
         ];
-
+		
+		this.menu = new Framework.Sprite(define.imagePath + 'Title.png');
         this.scrollBar = new Framework.Sprite(define.imagePath + 'scrollBar.png');
         this.rightArrow = new Framework.Sprite(define.imagePath + 'rightArrow.png');
         this.photo = new Framework.AnimationSprite({url: photoLink, loop: true, speed: 0.05});
@@ -79,8 +80,16 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 	
     initialize: function() {
 		
-		//如果不是使用者觸發的無法撥放聲音
-		Framework.Game.goToNextLevel();
+		/*TESTTTTTTTTTTTT*/
+		this.menu.position = {
+            x: Framework.Game.getCanvasWidth() / 2,
+            y: Framework.Game.getCanvasHeight() / 2
+        };
+        this.rootScene.attach(this.menu);
+		this.rectPosition = { 
+            x: Framework.Game.getCanvasWidth() / 2 - 130,
+            y: Framework.Game.getCanvasHeight() / 2
+        };
     },
 
     update:function(){     
@@ -95,7 +104,14 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     draw: function(parentCtx) { 
         //this.rootScene.draw();一定要在第一行
         this.rootScene.draw(parentCtx);
-        
+        /*TESTTTTTT*/
+		this.menu.draw(parentCtx);
+		parentCtx.font = '90px Microsoft JhengHei ';
+		parentCtx.fontWeight ='bolder';
+        parentCtx.fillStyle = 'gray';
+        parentCtx.textBaseline = 'top';
+        parentCtx.textAlign = 'center';
+        parentCtx.fillText('開學', this.rectPosition.x + 130, this.rectPosition.y, 260);
     },
 
     mouseup: function(e) {
@@ -103,7 +119,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     },
 
     mousedown: function(e) {
-        //console.log為Browser提供的function, 可以在debugger的console內看到被印出的訊息                    
+        //console.log為Browser提供的function, 可以在debugger的console內看到被印出的訊息    
+		Framework.Game.goToNextLevel();		
         if (e) {
             console.log(e.x, e.y);
         }
@@ -114,7 +131,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         }
     },
 
-    mousemove: function(e) {        
+    mousemove: function(e) {
+	/*        
         if (this.isTouchArrow) {
             this.currentTouch = { x: e.x, y: e.y };
             if (this.currentTouch.x > this.previousTouch.x && this.currentTouch.y < this.rightArrow.lowerLeft.y && this.currentTouch.y > this.rightArrow.upperLeft.y) {
@@ -127,6 +145,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
             }
        }
         this.previousTouch = this.currentTouch;
+	*/
     },
 
     mouseup: function(e) {
