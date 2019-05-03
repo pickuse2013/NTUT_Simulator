@@ -9,6 +9,8 @@
 		this.timeControl=800;
         this.ticker = new TickManager();
         this.game = new Game();
+
+        
 		
         //載入老師
         this.teacher = new Teacher();
@@ -430,36 +432,129 @@
 			
 
 			let html = `
-				<style>
-					td { padding: 30px;}
-				</style>
-				<table border="1">
-					<tr>
-						<td>第一節</td>
-						<td>
-							國文
-						</td>
-					</tr>
-					<tr>
-						<td>第二節</td>
-						<td>
-							國文
-						</td>
-					</tr>
-					<tr>
-						<td>第三節</td>
-						<td>
-							國文
-						</td>
-					</tr>
-					<tr>
-						<td>第四節</td>
-						<td>
-							國文
-						</td>
-					</tr>
-				</table>
-			`;
+            <style>
+            td {
+                padding: 30px;
+                text-align: center;
+            }
+        
+            .course {
+                cursor: move;
+            }
+        
+            .tt {
+                background-color: blue;
+            }
+        </style>
+        
+        <div class="row">
+            <div class="col-md-9">
+                <table id="courseTable" class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>時間</th>
+                            <th>課程名稱</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>第一節</td>
+                            <td>08:10</td>
+                            <td class="course-droppable">
+                                國文
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>第二節</td>
+                            <td>09:10</td>
+                            <td class="course-droppable">
+                                國文
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>第三節</td>
+                            <td>10:10</td>
+                            <td class="course-droppable">
+                                國文
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>第四節</td>
+                            <td>11:10</td>
+                            <td class="course-droppable">
+                                國文
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>午休</td>
+                            <td>12:00</td>
+                            <td>
+                                無法排課
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>可選課程名稱</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="course">國文</td>
+                        </tr>
+                        <tr>
+                            <td class="course">數位邏輯實習</td>
+                        </tr>
+                        <tr>
+                            <td class="course">計概</td>
+                        </tr>
+                        <tr>
+                            <td class="course">OOP</td>
+                        </tr>
+                        <tr>
+                            <td class="course">C++</td>
+                        </tr>
+                        <tr>
+                            <td class="course">Python</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        
+        <script>
+        </script>
+            `;
+            
+            $(function () {
+                $(".course").draggable({ revert: "valid" });
+        
+                $(".course-droppable").droppable({
+        
+                    drop: function (event, ui) {
+                        console.log(ui)
+                        /*
+                         $(this)
+                             .addClass("ui-state-highlight")
+                             .addClass("tt")
+                             .find("p")
+                             .html("Dropped!");*/
+                        //$(ui.draggable).draggable({ revert: 'invalid' });
+                        //$(this).droppable('disable');
+                        $(this).text($(ui.draggable).text());
+                    }
+                });
+
+                $("#favDialog").css("width", "690px");
+                $(".windowTitle").text("課表");
+            })
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 		 }
 

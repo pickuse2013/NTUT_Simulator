@@ -4,6 +4,9 @@ class Game {
         this.inGameSecond = 0;
         this.students = [];
         this.map = [];
+
+        this.course = [];
+        this.course.push();
     }
 
     AddInGameSec() {
