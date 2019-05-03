@@ -461,9 +461,9 @@ var MyGame = Framework.Class(Framework.Level, {
 		
 		
 		if(e.x >= 606 &&
-		     e.y >= 870 &&
+		     e.y >= 858 &&
 			 e.x <= (606 + 64) &&
-			 e.y <= (870 + 64)
+			 e.y <= 921
 		 ){
 			 
 			 let blackScreen = document.getElementById('blackScreen');
