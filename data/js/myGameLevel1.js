@@ -1,4 +1,6 @@
-﻿var MyGame = Framework.Class(Framework.Level, {
+﻿
+
+var MyGame = Framework.Class(Framework.Level, {
     load: function () {
         let self = this;
         console.log(this);
@@ -98,6 +100,18 @@
         }
 		console.log(UI_Board_StartAt);
         this.rootScene.attach(this.pic_course);
+		/*emotion*/
+				
+		UI_Board_StartAt += 64;
+		this.ChangeEMO(UI_Board_StartAt,i);
+		/*
+		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
+        this.emo1.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+        this.rootScene.attach(this.emo1);
+		*/		
         //底下黑板結束
 
         //this.people = new People();
@@ -246,7 +260,37 @@
         }
         this.rotation = 0;
     },
+	
+	ChangeEMO: function(UI_Board_StartAt,i){
+	
+		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
+		this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
+		this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
+		i=Math.random();
+		if(i>0.75){
+				this.emo1.position = {
+					x: (UI_Board_StartAt + 64),
+					y: 870
+				}
+				this.rootScene.attach(this.emo1);	
+		}
+		else if(i>0.5){
+				this.emo2.position = {
+					x: (UI_Board_StartAt + 64),
+					y: 870
+				}	
+				this.rootScene.attach(this.emo2);
+		}
+		else{
+				this.emo3.position = {
+				x: (UI_Board_StartAt + 64),
+				y: 870
+				}
+				this.rootScene.attach(this.emo3);
+		
+		}
 
+	},
     initialize: function () {
 
 
