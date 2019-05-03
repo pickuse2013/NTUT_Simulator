@@ -91,6 +91,13 @@
             y: 870
         }
         this.rootScene.attach(this.pic4);
+		this.pic_course = new Framework.Sprite(define.imagePath + 'UI/course.png');
+        this.pic_course.position = {
+            x: (UI_Board_StartAt + 64),
+            y: 870
+        }
+		console.log(UI_Board_StartAt);
+        this.rootScene.attach(this.pic_course);
         //底下黑板結束
 
         //this.people = new People();
@@ -406,6 +413,57 @@
 			
 		}
 		//console.log(event);
+
+		
+		
+		if(e.x >= 606 &&
+		     e.y >= 870 &&
+			 e.x <= (606 + 64) &&
+			 e.y <= (870 + 64)
+		 ){
+			 
+			 let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+			
+
+			let html = `
+				<style>
+					td { padding: 30px;}
+				</style>
+				<table border="1">
+					<tr>
+						<td>第一節</td>
+						<td>
+							國文
+						</td>
+					</tr>
+					<tr>
+						<td>第二節</td>
+						<td>
+							國文
+						</td>
+					</tr>
+					<tr>
+						<td>第三節</td>
+						<td>
+							國文
+						</td>
+					</tr>
+					<tr>
+						<td>第四節</td>
+						<td>
+							國文
+						</td>
+					</tr>
+				</table>
+			`;
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+		 }
+
+		
 		/*加速*/
 		if(e.x >= 544 && 
 		   e.x <= 608&&

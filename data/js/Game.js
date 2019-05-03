@@ -17,6 +17,14 @@ class Game {
                 student.moveTo(10, 10, this.map);
             }
         }
+		
+		if(this.inGameSecond == 12)
+        {
+            for(let student of this.students)
+            {
+                student.moveTo(18, 18, this.map);
+            }
+        }
     }
 
     DateToString() {
