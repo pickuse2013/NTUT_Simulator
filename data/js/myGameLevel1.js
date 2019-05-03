@@ -6,10 +6,10 @@
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
-
+		let timeControl=1000;
         this.ticker = new TickManager();
         this.game = new Game();
-
+		
         //載入老師
         this.teacher = new Teacher();
 
@@ -29,11 +29,11 @@
         this.people.load();
         this.rootScene.attach(this.people);
 
-        setInterval(function () {
+
+		var set0 =setInterval(function () {
             self.teacher.move();
             self.people.doRandomMove();
-        }, 1000);
-
+        }, timeControl); 
 
         //螢幕底下的黑板
         let UI_Board_StartAt = 30;
@@ -110,10 +110,11 @@
         this.game.students.push(this.student);
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
-
-        setInterval(function () {
+			
+		var set1=setInterval(function () {
             self.ticker.Tick();
-        }, 1000);
+        }, timeControl);
+		
         this.position = {
             x: 100,
             y: 100
@@ -386,8 +387,8 @@
         //alert("你點了一下");
         this.teacher.isInClickArea(e);
         this.student.isInClickArea(e);
-    
-		
+
+		/*錢錢*/
 		if(e.x >= 571 && 
 		   e.x <= 635&&
 	       e.y >= 853&&
@@ -408,6 +409,7 @@
 				</td>
 			`;
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+			
 		}
 		//console.log(event);
 		
@@ -458,7 +460,27 @@
 			`;
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 		 }
-    },	
+
+		console.log(event);
+		/*加速*/
+		if(e.x >= 507 && 
+		   e.x <= 571&&
+	       e.y >= 789&&
+		   e.y <= 853
+		){	
+			timeControl=50;	
+			clearInterval(set0);
+			clearInterval(set1);
+			set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, timeControl);
+			
+			set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, timeControl);
+		}		
+	},	
 	
 
 });
