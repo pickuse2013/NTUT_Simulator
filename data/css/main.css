@@ -39,26 +39,45 @@
 #favDialog .header {
     margin: 0;
     padding: 0.6em;
-    background-color: #ddedfd;
-    border-top-left-radius: 0.6rem;
-    border-top-right-radius: 0.6rem;
-    border-bottom: 1px solid #78a4d3;
+    background-color: #15512d;
+
+    color: white;
+    border-top: 10px solid #efe4b0;
+    border-right: 10px solid #efe4b0;
+    border-left: 10px solid #efe4b0;
 }
 
 #favDialog .header a {
 	float: right;
 	text-decoration: none;
-	color: black;
+	color: white;
+}
+
+#favDialog .header:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 100%; /* Change this to whatever width you want. */
+    padding-top: 24px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid white; /* This creates the border. Replace black with whatever color you want. */
 }
 
 #favDialog .content {
     padding: 0.6em;
-	background-color: white;
+    /*background-color: white;*/
+    color: white;
+    background-color: #15512d;
+    border-right: 10px solid #efe4b0;
+    border-left: 10px solid #efe4b0;
 }
 
 #favDialog .footer {
 	padding: 0.6em;
-	background-color: white;
+    background-color: #15512d;
+    
+    border-bottom: 10px solid #efe4b0;
+    border-right: 10px solid #efe4b0;
+    border-left: 10px solid #efe4b0;
 }
 
 table {
