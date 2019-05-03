@@ -1,4 +1,6 @@
-﻿var MyGame = Framework.Class(Framework.Level, {
+﻿
+
+var MyGame = Framework.Class(Framework.Level, {
     load: function () {
         let self = this;
         console.log(this);
@@ -100,6 +102,11 @@
         }
 		console.log(UI_Board_StartAt);
         this.rootScene.attach(this.pic_course);
+		/*emotion*/
+				
+		UI_Board_StartAt += 64;
+		this.ChangeEMO(UI_Board_StartAt,i);
+
         //底下黑板結束
 
         //this.people = new People();
@@ -248,7 +255,37 @@
         }
         this.rotation = 0;
     },
+	
+	ChangeEMO: function(UI_Board_StartAt,i){
+	
+		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
+		this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
+		this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
+		i=Math.random();
+		if(i>0.75){
+				this.emo1.position = {
+					x: (UI_Board_StartAt + 64),
+					y: 870
+				}
+				this.rootScene.attach(this.emo1);	
+		}
+		else if(i>0.5){
+				this.emo2.position = {
+					x: (UI_Board_StartAt + 64),
+					y: 870
+				}	
+				this.rootScene.attach(this.emo2);
+		}
+		else{
+				this.emo3.position = {
+				x: (UI_Board_StartAt + 64),
+				y: 870
+				}
+				this.rootScene.attach(this.emo3);
+		
+		}
 
+	},
     initialize: function () {
 
 
@@ -419,9 +456,9 @@
 		
 		
 		if(e.x >= 606 &&
-		     e.y >= 870 &&
+		     e.y >= 858 &&
 			 e.x <= (606 + 64) &&
-			 e.y <= (870 + 64)
+			 e.y <= 921
 		 ){
 			 
 			 let blackScreen = document.getElementById('blackScreen');
@@ -560,12 +597,12 @@
 
 		
 		/*加速*/
-		if(e.x >= 544 && 
-		   e.x <= 608&&
+		if(e.x >= 512 && 
+		   e.x <= 576&&
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
-			this.timeControl=50;	
+			this.timeControl=25;	
 			clearInterval(this.set0);
 			clearInterval(this.set1);
 			this.set0 = setInterval(function () {
@@ -578,8 +615,8 @@
 				}, this.timeControl);
 		}
 		/*普通速度 |>*/
-		if(e.x >= 480 && 
-		   e.x <= 544&&
+		if(e.x >= 432 && 
+		   e.x <= 512&&
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
@@ -596,8 +633,8 @@
 				}, this.timeControl);
 		}
 	/*暫停*/
-		if(e.x >= 416 && 
-		   e.x <= 480&&
+		if(e.x >= 368 && 
+		   e.x <= 432&&
 	       e.y >= 858&&
 		   e.y <= 921
 		){	

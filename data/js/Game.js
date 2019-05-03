@@ -17,15 +17,15 @@ class Game {
         {
             for(let student of this.students)
             {
-                student.moveTo(10, 10, this.map);
+                student.moveTo(12, 11, this.map);
             }
         }
 		
-		if(this.inGameSecond == 12)
+		if(this.inGameSecond == 40)
         {
             for(let student of this.students)
             {
-                student.moveTo(18, 18, this.map);
+                student.moveTo(12, 16, this.map);
             }
         }
     }
@@ -34,7 +34,11 @@ class Game {
         //1秒 = 遊戲1分鐘
         let hours = Math.floor(this.inGameSecond / 60);
         let minutes = this.inGameSecond - hours * 60;
-
+		
+		if(hours>=24){
+			this.inGameSecond=0;
+		}
+		
         return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";
     }
     
