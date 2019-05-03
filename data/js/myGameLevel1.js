@@ -6,7 +6,7 @@
         this.gameMap = new GameMap();
         this.gameMap.load();
         this.rootScene.attach(this.gameMap);
-		let timeControl=1000;
+		this.timeControl=800;
         this.ticker = new TickManager();
         this.game = new Game();
 		
@@ -30,10 +30,10 @@
         this.rootScene.attach(this.people);
 
 
-		var set0 =setInterval(function () {
+		this.set0 =setInterval(function () {
             self.teacher.move();
             self.people.doRandomMove();
-        }, timeControl); 
+        }, this.timeControl); 
 
         //螢幕底下的黑板
         let UI_Board_StartAt = 30;
@@ -104,9 +104,9 @@
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
 			
-		var set1=setInterval(function () {
+		this.set1=setInterval(function () {
             self.ticker.Tick();
-        }, timeControl);
+        }, this.timeControl);
 		
         this.position = {
             x: 100,
@@ -378,14 +378,15 @@
 
     click: function (e) {
         //alert("你點了一下");
+		let self = this;
         this.teacher.isInClickArea(e);
         this.student.isInClickArea(e);
 
 		/*錢錢*/
-		if(e.x >= 571 && 
-		   e.x <= 635&&
-	       e.y >= 853&&
-		   e.y <= 917
+		if(e.x >= 576 && 
+		   e.x <= 640&&
+	       e.y >= 858&&
+		   e.y <= 921
 		) {
 			console.log("money");
 			let blackScreen = document.getElementById('blackScreen');
@@ -404,25 +405,61 @@
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 			
 		}
-		console.log(event);
+		//console.log(event);
 		/*加速*/
-		if(e.x >= 507 && 
-		   e.x <= 571&&
-	       e.y >= 789&&
-		   e.y <= 853
+		if(e.x >= 544 && 
+		   e.x <= 608&&
+	       e.y >= 858&&
+		   e.y <= 921
 		){	
-			timeControl=50;	
-			clearInterval(set0);
-			clearInterval(set1);
-			set0 = setInterval(function () {
+			this.timeControl=50;	
+			clearInterval(this.set0);
+			clearInterval(this.set1);
+			this.set0 = setInterval(function () {
 				self.teacher.move();
 				self.people.doRandomMove();
-				}, timeControl);
+				}, this.timeControl);
 			
-			set1 = setInterval(function () {
+			this.set1 = setInterval(function () {
 				self.ticker.Tick();
-				}, timeControl);
-		}		
+				}, this.timeControl);
+		}
+		/*普通速度 |>*/
+		if(e.x >= 480 && 
+		   e.x <= 544&&
+	       e.y >= 858&&
+		   e.y <= 921
+		){	
+			this.timeControl=800;	
+			clearInterval(this.set0);
+			clearInterval(this.set1);
+			this.set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, this.timeControl);
+			
+			this.set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, this.timeControl);
+		}
+	/*暫停*/
+		if(e.x >= 416 && 
+		   e.x <= 480&&
+	       e.y >= 858&&
+		   e.y <= 921
+		){	
+			this.timeControl=1000000;	
+			clearInterval(this.set0);
+			clearInterval(this.set1);
+			this.set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, this.timeControl);
+			
+			this.set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, this.timeControl);
+		}	
 	},	
 	
 
