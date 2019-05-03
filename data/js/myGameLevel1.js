@@ -470,7 +470,7 @@
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
-			this.timeControl=50;	
+			this.timeControl=25;	
 			clearInterval(this.set0);
 			clearInterval(this.set1);
 			this.set0 = setInterval(function () {
@@ -483,7 +483,7 @@
 				}, this.timeControl);
 		}
 		/*普通速度 |>*/
-		if(e.x >= 416 && 
+		if(e.x >= 432 && 
 		   e.x <= 512&&
 	       e.y >= 858&&
 		   e.y <= 921
@@ -501,8 +501,8 @@
 				}, this.timeControl);
 		}
 	/*暫停*/
-		if(e.x >= 352 && 
-		   e.x <= 416&&
+		if(e.x >= 368 && 
+		   e.x <= 432&&
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
