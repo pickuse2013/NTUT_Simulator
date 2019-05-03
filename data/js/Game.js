@@ -14,15 +14,15 @@ class Game {
         {
             for(let student of this.students)
             {
-                student.moveTo(10, 10, this.map);
+                student.moveTo(12, 11, this.map);
             }
         }
 		
-		if(this.inGameSecond == 12)
+		if(this.inGameSecond == 40)
         {
             for(let student of this.students)
             {
-                student.moveTo(18, 18, this.map);
+                student.moveTo(12, 16, this.map);
             }
         }
     }

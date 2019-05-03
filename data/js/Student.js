@@ -9,10 +9,9 @@ class Student {
 			x: 0,
 			y: 0
 		}
-
 		this.position = {
 			x: 1,
-			y: 5
+			y: 1
 		};
 
 		this.sprite = new Framework.Sprite(define.imagePath + 'student.png');

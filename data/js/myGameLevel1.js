@@ -104,14 +104,7 @@ var MyGame = Framework.Class(Framework.Level, {
 				
 		UI_Board_StartAt += 64;
 		this.ChangeEMO(UI_Board_StartAt,i);
-		/*
-		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
-        this.emo1.position = {
-            x: (UI_Board_StartAt + 64),
-            y: 870
-        }
-        this.rootScene.attach(this.emo1);
-		*/		
+
         //底下黑板結束
 
         //this.people = new People();
