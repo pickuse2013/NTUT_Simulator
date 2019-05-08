@@ -455,9 +455,9 @@ var MyGame = Framework.Class(Framework.Level, {
 
 		
 		
-		if(e.x >= 606 &&
+		if(e.x >= 632 &&
 		     e.y >= 858 &&
-			 e.x <= (606 + 64) &&
+			 e.x <= (632 + 64) &&
 			 e.y <= 921
 		 ){
 			 
