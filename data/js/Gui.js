@@ -55,7 +55,7 @@ class Gui {
 	
 	draw(ctx) {
 		
-		if(this.gameMinute>=4 && this.gameMinute<=6){
+		if(this.gameMinute>=4 && this.gameMinute<=5){
 			this.dis.draw(ctx);
 		}
 		if(this.gameMinute>=20 && this.gameMinute<=21){
