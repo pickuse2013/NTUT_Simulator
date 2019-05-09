@@ -30,11 +30,11 @@
 		</div>
 	</div>
 	<div class="center-point">
-		<div id="centerpoint2" style="
-			
-			" class="ttt">
+		<div id="start-menu" style="display: none;" class="ttt">
 			<div class="content">
-				<span>開學</span>
+				<div class="menu-item">新學年</div>
+				<div class="menu-item">高雄發大財</div>
+				<div class="menu-item">離開</div>
 			</div>
 		</div>
 	
@@ -76,11 +76,13 @@
 			});
 			
 			$(".center-point").click(function(){
-				isStartClick =true;
+				
 				if(!isStartClick){
 					Framework.Game._levels[0].level.mousedown({x:1, y:2})
-					$(this).fadeOut(1000);
+					$(this).fadeOut(300);
 				}
+				
+				isStartClick = true;
 			});
 		})();
 	</script>

@@ -10,7 +10,7 @@
 
 .ttt {
 	font-size: 418%;
-	color: gray;
+	
 	width: 500px;
 	text-align: center;
 }
@@ -21,21 +21,29 @@
     position: absolute;
 }
 
-.center-point:hover .ttt {
+.center-point:hover div {
+	
+}
+
+#start-menu .menu-item:hover  {
 	background-color: gray;
 	color: white;
 }
 
+.menu-item {
+	margin-bottom: 8px;
+}
 
 .center-point {
-	
 	position: fixed;
 	width: 500px;
 	height: 200px;
-	top: 50%;
+	top: 60%;
 	left: 50%;
 	margin-top: -100px; /* Negative half of height. */
 	margin-left: -250px; /* Negative half of width. */
+	
+	color: gray;
 }
 
 #blackScreen {

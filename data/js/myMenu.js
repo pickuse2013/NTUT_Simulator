@@ -75,7 +75,9 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
         //讓AnimationSprite開始被播放
         //this.photo.start();
-
+		setTimeout(function(){
+			$("#start-menu").fadeIn(800);
+		}, 700);
 	},
 	
     initialize: function() {
@@ -111,7 +113,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         parentCtx.fillStyle = 'gray';
         parentCtx.textBaseline = 'top';
         parentCtx.textAlign = 'center';
-        parentCtx.fillText('開學', this.rectPosition.x + 130, this.rectPosition.y, 260);
+        //parentCtx.fillText('開學', this.rectPosition.x + 130, this.rectPosition.y, 260);
     },
 
     mouseup: function(e) {
