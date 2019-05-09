@@ -31,6 +31,8 @@ class Gui {
 
 		this.gameDate = null;
 		this.gameMinute = null;
+
+		this.game = null;
 	}
 
 	moveScreen()
@@ -47,6 +49,7 @@ class Gui {
 		//this.drawDate(ctx, );
 		this.gameDate = game.DateToString();
 		this.gameMinute = game.GetMinute();
+		this.gameHour = game.GetHour();
 	}
 
 	update() {
@@ -62,11 +65,8 @@ class Gui {
 			this.dur.draw(ctx);
 		}
 		
-		
-		
-		
-		//ctx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
-		//ctx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
+		ctx.fillText(this.gameDate, 130, 855);
+	
 		ctx.font = '20pt 微軟正黑體';
 		ctx.fillStyle = 'white';
 		ctx.textBaseline = 'top';
