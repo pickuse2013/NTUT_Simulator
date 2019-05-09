@@ -37,7 +37,7 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.set0 =setInterval(function () {
             self.teacher.move();
             self.people.doRandomMove();
-        }, this.timeControl); 
+        }, this.timeControl*0.5); 
 
         //螢幕底下的黑板
         let UI_Board_StartAt = 30;
@@ -609,7 +609,7 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.set0 = setInterval(function () {
 				self.teacher.move();
 				self.people.doRandomMove();
-				}, this.timeControl);
+				}, this.timeControl*0.5);
 			
 			this.set1 = setInterval(function () {
 				self.ticker.Tick();
@@ -627,7 +627,7 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.set0 = setInterval(function () {
 				self.teacher.move();
 				self.people.doRandomMove();
-				}, this.timeControl);
+				}, this.timeControl*0.5);
 			
 			this.set1 = setInterval(function () {
 				self.ticker.Tick();
