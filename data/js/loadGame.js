@@ -53,7 +53,7 @@ var loadGameEnd;
         { src: 'data/js/TickManager.js', lookFor: 'TickManager' },
         { src: 'data/js/Student.js', lookFor: 'Student' },
         { src: 'data/js/Game.js', lookFor: 'Game' },
-        { src: 'data/js/Course.js', lookFor: 'Course' },
+        //{ src: 'data/js/Course.js', lookFor: 'Course' },
         { src: 'data/js/mainGame.js'},
     ]
 
