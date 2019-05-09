@@ -16,10 +16,11 @@ class Game {
      * 增加遊戲中的時間
      */
     AddInGameSec() {
-        this.inGameSecond++;
+		this.inGameSecond++;
         console.log("add second in game")
+		let minutes = this.GetMinute();
 
-        if(this.inGameSecond == 3)
+        if(minutes == 3)
         {
             for(let student of this.students)
             {
@@ -27,11 +28,11 @@ class Game {
             }
         }
 		
-		if(this.inGameSecond == 20)
+		if(minutes == 11)
         {
             for(let student of this.students)
             {
-                student.moveTo(12, 16, this.map);
+                student.moveTo(16, 6, this.map);
             }
         }
     }
@@ -51,7 +52,7 @@ class Game {
     {
         return Math.floor(this.inGameSecond / 60);
     }
-
+    
     /**
      * 提供隔式化過的字串
      */

@@ -446,7 +446,7 @@ var MyGame = Framework.Class(Framework.Level, {
 			
 
 			let html = `
-				<th><img src="data/image/UI/moneyXD.png" style="max-width: 130px;"></th>
+				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
 				<td>
 					目前剩餘資金：沒錢
 				</td>
