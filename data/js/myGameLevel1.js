@@ -11,8 +11,7 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.timeControl=800;
         this.ticker = new TickManager();
         this.game = new Game();
-
-        
+       
 		
         //載入老師
         this.teacher = new Teacher();
@@ -23,7 +22,6 @@ var MyGame = Framework.Class(Framework.Level, {
 
         //載入學生
         this.student = new Student();
-
         //強制更新基礎起始畫圖位置
         this.student.basePosition = this.gameMap.position;
         this.rootScene.attach(this.student);
@@ -129,6 +127,9 @@ var MyGame = Framework.Class(Framework.Level, {
             y: 100
         }
 
+
+		
+		
         this.rotation = 0;
 
         this.isStop = false;
@@ -603,7 +604,7 @@ var MyGame = Framework.Class(Framework.Level, {
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
-			this.timeControl=25;	
+			this.timeControl=125;	
 			clearInterval(this.set0);
 			clearInterval(this.set1);
 			this.set0 = setInterval(function () {

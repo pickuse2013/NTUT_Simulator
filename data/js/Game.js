@@ -1,12 +1,12 @@
 class Game {
     constructor() {
         this.gameDate = ""
-        this.inGameSecond = 0;
+        this.inGameSecond = 480;
         this.students = [];
         this.map = [];
-
         this.course = [];
         this.course.push();
+
     }
 
     AddInGameSec() {
@@ -21,7 +21,7 @@ class Game {
             }
         }
 		
-		if(this.inGameSecond == 40)
+		if(this.inGameSecond == 20)
         {
             for(let student of this.students)
             {
@@ -29,17 +29,25 @@ class Game {
             }
         }
     }
+	
+	GetMinute()
+	{
+		let hours = Math.floor(this.inGameSecond / 60);
+		let minutes = this.inGameSecond - hours * 60;
+		return minutes;
+	}
 
     DateToString() {
         //1秒 = 遊戲1分鐘
         let hours = Math.floor(this.inGameSecond / 60);
-        let minutes = this.inGameSecond - hours * 60;
+        let minutes = this.GetMinute();
 		
 		if(hours>=24){
 			this.inGameSecond=0;
 		}
+
 		
-        return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";
+        return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";	
     }
     
 }

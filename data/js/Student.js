@@ -4,14 +4,14 @@ class Student {
 		let self = this;
 		this.minWidth = 64;
 		this.minHeight = 64;
-
+		this.time=500;
 		this.basePosition = {
 			x: 0,
 			y: 0
 		}
 		this.position = {
-			x: 1,
-			y: 1
+			x: 5,
+			y: 5
 		};
 
 		this.sprite = new Framework.Sprite(define.imagePath + 'student.png');
@@ -24,7 +24,7 @@ class Student {
 
 		this.doingList = [];
 
-		this.moveingPath = [{ x: 1, y: 1 }, { x: 1, y: 2 }, { x: 1, y: 3 }];
+		this.moveingPath = [{ x: 5, y: 5 }, { x: 5, y: 6 }, { x: 5, y: 7 }];
 
 		this.moveInterval = setInterval(function () {
 			let current = self.moveingPath.shift();
@@ -32,7 +32,7 @@ class Student {
 				self.position.x = current.x;
 				self.position.y = current.y;
 			}
-		}, 1000);
+		}, this.time);
 	}
 
 	moveScreen() {

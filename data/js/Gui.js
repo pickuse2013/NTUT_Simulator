@@ -4,7 +4,19 @@ class Gui {
 
 		this.minWidth = 64;
 		this.minHeight = 64;
-
+		
+		//上下課
+		this.dis = new Framework.Sprite(define.imagePath + 'UI/下課.png');
+		this.dis.position = {
+			x:780,
+			y:150
+		};
+		this.dur = new Framework.Sprite(define.imagePath + 'UI/上課.png');
+		this.dur.position = {
+			x:780,
+			y:150
+		};		
+		
 		this.basePosition = {
 			x: 0,
 			y: 0
@@ -18,6 +30,7 @@ class Gui {
 		//this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
 
 		this.gameDate = null;
+		this.gameMinute = null;
 	}
 
 	moveScreen()
@@ -33,6 +46,7 @@ class Gui {
 	{
 		//this.drawDate(ctx, );
 		this.gameDate = game.DateToString();
+		this.gameMinute = game.GetMinute();
 	}
 
 	update() {
@@ -40,6 +54,17 @@ class Gui {
 	}
 	
 	draw(ctx) {
+		
+		if(this.gameMinute>=4 && this.gameMinute<=6){
+			this.dis.draw(ctx);
+		}
+		if(this.gameMinute>=20 && this.gameMinute<=21){
+			this.dur.draw(ctx);
+		}
+		
+		
+		
+		
 		//ctx.fillStyle = (this.secondHandRotationRate > 0)?'green':'red'; 
 		//ctx.fillRect(this.rectPosition.x , this.rectPosition.y, 260, 90);  
 		ctx.font = '20pt 微軟正黑體';

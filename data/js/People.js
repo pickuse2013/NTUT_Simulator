@@ -41,7 +41,7 @@ var People = function(){
 	};
 	
 	this.doRandomMove = function()
-	{
+	{/*
 		this.ma=0;
 		this.mi=0;
 		this.ra=Math.random();
@@ -61,12 +61,12 @@ var People = function(){
 		{
 			this.position.x += this.ma;
 			this.position.y += this.mi;
-		}
+		}*/
 	};
 	
 	this.draw = function(ctx)
 	{
-		if(this.stroll==1)
+		/*if(this.stroll==1)
 		{
 			let studentPosition = {
 				x: this.position.x + (this.SW * 1) ,
