@@ -27,11 +27,11 @@ class Game {
             }
         }
 		
-		if(minutes == 20)
+		if(minutes == 11)
         {
             for(let student of this.students)
             {
-                student.moveTo(12, 16, this.map);
+                student.moveTo(16, 6, this.map);
             }
         }
     }
