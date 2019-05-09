@@ -1,14 +1,20 @@
+/**
+ * 控制遊戲
+ */
 class Game {
     constructor() {
-        this.gameDate = ""
+        this.gameDate = "";
         this.inGameSecond = 480;
         this.students = [];
         this.map = [];
-        this.course = [];
-        this.course.push();
+        this.course = null;
 
+        this.gui = null;
     }
 
+    /**
+     * 增加遊戲中的時間
+     */
     AddInGameSec() {
         this.inGameSecond++;
         console.log("add second in game")
@@ -29,24 +35,35 @@ class Game {
             }
         }
     }
-	
+    
+    /**
+     * 取得目前分鐘
+     */
 	GetMinute()
 	{
-		let hours = Math.floor(this.inGameSecond / 60);
-		let minutes = this.inGameSecond - hours * 60;
-		return minutes;
-	}
+		return this.inGameSecond - (this.GetHour() * 60);
+    }
+    
+    /**
+     * 取得目前小時
+     */
+    GetHour()
+    {
+        return Math.floor(this.inGameSecond / 60);
+    }
 
+    /**
+     * 提供隔式化過的字串
+     */
     DateToString() {
         //1秒 = 遊戲1分鐘
         let hours = Math.floor(this.inGameSecond / 60);
         let minutes = this.GetMinute();
 		
-		if(hours>=24){
+		if(hours >= 24){
 			this.inGameSecond=0;
 		}
 
-		
         return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";	
     }
     

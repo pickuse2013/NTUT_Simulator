@@ -115,6 +115,8 @@ var MyGame = Framework.Class(Framework.Level, {
         this.ticker.gui = this.gui;
         this.game.map = this.gameMap;
         this.game.students.push(this.student);
+        this.game.gui = this.gui;
+        
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
 			
