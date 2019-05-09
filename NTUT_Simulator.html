@@ -60,10 +60,15 @@
 		};
 
 	</script>
-	<script type="text/javascript" src="data/js/astar.js"></script>
+	
 	<script type="text/javascript" src="data/lib/load.js"></script>
+	
+	<script type="text/javascript" src="data/js/astar.js"></script>
+	<script type="text/javascript" src="data/js/CourseManager.js"></script>
+	<script type="text/javascript" src="data/js/Course.js"></script>
 	<script>
 		var isStartClick = false;
+		var _CourseManager = new CourseManager();
 		(function () {
 			document.getElementById("closedialog").addEventListener("click", function () {
 				favDialog.style.display = "none";
