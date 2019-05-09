@@ -4,10 +4,38 @@
     margin: 0;
 }
 
+*, body {
+	font-family: "微軟正黑體";
+}
+
+.ttt {
+	font-size: 418%;
+	color: gray;
+	width: 500px;
+	text-align: center;
+}
+
 #centerpoint {
     top: 50%;
     left: 50%;
     position: absolute;
+}
+
+.center-point:hover .ttt {
+	background-color: gray;
+	color: white;
+}
+
+
+.center-point {
+	
+	position: fixed;
+	width: 500px;
+	height: 200px;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px; /* Negative half of height. */
+	margin-left: -250px; /* Negative half of width. */
 }
 
 #blackScreen {
