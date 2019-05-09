@@ -24,7 +24,7 @@ class Student {
 
 		this.doingList = [];
 
-		this.moveingPath = [{ x: 5, y: 5 }, { x: 5, y: 6 }, { x: 5, y: 7 }];
+		this.moveingPath = [];
 
 		this.moveInterval = setInterval(function () {
 			let current = self.moveingPath.shift();
@@ -33,6 +33,35 @@ class Student {
 				self.position.y = current.y;
 			}
 		}, this.time);
+
+		this.desk = {x: 14, y: 7};
+		this.map = [];
+	}
+
+	moveToDesk()
+	{
+		this.moveingPath = [];
+		this.moveTo(this.desk.x, this.desk.y, this.map);
+	}
+
+	getRandom(min,max){
+		return Math.floor(Math.random()*(max-min+1))+min;
+	}
+	moveAround()
+	{
+		this.moveingPath = [];
+		let newX = this.getRandom(this.position.x - 1,this.position.x + 1);
+		let newY = this.getRandom(this.position.y - 1,this.position.y + 1);
+		if(newY < 5) return;
+		if(typeof this.map.map[newX] == "undefined" || typeof this.map.map[newX][newY] == "undefined") return;
+		if(this.map.map[newX][newY] != 1) return;
+		console.log(newX,newY);
+		this.moveTo(
+			newX,
+			newY,
+			this.map
+		);
+		
 	}
 
 	moveScreen() {
@@ -90,6 +119,19 @@ class Student {
 
 	moveTo(x, y, map) {
 		let tempmap = map.map2.deepclone();
+		let tempmap2 = map.map.deepclone();
+
+		for (var i = 0; i < tempmap.length; i++) {
+
+			for (var j = 0; j < tempmap[i].length; j++) {
+				if (tempmap2[i][j] == 1 && tempmap[i][j] == 0){
+					tempmap[i][j] = 0;
+				} else{
+					tempmap[i][j] = 2;
+				}
+				
+			}
+		}
 
 		for (var i = 0; i < tempmap.length; i++) {
 
@@ -99,6 +141,7 @@ class Student {
 			}
 		}
 
+
 		for (var i = 0; i < tempmap.length; i++) {
 
 			for (var j = 0; j < tempmap[i].length; j++) {
@@ -106,6 +149,9 @@ class Student {
 				
 			}
 		}
+
+		
+
 
 		var graph = new Graph(
 			tempmap
@@ -142,7 +188,7 @@ class Student {
 			let html = `
 			<table border="1" align="center" width="100%">
 				<tr>
-					<th>??</th>
+					<th>學生OOO</th>
 					<th>學生<small></small><br/> <small></small></th>
 				</tr>
 				<tr>
@@ -160,6 +206,8 @@ class Student {
 				</tr>
 			</table>
 			`;
+			//修改標題
+			$(".windowTitle").text("學生");
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 		}
 

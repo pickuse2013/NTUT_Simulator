@@ -22,9 +22,17 @@ var MyGame = Framework.Class(Framework.Level, {
 
         //載入學生
         this.student = new Student();
+        this.student2 = new Student();
+        this.student3 = new Student();
         //強制更新基礎起始畫圖位置
         this.student.basePosition = this.gameMap.position;
+        this.student2.basePosition = this.gameMap.position;
+        this.student2.desk = {x: 14, y: 9};
+        this.student3.basePosition = this.gameMap.position;
+        this.student3.desk = {x: 11, y: 9};
         this.rootScene.attach(this.student);
+        this.rootScene.attach(this.student2);
+        this.rootScene.attach(this.student3);
 
 
         this.people = new People();
@@ -115,7 +123,10 @@ var MyGame = Framework.Class(Framework.Level, {
         this.ticker.gui = this.gui;
         this.game.map = this.gameMap;
         this.game.students.push(this.student);
+        this.game.students.push(this.student2);
+        this.game.students.push(this.student3);
         this.game.gui = this.gui;
+        this.game.course = _CourseManager;
         
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;

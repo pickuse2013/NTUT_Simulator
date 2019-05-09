@@ -18,13 +18,20 @@ class Game {
     AddInGameSec() {
 		this.inGameSecond++;
         console.log("add second in game")
-		let minutes = this.GetMinute();
+        let minutes = this.GetMinute();
+        
+        if(minutes == 5)
+        {
+            _CourseManager.currrentCourse++;
+        }
 
-        if(minutes == 4)
+        if(minutes < 20)
         {
             for(let student of this.students)
             {
-                student.moveTo(12, 11, this.map);
+                student.map = this.map;
+                student.moveAround();
+                //student.moveTo(12, 11, this.map);
             }
         }
 		
@@ -32,7 +39,9 @@ class Game {
         {
             for(let student of this.students)
             {
-                student.moveTo(16, 6, this.map);
+                //student.moveTo(16, 6, this.map);
+                student.map = this.map;
+                student.moveToDesk();
             }
         }
     }

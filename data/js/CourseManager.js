@@ -13,6 +13,8 @@ class CourseManager {
 		console.log(this.course);
 		
 		this.RegisterEvent();
+
+		this.currrentCourse = 0;
     }
 	
 	//清空課表

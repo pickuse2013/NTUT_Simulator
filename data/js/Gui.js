@@ -60,12 +60,22 @@ class Gui {
 		
 		if(this.gameMinute>=4 && this.gameMinute<=5){
 			this.dis.draw(ctx);
+			
 		}
 		if(this.gameMinute>=20 && this.gameMinute<=21){
 			this.dur.draw(ctx);
 		}
+
+		if(this.gameMinute<=20){
+			ctx.fillText("下課", 270, 855);
+		}
 		
-		ctx.fillText(this.gameDate, 130, 855);
+		if(_CourseManager.course.length > 0 && this.gameMinute>=21){
+			if(typeof _CourseManager.course[_CourseManager.currrentCourse].name != "undefined"){
+				ctx.fillText(_CourseManager.course[_CourseManager.currrentCourse].name, 270, 855);
+
+			}
+		}
 	
 		ctx.font = '20pt 微軟正黑體';
 		ctx.fillStyle = 'white';
