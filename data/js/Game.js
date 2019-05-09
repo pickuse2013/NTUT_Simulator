@@ -19,7 +19,7 @@ class Game {
         console.log("add second in game")
 		let minutes = this.GetMinute();
 
-        if(minutes == 3)
+        if(minutes == 4)
         {
             for(let student of this.students)
             {
@@ -27,7 +27,7 @@ class Game {
             }
         }
 		
-		if(minutes == 11)
+		if(minutes == 20)
         {
             for(let student of this.students)
             {

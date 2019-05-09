@@ -6,7 +6,7 @@ var GameMap = function(){
 		x: 100,
 		y: 100
 	};
-	
+	/*牆.地板*/
 	this.map = [
 		[15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15],
 		[7,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,9],
@@ -29,14 +29,14 @@ var GameMap = function(){
 		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 		[6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,8],
 	];
-	
+	/*黑板 桌子 物件*/
 	this.map2 = [
 		[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
 		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
 		[6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
-		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,7],
-		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,7],
+		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0],
 		[4,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		[4,0,0,0,2,3,0,2,3,0,2,3,0,2,3,0,2,3,0,0,0,0],
 		[4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -80,6 +80,9 @@ var GameMap = function(){
 		this.window_ld = new Framework.Sprite(define.imagePath + 'build/window_ld.png');
 		this.window_ru = new Framework.Sprite(define.imagePath + 'build/window_ru.png');
 		this.window_rd = new Framework.Sprite(define.imagePath + 'build/window_rd.png');
+		
+		this.toilet = new Framework.Sprite(define.imagePath + 'build/toilet.png');
+		this.urinal = new Framework.Sprite(define.imagePath + 'build/urinal.png');
 	};
 	
 	this.initialize = function()
@@ -234,7 +237,15 @@ var GameMap = function(){
 					case 7:
 						this.top_right.position=picPosition;
 						this.top_right.draw(ctx)
-						break;				
+						break;	
+					case 8:
+						this.toilet.position=picPosition;
+						this.toilet.draw(ctx)
+						break;	
+					case 9:
+						this.urinal.position=picPosition;
+						this.urinal.draw(ctx)
+						break;							
 				}
 			}
 		}

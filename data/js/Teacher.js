@@ -144,7 +144,7 @@ class Teacher {
 			let html = `
 			<table border="1" align="center" width="100%">
 				<tr>
-					<th><img src="data/image/wkc.jpg" style="max-width: 130px;"></th>
+					<th><img src="data/image/wkc.png" style="max-width: 130px;"></th>
 					<th>陳偉凱<small>教授</small><br/> <small></small></th>
 				</tr>
 				<tr>
