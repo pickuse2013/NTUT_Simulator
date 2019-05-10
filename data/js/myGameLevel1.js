@@ -462,6 +462,8 @@ var MyGame = Framework.Class(Framework.Level, {
 					目前剩餘資金：184,400 元
 				</td>
 			`;
+			
+			$(".windowTitle").text("校產");
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 			
 		}

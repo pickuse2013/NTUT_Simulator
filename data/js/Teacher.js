@@ -145,7 +145,7 @@ class Teacher {
 			<table border="1" align="center" width="100%">
 				<tr>
 					<th><img src="data/image/wkc.png" style="max-width: 130px;"></th>
-					<th>陳偉凱<small>教授</small><br/> <small></small></th>
+					<th>OOXX<small>教授</small><br/> <small></small></th>
 				</tr>
 				<tr>
 					<td>職位</td>
@@ -170,6 +170,7 @@ class Teacher {
 				</tr>
 			</table>
 			`;
+			$(".windowTitle").text("老師");
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 		}
 
