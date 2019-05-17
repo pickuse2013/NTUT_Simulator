@@ -184,6 +184,8 @@ class Student {
 			let favDialog = document.getElementById('favDialog');
 			favDialog.style.display = "block";
 
+			var patient="40";
+			
 
 			let html = `
 			<table border="1" align="center" width="100%">
@@ -199,7 +201,7 @@ class Student {
 					<td>能力值</td>
 					<td>
 						知識點: <progress max="100" value="80"></progress><br/>
-						體力值: <progress max="100" value="30"></progress><br/>
+						體力值: <progress max="100" value=${patient}></progress><br/>
 						有趣度: <progress max="100" value="30"></progress>
 					
 					</td>

@@ -4,6 +4,7 @@ class TickManager {
         this.ctx = this.canvas.getContext('2d');
         this.game = null;
         this.gui = null;
+		this.money = 200000;
     }
 
     StartTicker() {
@@ -15,6 +16,10 @@ class TickManager {
     Tick() {
         this.UpdateGui();
         this.game.AddInGameSec();
+		if(this.game.GetMinute()==4)
+			{
+				this.money=this.money-3600;
+			}
 
         console.log("tick");
     }

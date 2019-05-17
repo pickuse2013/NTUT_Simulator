@@ -11,6 +11,7 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.timeControl=800;
         this.ticker = new TickManager();
         this.game = new Game();
+
        
 		
         //載入老師
@@ -317,6 +318,7 @@ var MyGame = Framework.Class(Framework.Level, {
         this.isPlayed = true;
     },
 
+
     draw: function (parentCtx) {
         this.rootScene.draw();
     },
@@ -454,12 +456,11 @@ var MyGame = Framework.Class(Framework.Level, {
 
 			let favDialog = document.getElementById('favDialog');
 			favDialog.style.display = "block";
-			
 
 			let html = `
 				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
 				<td>
-					目前剩餘資金：184,400 元
+					目前剩餘資金：${this.ticker.money} 元
 				</td>
 			`;
 			
