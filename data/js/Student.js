@@ -36,6 +36,7 @@ class Student {
 
 		this.desk = {x: 14, y: 7};
 		this.map = [];
+		this.patient = 70;
 	}
 
 	moveToDesk()
@@ -184,7 +185,7 @@ class Student {
 			let favDialog = document.getElementById('favDialog');
 			favDialog.style.display = "block";
 
-			var patient="40";
+			
 			
 
 			let html = `
@@ -200,9 +201,8 @@ class Student {
 				<tr>
 					<td>能力值</td>
 					<td>
-						知識點: <progress max="100" value="80"></progress><br/>
-						體力值: <progress max="100" value=${patient}></progress><br/>
-						有趣度: <progress max="100" value="30"></progress>
+						體力值: <progress max="100" value="50"></progress><br/>
+						耐心值: <progress max="100" value=${this.patient}></progress>
 					
 					</td>
 				</tr>

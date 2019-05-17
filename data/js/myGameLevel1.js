@@ -460,7 +460,7 @@ var MyGame = Framework.Class(Framework.Level, {
 			let html = `
 				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
 				<td>
-					目前剩餘資金：${this.ticker.money} 元
+					目前剩餘資金：${this.ticer.money} 元
 				</td>
 			`;
 			
