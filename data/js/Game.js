@@ -69,11 +69,13 @@ class Game {
         //1秒 = 遊戲1分鐘
         let hours = Math.floor(this.inGameSecond / 60);
         let minutes = this.GetMinute();
-		
-		if(hours >= 24){
-			this.inGameSecond=0;
+		/*
+		隔日結算?
+		if(hours==13 && minutes>10){
+			this.inGameSecond=480;
+			Framework.Game.goToNextLevel();	
 		}
-
+		*/
         return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";	
     }
     
