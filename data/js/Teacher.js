@@ -65,6 +65,34 @@ class Teacher {
 			y: this.basePosition.y + (this.position.y * this.minHeight)
 		};
 	}
+	bubble_Animation(){
+		let newPosition = this.getCurrPos();
+		
+		if(this.count<=10){
+			this.b1.position=newPosition;
+			this.b1.position.y-=64;
+			this.count+=1;
+			return 1;
+		}
+		else if(this.count>=10 && this.count<=30){
+			this.b2.position=newPosition;
+			this.b2.position.y-=64;
+			this.count+=1;
+			return 2;		
+		}
+		else if(this.count>=20 && this.count<=40) {
+			this.b3.position=newPosition;
+			this.b3.position.y-=64;
+			this.count+=1;
+			
+			if(this.count>=40){
+				this.count=1;
+			}
+			return 3;
+		}
+	
+	}
+	
 
 	draw(ctx) {
 		
@@ -74,31 +102,18 @@ class Teacher {
 
 		this.sprite.position = newPosition;
 		
-		if(this.count<=10){
-			this.b1.position=newPosition;
-			this.b1.position.y-=64;
-			this.count+=1;
-			this.b1.draw(ctx);
-				
-		}
-		else if(this.count>=10 && this.count<=30){
-			this.b2.position=newPosition;
-			this.b2.position.y-=64;
-			this.count+=1;
-			this.b2.draw(ctx);		
-		
-		}
-		else if(this.count>=20 && this.count<=40) {
-			this.b3.position=newPosition;
-			this.b3.position.y-=64;
-			this.count+=1;
-			this.b3.draw(ctx);
-			if(this.count>=40){
-				this.count=1;
-			}
-		}
 		
 		this.sprite.draw(ctx);
+		
+		if(this.bubble_Animation()==1){
+			this.b1.draw(ctx);		
+		}
+		else if (this.bubble_Animation()==2){
+			this.b2.draw(ctx);		
+		}
+		else if (this.bubble_Animation()==3){
+			this.b3.draw(ctx);		
+		}
 		
 
 	}
