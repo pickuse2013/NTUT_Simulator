@@ -36,7 +36,8 @@ class Student {
 
 		this.desk = {x: 14, y: 7};
 		this.map = [];
-		this.patient = 70;
+		this.patient = 100;
+
 	}
 
 	moveToDesk()

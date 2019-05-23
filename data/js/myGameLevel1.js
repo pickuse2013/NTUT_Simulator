@@ -112,7 +112,8 @@ var MyGame = Framework.Class(Framework.Level, {
 		/*emotion*/
 				
 		UI_Board_StartAt += 64;
-		this.ChangeEMO(UI_Board_StartAt,i);
+		this.hour=8;
+		this.ChangeEMO();
 
         //底下黑板結束
 
@@ -270,21 +271,35 @@ var MyGame = Framework.Class(Framework.Level, {
         }
         this.rotation = 0;
     },
-	
-	ChangeEMO: function(UI_Board_StartAt,i){
-	
+	//下方表情隨著學生平均耐心值改變
+	ChangeEMO: function(){
+		let xi = 0;
+		UI_Board_StartAt=670
+		console.log("emo");
 		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
 		this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
 		this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
-		i=Math.random();
-		if(i>0.75){
+		
+
+		if( this.game.GetMinute()%10==0 && this.game.GetHour()==this.hour){
+			this.student.patient=this.student.patient-12;
+			this.student2.patient=this.student2.patient-12;
+			this.student3.patient=this.student3.patient-12;
+			this.hour+=1;
+			
+		}
+		xi=this.student.patient+this.student2.patient+this.student3.patient;
+		xi=xi/3;	
+				console.log(xi);
+				
+		if(xi>=75){
 				this.emo1.position = {
 					x: (UI_Board_StartAt + 64),
 					y: 870
 				}
 				this.rootScene.attach(this.emo1);	
 		}
-		else if(i>0.5){
+		else if(xi>=50){
 				this.emo2.position = {
 					x: (UI_Board_StartAt + 64),
 					y: 870
@@ -297,7 +312,6 @@ var MyGame = Framework.Class(Framework.Level, {
 				y: 870
 				}
 				this.rootScene.attach(this.emo3);
-		
 		}
 
 	},
@@ -316,6 +330,8 @@ var MyGame = Framework.Class(Framework.Level, {
         this.freeze.run();
 
         this.isPlayed = true;
+		
+		this.ChangeEMO();
     },
 
 
@@ -488,7 +504,7 @@ var MyGame = Framework.Class(Framework.Level, {
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
-			this.timeControl=125;	
+			this.timeControl=25;	
 			clearInterval(this.set0);
 			clearInterval(this.set1);
 			this.set0 = setInterval(function () {
