@@ -11,8 +11,16 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.timeControl=800;
         this.ticker = new TickManager();
         this.game = new Game();
-
+		
+		this.buildMode = false;
        
+	    this.buildTest = new Framework.Sprite(define.imagePath + '教室/地板.png');
+        this.buildTest.position = {
+            x: 2000,
+            y: 2000
+        }
+        this.rootScene.attach(this.buildTest);
+		
 		
         //載入老師
         this.teacher = new Teacher();
@@ -34,8 +42,15 @@ var MyGame = Framework.Class(Framework.Level, {
         this.rootScene.attach(this.student);
         this.rootScene.attach(this.student2);
         this.rootScene.attach(this.student3);
-
-
+		
+		this.buildIcon = new Framework.Sprite(define.imagePath + 'UI/build.png');
+		this.buildIcon.position = {
+            x: 1570,
+            y: 870
+        }
+        this.rootScene.attach(this.buildIcon);	
+		
+		
         this.people = new People();
         this.people.load();
         this.rootScene.attach(this.people);
@@ -437,6 +452,12 @@ var MyGame = Framework.Class(Framework.Level, {
             y: e.touches[0].clientY
         });
     },
+	
+	mousemove: function(e){
+		if(this.buildMode){
+			this.buildTest.position = e;
+		}
+	},
 
     click: function (e) {
         //alert("你點了一下");
@@ -468,7 +489,10 @@ var MyGame = Framework.Class(Framework.Level, {
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 			
 		}
-		//console.log(event);
+		
+		if(this.buildIcon.isInClickArea(e)){
+			this.buildMode = true;
+		}
 
 		
 		

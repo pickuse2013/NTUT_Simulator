@@ -56,7 +56,7 @@ class Student {
 		if(newY < 5) return;
 		if(typeof this.map.map[newX] == "undefined" || typeof this.map.map[newX][newY] == "undefined") return;
 		if(this.map.map[newX][newY] != 1) return;
-		console.log(newX,newY);
+		//console.log(newX,newY);
 		this.moveTo(
 			newX,
 			newY,
@@ -163,7 +163,7 @@ class Student {
 
 		for(let node of result)
 		{
-			console.log(node);
+			//console.log(node);
 			this.moveingPath.push({x: node.x, y: node.y});
 		}
 	}
@@ -214,8 +214,8 @@ class Student {
 		}
 
 
-		console.log(event);
-		console.log(currentPosition)
+		//console.log(event);
+		//console.log(currentPosition)
 
 	}
 

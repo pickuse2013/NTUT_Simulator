@@ -17,7 +17,7 @@ class Game {
      */
     AddInGameSec() {
 		this.inGameSecond++;
-        console.log("add second in game")
+        //console.log("add second in game")
         let minutes = this.GetMinute();
         
         if(minutes == 5)

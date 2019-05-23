@@ -86,7 +86,6 @@ var Framework = (function (Framework) {
 			userContextmenuEvent.call(_subject, e);
 		};
 
-
 		/**
 		 * 管理Mouse所有的事件, 一般來說, 不會在此處處理相關邏輯
 		 * 而會在Level進行設定, 請參照

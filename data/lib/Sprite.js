@@ -178,7 +178,31 @@ var Framework = (function (Framework) {
             if(this.type === 'image'){
                 Framework.ResourceManager.destroyResource(this.id);
             }
-        }
+        },
+		
+		isInClickArea: function(_clickEvent){
+			// 幹她媽X軸居然有誤差? 應該叫寫這個程式框架的人去跳樓!
+			const _這個遊戲引擎有問題居然有偏差_ = 30
+			
+			/*
+			console.log("this.texture.width = ", this.texture.width);
+			console.log("this.texture.height = ", this.texture.height);
+			console.log("this.position = ", this.position);
+			console.log("_clickEvent = ", _clickEvent);
+			*/
+			
+			if(_clickEvent.x >= this.position.x - _這個遊戲引擎有問題居然有偏差_ && 
+			   _clickEvent.x <= this.position.x - _這個遊戲引擎有問題居然有偏差_ + this.texture.width  &&
+			   _clickEvent.y >= this.position.y - _這個遊戲引擎有問題居然有偏差_ &&
+			   _clickEvent.y <= this.position.y - _這個遊戲引擎有問題居然有偏差_+ this.texture.height
+			) {
+				// true mean it click inside
+				return true;
+			}
+			
+			// otherwise
+			return false;
+		}
     });
     return Framework;
 })(Framework || {});

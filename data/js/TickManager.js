@@ -21,7 +21,7 @@ class TickManager {
 				this.money=this.money-3600;
 			}
 
-        console.log("tick");
+        //console.log("tick");
     }
 
     UpdateGui()

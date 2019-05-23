@@ -148,7 +148,7 @@ class Teacher {
 	       event.y >= currentPosition.y &&
 		   event.y <= currentPosition.y + this.minHeight
 		) {
-			console.log("teacher");
+			//console.log("teacher");
 			let blackScreen = document.getElementById('blackScreen');
 			blackScreen.style.display = "block";
 
@@ -190,8 +190,8 @@ class Teacher {
 		}
 
 		
-		console.log(event);
-		console.log(currentPosition)
+		//console.log(event);
+		//console.log(currentPosition)
 		
 	}
 }
