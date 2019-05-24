@@ -296,9 +296,9 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.emo4 = new Framework.Sprite(define.imagePath + 'UI/emo4.png');
 
 		if( this.game.GetMinute()%10==0 && this.game.GetMinute()==this.minutes &&this.student.patient>=0){
-			this.student.patient=this.student.patient-5;
-			this.student2.patient=this.student2.patient-5;
-			this.student3.patient=this.student3.patient-5;
+			this.student.patient=this.student.patient-3.5;
+			this.student2.patient=this.student2.patient-3.5;
+			this.student3.patient=this.student3.patient-3.5;
             this.minutes+=10;
             if(this.minutes==50){
                 this.minutes=0;
@@ -360,6 +360,11 @@ var MyGame = Framework.Class(Framework.Level, {
 
     draw: function (parentCtx) {
         this.rootScene.draw();
+		parentCtx.font = '10pt 微軟正黑體';
+		parentCtx.fillStyle = 'black';
+		parentCtx.textBaseline = 'top';
+		parentCtx.textAlign = 'center';
+		parentCtx.fillText(this.ticker.money, 605,870);
     },
 
     moveUp: function () {

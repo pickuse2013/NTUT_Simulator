@@ -69,13 +69,27 @@ class Game {
         //1秒 = 遊戲1分鐘
         let hours = Math.floor(this.inGameSecond / 60);
         let minutes = this.GetMinute();
-		/*
-		隔日結算?
+
 		if(hours==13 && minutes>10){
+            let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+
+			let html = `
+				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
+				<td>
+                結算結算結算結算結算結算結算結算結算結算結算結算結算結算結算
+				</td>
+			`;
+			
+			$(".windowTitle").text("結算");
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 			this.inGameSecond=480;
 			Framework.Game.goToNextLevel();	
 		}
-		*/
+
         return hours.toString().padStart(2, "0") + "點" + minutes.toString().padStart(2, "0") + "分";	
     }
     
