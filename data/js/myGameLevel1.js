@@ -289,13 +289,13 @@ var MyGame = Framework.Class(Framework.Level, {
 	ChangeEMO: function(){
 		let xi = 0;
 		UI_Board_StartAt=734;
-		console.log("emo");
+		//console.log("emo");
 		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
 		this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
 		this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
 		this.emo4 = new Framework.Sprite(define.imagePath + 'UI/emo4.png');
 
-		if( this.game.GetMinute()%10==0 && this.game.GetMinute()==this.minutes){
+		if( this.game.GetMinute()%10==0 && this.game.GetMinute()==this.minutes &&this.student.patient>=0){
 			this.student.patient=this.student.patient-5;
 			this.student2.patient=this.student2.patient-5;
 			this.student3.patient=this.student3.patient-5;
@@ -306,7 +306,7 @@ var MyGame = Framework.Class(Framework.Level, {
 		}
 		xi=this.student.patient+this.student2.patient+this.student3.patient;
 		xi=xi/3;	
-				console.log(xi);
+		//console.log(xi);
 				
 		if(xi>=75){
 				this.emo1.position = {
