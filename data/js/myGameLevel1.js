@@ -293,7 +293,7 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
 		this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
 		this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
-		
+		this.emo4 = new Framework.Sprite(define.imagePath + 'UI/emo4.png');
 
 		if( this.game.GetMinute()%10==0 && this.game.GetMinute()==this.minutes){
 			this.student.patient=this.student.patient-3.5;
@@ -322,13 +322,20 @@ var MyGame = Framework.Class(Framework.Level, {
 				}	
 				this.rootScene.attach(this.emo2);
 		}
-		else{
+		else if (xi>=25){
 				this.emo3.position = {
 				x: (UI_Board_StartAt),
 				y: 870
 				}
 				this.rootScene.attach(this.emo3);
-		}
+        }
+        else{
+                this.emo4.position = {
+				x: (UI_Board_StartAt),
+				y: 870
+				}
+				this.rootScene.attach(this.emo4);
+        }
 
 	},
     initialize: function () {
@@ -529,7 +536,7 @@ var MyGame = Framework.Class(Framework.Level, {
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
-			this.timeControl=75;	
+			this.timeControl=55;	
 			clearInterval(this.set0);
 			clearInterval(this.set1);
 			this.set0 = setInterval(function () {
