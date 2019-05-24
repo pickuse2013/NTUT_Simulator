@@ -528,7 +528,7 @@ var MyGame = Framework.Class(Framework.Level, {
 	       e.y >= 858&&
 		   e.y <= 921
 		){	
-			this.timeControl=25;	
+			this.timeControl=75;	
 			clearInterval(this.set0);
 			clearInterval(this.set1);
 			this.set0 = setInterval(function () {
