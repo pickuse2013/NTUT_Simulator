@@ -296,9 +296,9 @@ var MyGame = Framework.Class(Framework.Level, {
 		this.emo4 = new Framework.Sprite(define.imagePath + 'UI/emo4.png');
 
 		if( this.game.GetMinute()%10==0 && this.game.GetMinute()==this.minutes){
-			this.student.patient=this.student.patient-3.5;
-			this.student2.patient=this.student2.patient-3.5;
-			this.student3.patient=this.student3.patient-3.5;
+			this.student.patient=this.student.patient-5;
+			this.student2.patient=this.student2.patient-5;
+			this.student3.patient=this.student3.patient-5;
             this.minutes+=10;
             if(this.minutes==50){
                 this.minutes=0;
