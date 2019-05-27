@@ -52,12 +52,16 @@ class Student {
 	moveAround()
 	{
 		this.moveingPath = [];
+		
 		let newX = this.getRandom(this.position.x - 1,this.position.x + 1);
 		let newY = this.getRandom(this.position.y - 1,this.position.y + 1);
+		
 		if(newY < 5) return;
-		if(typeof this.map.map[newX] == "undefined" || typeof this.map.map[newX][newY] == "undefined") return;
-		if(this.map.map[newX][newY] != 1) return;
-		//console.log(newX,newY);
+		
+		if(typeof this.map.layerObject[newX] == "undefined" || typeof this.map.layerObject[newX][newY] == "undefined") return;
+		
+		if(this.map.layerObject[newX][newY] != 1) return;
+		
 		this.moveTo(
 			newX,
 			newY,
@@ -120,8 +124,8 @@ class Student {
 	}
 
 	moveTo(x, y, map) {
-		let tempmap = map.map2.deepclone();
-		let tempmap2 = map.map.deepclone();
+		let tempmap = map.layerObject.deepclone();
+		let tempmap2 = map.layerBase.deepclone();
 
 		for (var i = 0; i < tempmap.length; i++) {
 

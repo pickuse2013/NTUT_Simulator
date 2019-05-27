@@ -32,8 +32,8 @@
 	<div class="center-point">
 		<div id="start-menu" style="display: none;" class="ttt">
 			<div class="content">
-				<div class="menu-item">新學年</div>
-				<div class="menu-item">北科發大財</div>
+				<div class="menu-item">開始遊戲</div>
+				<div class="menu-item">關於</div>
 				<div class="menu-item">離開</div>
 			</div>
 		</div>
@@ -66,6 +66,7 @@
 	<script type="text/javascript" src="data/js/astar.js"></script>
 	<script type="text/javascript" src="data/js/CourseManager.js"></script>
 	<script type="text/javascript" src="data/js/Course.js"></script>
+	<script type="text/javascript" src="data/js/MapManager.js"></script>
 	<script>
 		var isStartClick = false;
 		var _CourseManager = new CourseManager();
@@ -83,7 +84,8 @@
 			$(".center-point").click(function(){
 				
 				if(!isStartClick){
-					Framework.Game._levels[0].level.mousedown({x:1, y:2})
+					Framework.Game.goToNextLevel();		
+					//Framework.Game._levels[0].level.mousedown({x:1, y:2})
 					$(this).fadeOut(300);
 				}
 				

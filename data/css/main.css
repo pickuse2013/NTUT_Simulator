@@ -16,7 +16,7 @@ th{
 	color:white;
 }
 .ttt {
-	font-size: 418%;
+	font-size: 250%;
 	width: 500px;
 	text-align: center;
 }
@@ -133,7 +133,7 @@ table {
 }
 .windowTitle {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 #courseTable td {

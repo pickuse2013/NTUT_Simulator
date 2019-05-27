@@ -18,19 +18,18 @@ class Teacher {
 
 		this.sprite = new Framework.Sprite(define.imagePath + 'teacher.png');
 
-		this.b1=new Framework.Sprite(define.imagePath + 'build/bubble1.png');
-		this.b2=new Framework.Sprite(define.imagePath + 'build/bubble2.png');
-		this.b3=new Framework.Sprite(define.imagePath + 'build/bubble3.png');
+		this.b1 = new Framework.Sprite(define.imagePath + 'build/bubble1.png');
+		this.b2 = new Framework.Sprite(define.imagePath + 'build/bubble2.png');
+		this.b3 = new Framework.Sprite(define.imagePath + 'build/bubble3.png');
 
 		this.count = 1;
 		this.teacherStep = 5;
-		this.teacherup=0;
+		this.teacherup = 0;
 
 		this.name = "test";
 	}
 
-	moveScreen()
-	{
+	moveScreen() {
 
 	}
 
@@ -45,11 +44,10 @@ class Teacher {
 	update() {
 
 	};
-	
 
 
-	getCurrPos()
-	{
+
+	getCurrPos() {
 		//公式: 起始位置 + (目前格子位置 * 最小格子寬度) + 置中偏移
 		return {
 			x: this.basePosition.x + (this.position.x * this.minWidth) + this.minWidth / 2,
@@ -57,96 +55,93 @@ class Teacher {
 		};
 	}
 
-	getCurrPosWithoutPosFix()
-	{
+	getCurrPosWithoutPosFix() {
 		//公式: 起始位置 + (目前格子位置 * 最小格子寬度)
 		return {
 			x: this.basePosition.x + (this.position.x * this.minWidth),
 			y: this.basePosition.y + (this.position.y * this.minHeight)
 		};
 	}
-	bubble_Animation(){
+	bubble_Animation() {
 		let newPosition = this.getCurrPos();
-		
-		if(this.count<=10){
-			this.b1.position=newPosition;
-			this.b1.position.y-=64;
-			this.count+=1;
+
+		if (this.count <= 10) {
+			this.b1.position = newPosition;
+			this.b1.position.y -= 64;
+			this.count += 1;
 			return 1;
 		}
-		else if(this.count>=10 && this.count<=30){
-			this.b2.position=newPosition;
-			this.b2.position.y-=64;
-			this.count+=1;
-			return 2;		
+		else if (this.count >= 10 && this.count <= 30) {
+			this.b2.position = newPosition;
+			this.b2.position.y -= 64;
+			this.count += 1;
+			return 2;
 		}
-		else if(this.count>=20 && this.count<=40) {
-			this.b3.position=newPosition;
-			this.b3.position.y-=64;
-			this.count+=1;
-			
-			if(this.count>=40){
-				this.count=1;
+		else if (this.count >= 20 && this.count <= 40) {
+			this.b3.position = newPosition;
+			this.b3.position.y -= 64;
+			this.count += 1;
+
+			if (this.count >= 40) {
+				this.count = 1;
 			}
 			return 3;
 		}
-	
+
 	}
-	
+
 
 	draw(ctx) {
-		
+
 		let newPosition = this.getCurrPos();
 
 		//console.log("畫圖至x:y :" + newPosition.x + ":" + newPosition.y)
 
 		this.sprite.position = newPosition;
-		
-		
+
+
 		this.sprite.draw(ctx);
-		
-		if(this.bubble_Animation()==1){
-			this.b1.draw(ctx);		
+
+		if (this.bubble_Animation() == 1) {
+			this.b1.draw(ctx);
 		}
-		else if (this.bubble_Animation()==2){
-			this.b2.draw(ctx);		
+		else if (this.bubble_Animation() == 2) {
+			this.b2.draw(ctx);
 		}
-		else if (this.bubble_Animation()==3){
-			this.b3.draw(ctx);		
+		else if (this.bubble_Animation() == 3) {
+			this.b3.draw(ctx);
 		}
-		
+
 
 	}
-	move(){
-		
-		if(this.teacherup==0){
-			this.position.y=this.teacherStep;
-			this.teacherStep+=1;
-			if(this.teacherStep==15){
-				this.teacherup=1;			
+	move() {
+
+		if (this.teacherup == 0) {
+			this.position.y = this.teacherStep;
+			this.teacherStep += 1;
+			if (this.teacherStep == 15) {
+				this.teacherup = 1;
 			}
 		}
-		else{
-			this.position.y=this.teacherStep;
-			this.teacherStep-=1;
-			if(this.teacherStep==5){
-				this.teacherup=0;			
-			}	
-		
+		else {
+			this.position.y = this.teacherStep;
+			this.teacherStep -= 1;
+			if (this.teacherStep == 5) {
+				this.teacherup = 0;
+			}
+
 		}
-		
+
 	}
 
-
 	//判斷點擊位置
-	isInClickArea(event)
-	{
+	isInClickArea(event) {
 		let currentPosition = this.getCurrPosWithoutPosFix();
 
-		if(event.x >= currentPosition.x && 
-		   event.x <= currentPosition.x + this.minWidth &&
-	       event.y >= currentPosition.y &&
-		   event.y <= currentPosition.y + this.minHeight
+		if (event.x >= currentPosition.x &&
+			event.x <= currentPosition.x + this.minWidth &&
+			event.y >= currentPosition.y &&
+			event.y <= currentPosition.y + this.minHeight
 		) {
 			//console.log("teacher");
 			let blackScreen = document.getElementById('blackScreen');
@@ -154,7 +149,7 @@ class Teacher {
 
 			let favDialog = document.getElementById('favDialog');
 			favDialog.style.display = "block";
-			
+
 
 			let html = `
 			<table border="1" align="center" width="100%">
@@ -189,9 +184,9 @@ class Teacher {
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
 		}
 
-		
+
 		//console.log(event);
 		//console.log(currentPosition)
-		
+
 	}
 }

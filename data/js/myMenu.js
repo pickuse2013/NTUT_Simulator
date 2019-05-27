@@ -122,7 +122,8 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
     mousedown: function(e) {
         //console.log為Browser提供的function, 可以在debugger的console內看到被印出的訊息    
-		Framework.Game.goToNextLevel();		
+        //Framework.Game.goToNextLevel();	
+        /*	
         if (e) {
             console.log(e.x, e.y);
         }
@@ -130,7 +131,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         this.previousTouch = { x: e.x, y: e.y };
         if (this.previousTouch.x > this.rightArrow.upperLeft.x && this.previousTouch.x < this.rightArrow.upperRight.x && this.previousTouch.y > this.rightArrow.upperLeft.y && this.previousTouch.y < this.rightArrow.lowerLeft.y) {
             this.isTouchArrow = true;
-        }
+        }*/
     },
 
     mousemove: function(e) {
@@ -151,20 +152,20 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
     },
 
     mouseup: function(e) {
-        this.isTouchArrow = false;
+        //this.isTouchArrow = false;
     },
 
     touchstart: function (e) {
         //為了要讓Mouse和Touch都有一樣的事件
         //又要減少Duplicated code, 故在Touch事件被觸發時, 去Trigger Mouse事件
-        this.mousedown({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        //this.mousedown({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     },
 
     touchend: function (e) {
-        this.mouseup();
+        //this.mouseup();
     },
     
     touchmove: function (e) {
-        this.mousemove({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+        //this.mousemove({ x: e.touches[0].clientX, y: e.touches[0].clientY });
     }
 });

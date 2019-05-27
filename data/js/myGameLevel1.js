@@ -5,23 +5,24 @@ var MyGame = Framework.Class(Framework.Level, {
         let self = this;
         console.log(this);
         this.isKeyPress = false;
-        this.gameMap = new GameMap();
-        this.gameMap.load();
+        //this.gameMap = new GameMap();
+        this.gameMap = new MapManager();
+        //this.gameMap.load();
         this.rootScene.attach(this.gameMap);
-		this.timeControl=800;
+        this.timeControl = 800;
         this.ticker = new TickManager();
         this.game = new Game();
-		
-		this.buildMode = false;
-       
-	    this.buildTest = new Framework.Sprite(define.imagePath + '教室/地板.png');
+
+        this.buildMode = false;
+
+        this.buildTest = new Framework.Sprite(define.imagePath + '教室/地板.png');
         this.buildTest.position = {
             x: 2000,
             y: 2000
         }
         this.rootScene.attach(this.buildTest);
-		
-		
+
+
         //載入老師
         this.teacher = new Teacher();
 
@@ -36,30 +37,30 @@ var MyGame = Framework.Class(Framework.Level, {
         //強制更新基礎起始畫圖位置
         this.student.basePosition = this.gameMap.position;
         this.student2.basePosition = this.gameMap.position;
-        this.student2.desk = {x: 14, y: 9};
+        this.student2.desk = { x: 14, y: 9 };
         this.student3.basePosition = this.gameMap.position;
-        this.student3.desk = {x: 11, y: 9};
+        this.student3.desk = { x: 11, y: 9 };
         this.rootScene.attach(this.student);
         this.rootScene.attach(this.student2);
         this.rootScene.attach(this.student3);
-		
-		this.buildIcon = new Framework.Sprite(define.imagePath + 'UI/build.png');
-		this.buildIcon.position = {
+
+        this.buildIcon = new Framework.Sprite(define.imagePath + 'UI/build.png');
+        this.buildIcon.position = {
             x: 1570,
             y: 870
         }
-        this.rootScene.attach(this.buildIcon);	
-		
-		
+        this.rootScene.attach(this.buildIcon);
+
+
         this.people = new People();
         this.people.load();
         this.rootScene.attach(this.people);
 
 
-		this.set0 =setInterval(function () {
+        this.set0 = setInterval(function () {
             self.teacher.move();
             self.people.doRandomMove();
-        }, this.timeControl*0.5); 
+        }, this.timeControl * 0.5);
 
         //螢幕底下的黑板
         let UI_Board_StartAt = 30;
@@ -69,7 +70,7 @@ var MyGame = Framework.Class(Framework.Level, {
             y: 870
         }
         this.rootScene.attach(this.pic2);
-		
+
         for (let i = 0; i <= 4; i++) {
             this.pic3 = new Framework.Sprite(define.imagePath + 'UI/中.png');
             UI_Board_StartAt += 64;
@@ -79,56 +80,56 @@ var MyGame = Framework.Class(Framework.Level, {
             }
             this.rootScene.attach(this.pic3);
         }
-		this.pic5 = new Framework.Sprite(define.imagePath + 'UI/stop.png');
+        this.pic5 = new Framework.Sprite(define.imagePath + 'UI/stop.png');
         this.pic5.position = {
             x: (UI_Board_StartAt + 64),
             y: 870
         }
-        this.rootScene.attach(this.pic5);		
-		UI_Board_StartAt += 64;
-		
-		this.pic6 = new Framework.Sprite(define.imagePath + 'UI/continue.png');
+        this.rootScene.attach(this.pic5);
+        UI_Board_StartAt += 64;
+
+        this.pic6 = new Framework.Sprite(define.imagePath + 'UI/continue.png');
         this.pic6.position = {
             x: (UI_Board_StartAt + 64),
             y: 870
         }
-        this.rootScene.attach(this.pic6);	
-		UI_Board_StartAt += 64;
-		
-		this.pic7 = new Framework.Sprite(define.imagePath + 'UI/hurry.png');
+        this.rootScene.attach(this.pic6);
+        UI_Board_StartAt += 64;
+
+        this.pic7 = new Framework.Sprite(define.imagePath + 'UI/hurry.png');
         this.pic7.position = {
             x: (UI_Board_StartAt + 64),
             y: 870
         }
         this.rootScene.attach(this.pic7);
-		UI_Board_StartAt += 64;
-		this.pic8 = new Framework.Sprite(define.imagePath + 'UI/money.png');
+        UI_Board_StartAt += 64;
+        this.pic8 = new Framework.Sprite(define.imagePath + 'UI/money.png');
         this.pic8.position = {
             x: (UI_Board_StartAt + 64),
             y: 870
         }
         this.rootScene.attach(this.pic8);
-		UI_Board_StartAt += 64;		
-		
-		
+        UI_Board_StartAt += 64;
+
+
         this.pic4 = new Framework.Sprite(define.imagePath + 'UI/右.png');
         this.pic4.position = {
             x: (UI_Board_StartAt + 64),
             y: 870
         }
         this.rootScene.attach(this.pic4);
-		this.pic_course = new Framework.Sprite(define.imagePath + 'UI/course.png');
+        this.pic_course = new Framework.Sprite(define.imagePath + 'UI/course.png');
         this.pic_course.position = {
             x: (UI_Board_StartAt + 64),
             y: 870
         }
-		console.log(UI_Board_StartAt);
+        console.log(UI_Board_StartAt);
         this.rootScene.attach(this.pic_course);
-		/*emotion*/
-				
-		UI_Board_StartAt += 64;
-		this.hour=8;
-		this.ChangeEMO();
+        /*emotion*/
+
+        UI_Board_StartAt += 64;
+        this.hour = 8;
+        this.ChangeEMO();
 
         //底下黑板結束
 
@@ -144,22 +145,22 @@ var MyGame = Framework.Class(Framework.Level, {
         this.game.students.push(this.student3);
         this.game.gui = this.gui;
         this.game.course = _CourseManager;
-        
+
         this.rootScene.attach(this.gui);
         this.ticker.game = this.game;
-			
-		this.set1=setInterval(function () {
+
+        this.set1 = setInterval(function () {
             self.ticker.Tick();
         }, this.timeControl);
-		
+
         this.position = {
             x: 100,
             y: 100
         }
 
 
-		
-		
+
+
         this.rotation = 0;
 
         this.isStop = false;
@@ -286,50 +287,50 @@ var MyGame = Framework.Class(Framework.Level, {
         }
         this.rotation = 0;
     },
-	//下方表情隨著學生平均耐心值改變
-	ChangeEMO: function(){
-		let xi = 0;
-		UI_Board_StartAt=670
-		console.log("emo");
-		this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
-		this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
-		this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
-		
+    //下方表情隨著學生平均耐心值改變
+    ChangeEMO: function () {
+        let xi = 0;
+        UI_Board_StartAt = 670
+        //console.log("emo");
+        this.emo1 = new Framework.Sprite(define.imagePath + 'UI/emo1.png');
+        this.emo2 = new Framework.Sprite(define.imagePath + 'UI/emo2.png');
+        this.emo3 = new Framework.Sprite(define.imagePath + 'UI/emo3.png');
 
-		if( this.game.GetMinute()%10==0 && this.game.GetHour()==this.hour){
-			this.student.patient=this.student.patient-12;
-			this.student2.patient=this.student2.patient-12;
-			this.student3.patient=this.student3.patient-12;
-			this.hour+=1;
-			
-		}
-		xi=this.student.patient+this.student2.patient+this.student3.patient;
-		xi=xi/3;	
-				console.log(xi);
-				
-		if(xi>=75){
-				this.emo1.position = {
-					x: (UI_Board_StartAt + 64),
-					y: 870
-				}
-				this.rootScene.attach(this.emo1);	
-		}
-		else if(xi>=50){
-				this.emo2.position = {
-					x: (UI_Board_StartAt + 64),
-					y: 870
-				}	
-				this.rootScene.attach(this.emo2);
-		}
-		else{
-				this.emo3.position = {
-				x: (UI_Board_StartAt + 64),
-				y: 870
-				}
-				this.rootScene.attach(this.emo3);
-		}
 
-	},
+        if (this.game.GetMinute() % 10 == 0 && this.game.GetHour() == this.hour) {
+            this.student.patient = this.student.patient - 12;
+            this.student2.patient = this.student2.patient - 12;
+            this.student3.patient = this.student3.patient - 12;
+            this.hour += 1;
+
+        }
+        xi = this.student.patient + this.student2.patient + this.student3.patient;
+        xi = xi / 3;
+        //console.log(xi);
+
+        if (xi >= 75) {
+            this.emo1.position = {
+                x: (UI_Board_StartAt + 64),
+                y: 870
+            }
+            this.rootScene.attach(this.emo1);
+        }
+        else if (xi >= 50) {
+            this.emo2.position = {
+                x: (UI_Board_StartAt + 64),
+                y: 870
+            }
+            this.rootScene.attach(this.emo2);
+        }
+        else {
+            this.emo3.position = {
+                x: (UI_Board_StartAt + 64),
+                y: 870
+            }
+            this.rootScene.attach(this.emo3);
+        }
+
+    },
     initialize: function () {
 
 
@@ -345,8 +346,8 @@ var MyGame = Framework.Class(Framework.Level, {
         this.freeze.run();
 
         this.isPlayed = true;
-		
-		this.ChangeEMO();
+
+        this.ChangeEMO();
     },
 
 
@@ -468,115 +469,115 @@ var MyGame = Framework.Class(Framework.Level, {
             y: e.touches[0].clientY
         });
     },
-	
-	mousemove: function(e){
-		if(this.buildMode){
-			this.buildTest.position = e;
-		}
-	},
+
+    mousemove: function (e) {
+        if (this.buildMode) {
+            this.buildTest.position = e;
+        }
+    },
 
     click: function (e) {
         //alert("你點了一下");
-		let self = this;
+        let self = this;
         this.teacher.isInClickArea(e);
         this.student.isInClickArea(e);
 
-		/*錢錢*/
-		if(e.x >= 576 && 
-		   e.x <= 640&&
-	       e.y >= 858&&
-		   e.y <= 921
-		) {
-			console.log("money");
-			let blackScreen = document.getElementById('blackScreen');
-			blackScreen.style.display = "block";
+        /*錢錢*/
+        if (e.x >= 576 &&
+            e.x <= 640 &&
+            e.y >= 858 &&
+            e.y <= 921
+        ) {
+            console.log("money");
+            let blackScreen = document.getElementById('blackScreen');
+            blackScreen.style.display = "block";
 
-			let favDialog = document.getElementById('favDialog');
-			favDialog.style.display = "block";
+            let favDialog = document.getElementById('favDialog');
+            favDialog.style.display = "block";
 
-			let html = `
+            let html = `
 				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
 				<td>
 					目前剩餘資金：${this.ticker.money} 元
 				</td>
 			`;
-			
-			$(".windowTitle").text("校產");
-			favDialog.getElementsByClassName("content")[0].innerHTML = html;
-			
-		}
-		
-		if(this.buildIcon.isInClickArea(e)){
-			this.buildMode = true;
-		}
 
-		
-		
-		//顯示課表
-		if(e.x >= 632 &&
-		   e.y >= 858 &&
-		   e.x <= (632 + 64) &&
-		   e.y <= 921) {
-			_CourseManager.ShowCurriculum();
-			
-		 }
+            $(".windowTitle").text("校產");
+            favDialog.getElementsByClassName("content")[0].innerHTML = html;
 
-		
-		/*加速*/
-		if(e.x >= 512 && 
-		   e.x <= 576&&
-	       e.y >= 858&&
-		   e.y <= 921
-		){	
-			this.timeControl=25;	
-			clearInterval(this.set0);
-			clearInterval(this.set1);
-			this.set0 = setInterval(function () {
-				self.teacher.move();
-				self.people.doRandomMove();
-				}, this.timeControl*0.5);
-			
-			this.set1 = setInterval(function () {
-				self.ticker.Tick();
-				}, this.timeControl);
-		}
-		/*普通速度 |>*/
-		if(e.x >= 432 && 
-		   e.x <= 512&&
-	       e.y >= 858&&
-		   e.y <= 921
-		){	
-			this.timeControl=800;	
-			clearInterval(this.set0);
-			clearInterval(this.set1);
-			this.set0 = setInterval(function () {
-				self.teacher.move();
-				self.people.doRandomMove();
-				}, this.timeControl*0.5);
-			
-			this.set1 = setInterval(function () {
-				self.ticker.Tick();
-				}, this.timeControl);
-		}
-	/*暫停*/
-		if(e.x >= 368 && 
-		   e.x <= 432&&
-	       e.y >= 858&&
-		   e.y <= 921
-		){	
-			this.timeControl=1000000;	
-			clearInterval(this.set0);
-			clearInterval(this.set1);
-			this.set0 = setInterval(function () {
-				self.teacher.move();
-				self.people.doRandomMove();
-				}, this.timeControl);
-			
-			this.set1 = setInterval(function () {
-				self.ticker.Tick();
-				}, this.timeControl);
-		}	
-	},	
-	
+        }
+
+        if (this.buildIcon.isInClickArea(e)) {
+            this.buildMode = true;
+        }
+
+
+
+        //顯示課表
+        if (e.x >= 632 &&
+            e.y >= 858 &&
+            e.x <= (632 + 64) &&
+            e.y <= 921) {
+            _CourseManager.ShowCurriculum();
+
+        }
+
+
+        /*加速*/
+        if (e.x >= 512 &&
+            e.x <= 576 &&
+            e.y >= 858 &&
+            e.y <= 921
+        ) {
+            this.timeControl = 25;
+            clearInterval(this.set0);
+            clearInterval(this.set1);
+            this.set0 = setInterval(function () {
+                self.teacher.move();
+                self.people.doRandomMove();
+            }, this.timeControl * 0.5);
+
+            this.set1 = setInterval(function () {
+                self.ticker.Tick();
+            }, this.timeControl);
+        }
+        /*普通速度 |>*/
+        if (e.x >= 432 &&
+            e.x <= 512 &&
+            e.y >= 858 &&
+            e.y <= 921
+        ) {
+            this.timeControl = 800;
+            clearInterval(this.set0);
+            clearInterval(this.set1);
+            this.set0 = setInterval(function () {
+                self.teacher.move();
+                self.people.doRandomMove();
+            }, this.timeControl * 0.5);
+
+            this.set1 = setInterval(function () {
+                self.ticker.Tick();
+            }, this.timeControl);
+        }
+        /*暫停*/
+        if (e.x >= 368 &&
+            e.x <= 432 &&
+            e.y >= 858 &&
+            e.y <= 921
+        ) {
+            this.timeControl = 1000000;
+            clearInterval(this.set0);
+            clearInterval(this.set1);
+            this.set0 = setInterval(function () {
+                self.teacher.move();
+                self.people.doRandomMove();
+            }, this.timeControl);
+
+            this.set1 = setInterval(function () {
+                self.ticker.Tick();
+            }, this.timeControl);
+        }
+    },
+
 
 });
