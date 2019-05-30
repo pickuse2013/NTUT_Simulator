@@ -353,6 +353,11 @@ var MyGame = Framework.Class(Framework.Level, {
 
     draw: function (parentCtx) {
         this.rootScene.draw();
+		parentCtx.font = '10pt 微軟正黑體';
+		parentCtx.fillStyle = 'black';
+		parentCtx.textBaseline = 'top';
+		parentCtx.textAlign = 'center';
+		parentCtx.fillText(this.ticker.money, 605,870);
     },
 
     moveUp: function () {
@@ -501,83 +506,83 @@ var MyGame = Framework.Class(Framework.Level, {
 					目前剩餘資金：${this.ticker.money} 元
 				</td>
 			`;
+			
+			$(".windowTitle").text("校產");
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+			
+		}
+		
+		if(this.buildIcon.isInClickArea(e)){
+			this.buildMode = true;
+		}
 
-            $(".windowTitle").text("校產");
-            favDialog.getElementsByClassName("content")[0].innerHTML = html;
+		
+		
+		//顯示課表
+		if(e.x >= 632 &&
+		   e.y >= 858 &&
+		   e.x <= (632 + 64) &&
+		   e.y <= 921) {
+			_CourseManager.ShowCurriculum();
+			
+		 }
 
-        }
-
-        if (this.buildIcon.isInClickArea(e)) {
-            this.buildMode = true;
-        }
-
-
-
-        //顯示課表
-        if (e.x >= 632 &&
-            e.y >= 858 &&
-            e.x <= (632 + 64) &&
-            e.y <= 921) {
-            _CourseManager.ShowCurriculum();
-
-        }
-
-
-        /*加速*/
-        if (e.x >= 512 &&
-            e.x <= 576 &&
-            e.y >= 858 &&
-            e.y <= 921
-        ) {
-            this.timeControl = 25;
-            clearInterval(this.set0);
-            clearInterval(this.set1);
-            this.set0 = setInterval(function () {
-                self.teacher.move();
-                self.people.doRandomMove();
-            }, this.timeControl * 0.5);
-
-            this.set1 = setInterval(function () {
-                self.ticker.Tick();
-            }, this.timeControl);
-        }
-        /*普通速度 |>*/
-        if (e.x >= 432 &&
-            e.x <= 512 &&
-            e.y >= 858 &&
-            e.y <= 921
-        ) {
-            this.timeControl = 800;
-            clearInterval(this.set0);
-            clearInterval(this.set1);
-            this.set0 = setInterval(function () {
-                self.teacher.move();
-                self.people.doRandomMove();
-            }, this.timeControl * 0.5);
-
-            this.set1 = setInterval(function () {
-                self.ticker.Tick();
-            }, this.timeControl);
-        }
-        /*暫停*/
-        if (e.x >= 368 &&
-            e.x <= 432 &&
-            e.y >= 858 &&
-            e.y <= 921
-        ) {
-            this.timeControl = 1000000;
-            clearInterval(this.set0);
-            clearInterval(this.set1);
-            this.set0 = setInterval(function () {
-                self.teacher.move();
-                self.people.doRandomMove();
-            }, this.timeControl);
-
-            this.set1 = setInterval(function () {
-                self.ticker.Tick();
-            }, this.timeControl);
-        }
-    },
-
+		
+		/*加速*/
+		if(e.x >= 512 && 
+		   e.x <= 576&&
+	       e.y >= 858&&
+		   e.y <= 921
+		){	
+			this.timeControl=55;	
+			clearInterval(this.set0);
+			clearInterval(this.set1);
+			this.set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, this.timeControl*0.5);
+			
+			this.set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, this.timeControl);
+		}
+		/*普通速度 |>*/
+		if(e.x >= 432 && 
+		   e.x <= 512&&
+	       e.y >= 858&&
+		   e.y <= 921
+		){	
+			this.timeControl=800;	
+			clearInterval(this.set0);
+			clearInterval(this.set1);
+			this.set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, this.timeControl*0.5);
+			
+			this.set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, this.timeControl);
+		}
+	/*暫停*/
+		if(e.x >= 368 && 
+		   e.x <= 432&&
+	       e.y >= 858&&
+		   e.y <= 921
+		){	
+			this.timeControl=1000000;	
+			clearInterval(this.set0);
+			clearInterval(this.set1);
+			this.set0 = setInterval(function () {
+				self.teacher.move();
+				self.people.doRandomMove();
+				}, this.timeControl);
+			
+			this.set1 = setInterval(function () {
+				self.ticker.Tick();
+				}, this.timeControl);
+		}	
+	},	
+	
 
 });
