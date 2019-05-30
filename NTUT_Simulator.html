@@ -13,7 +13,7 @@
 
 	<div id="blackScreen"></div>
 	<div id="centerpoint">
-		<div id="favDialog">
+		<div id="favDialog" style="z-index: 9999;">
 			<div class="header"><span class="windowTitle"></span> <a href="#" id="closedialog">X</a></div>
 			<div class="content">
 				<h1>功能測試</h1>
@@ -32,9 +32,9 @@
 	<div class="center-point">
 		<div id="start-menu" style="display: none;" class="ttt">
 			<div class="content">
-				<div class="menu-item">開始遊戲</div>
-				<div class="menu-item">關於</div>
-				<div class="menu-item">離開</div>
+				<div class="menu-item start">開始遊戲</div>
+				<div class="menu-item fullscreen">全螢幕</div>
+				<div class="menu-item about">關於</div>
 			</div>
 		</div>
 	
@@ -70,6 +70,30 @@
 	<script>
 		var isStartClick = false;
 		var _CourseManager = new CourseManager();
+		function toggleFullScreen() {
+  if (!document.fullscreenElement &&    // alternative standard method
+      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) {
+      document.documentElement.msRequestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) {
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+}
 		(function () {
 			document.getElementById("closedialog").addEventListener("click", function () {
 				favDialog.style.display = "none";
@@ -81,15 +105,49 @@
 				blackScreen.style.display = "none";
 			});
 			
-			$(".center-point").click(function(){
+			$(".center-point .start").click(function(){
 				
 				if(!isStartClick){
 					Framework.Game.goToNextLevel();		
 					//Framework.Game._levels[0].level.mousedown({x:1, y:2})
-					$(this).fadeOut(300);
+					$(".center-point").fadeOut(300);
 				}
 				
 				isStartClick = true;
+			});
+			
+			$(".center-point .about").click(function(){
+				let blackScreen = document.getElementById('blackScreen');
+				blackScreen.style.display = "block";
+
+				let favDialog = document.getElementById('favDialog');
+				favDialog.style.display = "block";
+
+				let html = `
+					<td>
+						<h3>開發作者</h3>
+						高于梵、戴碩廷
+						<br>
+						<h3 style="margin-top:30px;">遊戲說明</h3>
+						玩家擔任新上任的校長，剛開始遊戲時會獲得一間新教室，要先聘用老師，安排好課表後就可以開始招生，學校本身有人氣值，這會影響招生的效果，學校風評降低，入學人數就會減少。<br>
+						<br>
+						學校所得收入來至於註冊費和其他雜支，像是可以增設販賣機來賺取學生的錢。<br>
+						支出的部分會是老師的薪水，教室的維持費。<br>
+						<br>
+						每位老師有「體力值」與「有趣度」等數值，會影響學生上課意願，如果學生上課意願不高，會造成學生翹課，最後被當掉，當掉的學生會導致學校風評降低，影響下一次的招生。<br>
+						<br>
+						學校過關條件就是可以成功地維持學校運作至校長任期結束，任期結束後玩家依然可以繼續遊玩。<br>
+						<br>
+						失敗條件則是學校資金為不足以讓學校繼續運作時（周轉不靈）遊戲會結束。
+					</td>
+				`;
+				$(".windowTitle").text("關於");
+				favDialog.getElementsByClassName("content")[0].innerHTML = html;
+			});
+			
+			
+			$(".center-point .fullscreen").click(function(){
+				toggleFullScreen();
 			});
 		})();
 	</script>
