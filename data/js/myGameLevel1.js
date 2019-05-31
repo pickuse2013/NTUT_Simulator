@@ -338,6 +338,9 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.gameMap.layerObject[10][9]=13;
 			this.gameMap.layerObject[13][15]=13;
 			this.gameMap.layerObject[12][3]=13;
+			
+			this.gameMap.layerObject[16][9]=16;
+			this.gameMap.layerObject[16][13]=16;
 			this.eq+=1;
 		}
 		else if(this.eq==2)
@@ -346,6 +349,10 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.gameMap.layerObject[10][9]=14;
 			this.gameMap.layerObject[13][15]=14;
 			this.gameMap.layerObject[12][3]=14;
+			
+			this.gameMap.layerObject[16][9]=17;
+			this.gameMap.layerObject[16][13]=17;
+	
 			this.eq+=1;
 		}
 		else if(this.eq==3){
@@ -353,6 +360,10 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.gameMap.layerObject[10][9]=15;
 			this.gameMap.layerObject[13][15]=15;
 			this.gameMap.layerObject[12][3]=15;
+			
+			this.gameMap.layerObject[16][9]=18;
+			this.gameMap.layerObject[16][13]=18;
+			
 		}
 		
 

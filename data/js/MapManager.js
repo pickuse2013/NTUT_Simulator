@@ -66,6 +66,9 @@ class MapManager {
 		this.eqa1= new Framework.Sprite(define.imagePath + 'build/eqa1.png');
 		this.eqa2= new Framework.Sprite(define.imagePath + 'build/eqa2.png');
 		this.eqa3= new Framework.Sprite(define.imagePath + 'build/eqa3.png');
+		this.Leq1= new Framework.Sprite(define.imagePath + 'build/Leq1.png');
+		this.Leq2= new Framework.Sprite(define.imagePath + 'build/Leq2.png');
+		this.Leq3= new Framework.Sprite(define.imagePath + 'build/Leq3.png');
     }
 
     defaultMap(ctx)
@@ -278,6 +281,18 @@ class MapManager {
 					case 15:
 						this.eqa3.position=picPosition;
 						this.eqa3.draw(ctx)
+						break;	
+					case 16:
+						this.Leq1.position=picPosition;
+						this.Leq1.draw(ctx)
+						break;
+					case 17:
+						this.Leq2.position=picPosition;
+						this.Leq2.draw(ctx)
+						break;			
+					case 18:
+						this.Leq3.position=picPosition;
+						this.Leq3.draw(ctx)
 						break;		
 						
                 }
