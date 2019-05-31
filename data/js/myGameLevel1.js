@@ -12,7 +12,7 @@ var MyGame = Framework.Class(Framework.Level, {
         this.timeControl = 800;
         this.ticker = new TickManager();
         this.game = new Game();
-
+		this.eq=1;
         this.buildMode = false;
 
         this.buildTest = new Framework.Sprite(define.imagePath + '教室/地板.png');
@@ -331,6 +331,25 @@ var MyGame = Framework.Class(Framework.Level, {
         }
 
     },
+	 earthQuake: function () {
+		if(this.eq==1)
+		{
+			this.gameMap.layerObject[5][6]=10;
+			this.eq+=1;
+		}
+		else if(this.eq==2)
+		{
+			this.gameMap.layerObject[5][6]=11;
+			this.eq+=1;
+		}
+		else if(this.eq==3){
+			this.gameMap.layerObject[5][6]=12;
+		}
+		
+
+
+    },
+	
     initialize: function () {
 
 
@@ -463,6 +482,19 @@ var MyGame = Framework.Class(Framework.Level, {
                 this.isFullScreen = false;
             }
 
+        }
+		console.log(e.key);
+		/*颱風*/
+		 if (e.key === 'T') {
+			 
+            
+        }
+		/*地震*/
+		 if (e.key === 'E') {
+			 this.eqqq = setInterval(function () {
+				self.earthQuake();
+				}, this.timeControl*0.7);
+            
         }
     },
 

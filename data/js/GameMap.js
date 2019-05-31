@@ -83,6 +83,7 @@ var GameMap = function(){
 		
 		this.toilet = new Framework.Sprite(define.imagePath + 'build/toilet.png');
 		this.urinal = new Framework.Sprite(define.imagePath + 'build/urinal.png');
+		this.eq1= new Framework.Sprite(define.imagePath + 'build/eq1.png');
 	};
 	
 	this.initialize = function()
@@ -245,6 +246,10 @@ var GameMap = function(){
 					case 9:
 						this.urinal.position=picPosition;
 						this.urinal.draw(ctx)
+						break;	
+					case 10:
+						this.eq1.position=picPosition;
+						this.eq1.draw(ctx)
 						break;							
 				}
 			}

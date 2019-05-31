@@ -60,6 +60,9 @@ class MapManager {
 
         this.toilet = new Framework.Sprite(define.imagePath + 'build/toilet.png');
         this.urinal = new Framework.Sprite(define.imagePath + 'build/urinal.png');
+		this.eq1= new Framework.Sprite(define.imagePath + 'build/eq1.png');
+		this.eq2= new Framework.Sprite(define.imagePath + 'build/eq2.png');
+		this.eq3= new Framework.Sprite(define.imagePath + 'build/eq3.png');
     }
 
     defaultMap(ctx)
@@ -247,6 +250,19 @@ class MapManager {
                         this.urinal.position = picPosition;
                         this.urinal.draw(ctx)
                         break;
+						//地震
+					case 10:
+						this.eq1.position=picPosition;
+						this.eq1.draw(ctx)
+						break;
+					case 11:
+						this.eq2.position=picPosition;
+						this.eq2.draw(ctx)
+						break;			
+					case 12:
+						this.eq3.position=picPosition;
+						this.eq3.draw(ctx)
+						break;									
                 }
             }
         }
