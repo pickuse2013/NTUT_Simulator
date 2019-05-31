@@ -334,16 +334,25 @@ var MyGame = Framework.Class(Framework.Level, {
 	 earthQuake: function () {
 		if(this.eq==1)
 		{
-			this.gameMap.layerObject[5][6]=10;
+			this.gameMap.layerObject[3][6]=10;
+			this.gameMap.layerObject[10][9]=13;
+			this.gameMap.layerObject[13][15]=13;
+			this.gameMap.layerObject[12][3]=13;
 			this.eq+=1;
 		}
 		else if(this.eq==2)
 		{
-			this.gameMap.layerObject[5][6]=11;
+			this.gameMap.layerObject[3][6]=11;
+			this.gameMap.layerObject[10][9]=14;
+			this.gameMap.layerObject[13][15]=14;
+			this.gameMap.layerObject[12][3]=14;
 			this.eq+=1;
 		}
 		else if(this.eq==3){
-			this.gameMap.layerObject[5][6]=12;
+			this.gameMap.layerObject[3][6]=12;
+			this.gameMap.layerObject[10][9]=15;
+			this.gameMap.layerObject[13][15]=15;
+			this.gameMap.layerObject[12][3]=15;
 		}
 		
 

@@ -63,6 +63,9 @@ class MapManager {
 		this.eq1= new Framework.Sprite(define.imagePath + 'build/eq1.png');
 		this.eq2= new Framework.Sprite(define.imagePath + 'build/eq2.png');
 		this.eq3= new Framework.Sprite(define.imagePath + 'build/eq3.png');
+		this.eqa1= new Framework.Sprite(define.imagePath + 'build/eqa1.png');
+		this.eqa2= new Framework.Sprite(define.imagePath + 'build/eqa2.png');
+		this.eqa3= new Framework.Sprite(define.imagePath + 'build/eqa3.png');
     }
 
     defaultMap(ctx)
@@ -91,7 +94,7 @@ class MapManager {
 
         // object in this layer. etc: table, chair
         this.layerObject = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 
             [6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7],
             [6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7],
             [6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7],
@@ -100,7 +103,7 @@ class MapManager {
             [4, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [4, 0, 0, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 0, 0, 0],
             [4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [4, 0, 0, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 0, 0, 0],
+            [4, 0, 0, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 0, 0, 0], //9
             [4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [4, 0, 0, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 2, 3, 0, 0, 0, 0],
             [4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -109,6 +112,7 @@ class MapManager {
             [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			//                     6
         ];
     }
 
@@ -262,7 +266,20 @@ class MapManager {
 					case 12:
 						this.eq3.position=picPosition;
 						this.eq3.draw(ctx)
-						break;									
+						break;
+					case 13:
+						this.eqa1.position=picPosition;
+						this.eqa1.draw(ctx)
+						break;
+					case 14:
+						this.eqa2.position=picPosition;
+						this.eqa2.draw(ctx)
+						break;			
+					case 15:
+						this.eqa3.position=picPosition;
+						this.eqa3.draw(ctx)
+						break;		
+						
                 }
             }
         }
