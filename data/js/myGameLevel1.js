@@ -13,6 +13,7 @@ var MyGame = Framework.Class(Framework.Level, {
         this.ticker = new TickManager();
         this.game = new Game();
 		this.eq=1;
+		this.td=1;
         this.buildMode = false;
 
         this.buildTest = new Framework.Sprite(define.imagePath + '教室/地板.png');
@@ -332,39 +333,117 @@ var MyGame = Framework.Class(Framework.Level, {
 
     },
 	 earthQuake: function () {
-		if(this.eq==1)
+		if(this.eq==1 && this.td==1)
 		{
 			this.gameMap.layerObject[3][6]=10;
 			this.gameMap.layerObject[10][9]=13;
 			this.gameMap.layerObject[13][15]=13;
 			this.gameMap.layerObject[12][3]=13;
-			
+			this.gameMap.layerObject[6][14]=13;
 			this.gameMap.layerObject[16][9]=16;
 			this.gameMap.layerObject[16][13]=16;
 			this.eq+=1;
 		}
-		else if(this.eq==2)
+		else if(this.eq==2 && this.td==1)
 		{
 			this.gameMap.layerObject[3][6]=11;
 			this.gameMap.layerObject[10][9]=14;
 			this.gameMap.layerObject[13][15]=14;
 			this.gameMap.layerObject[12][3]=14;
-			
+			this.gameMap.layerObject[6][14]=14;
 			this.gameMap.layerObject[16][9]=17;
 			this.gameMap.layerObject[16][13]=17;
 	
 			this.eq+=1;
 		}
-		else if(this.eq==3){
+		else if(this.eq==3 && this.td==1){
 			this.gameMap.layerObject[3][6]=12;
 			this.gameMap.layerObject[10][9]=15;
 			this.gameMap.layerObject[13][15]=15;
 			this.gameMap.layerObject[12][3]=15;
-			
+			this.gameMap.layerObject[6][14]=15;
 			this.gameMap.layerObject[16][9]=18;
 			this.gameMap.layerObject[16][13]=18;
+			this.eq+=1;
 			
 		}
+		if(this.eq==4){
+			let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+
+			let html = `
+				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
+				<td>
+					目前剩餘資金：${this.ticker.money} 元
+				</td>
+				<br>
+				<button>付錢維修</button>
+				<button>賣掉學校</button>
+			`;
+			
+			$(".windowTitle").text("地震警報");
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+
+		}
+		
+    },	 
+	tornado: function () {
+		if(this.td==1 && this.eq==1)
+		{
+			this.gameMap.layerObject[10][9]=19;
+			this.gameMap.layerObject[13][15]=19;
+			this.gameMap.layerObject[12][3]=19;
+			
+			this.gameMap.layerObject[6][14]=19;
+			this.gameMap.layerObject[16][9]=19;
+			this.gameMap.layerObject[16][13]=19;
+			this.td+=1;
+		}
+		else if(this.td==2 && this.eq==1)
+		{
+			this.gameMap.layerObject[10][9]=20;
+			this.gameMap.layerObject[13][15]=20;
+			this.gameMap.layerObject[12][3]=20;
+			this.gameMap.layerObject[6][14]=20;
+			this.gameMap.layerObject[16][9]=20;
+			this.gameMap.layerObject[16][13]=20;
+	
+			this.td+=1;
+		}
+		else if(this.td==3 && this.eq==1){
+			this.gameMap.layerObject[10][9]=21;
+			this.gameMap.layerObject[13][15]=21;
+			this.gameMap.layerObject[12][3]=21;
+			this.gameMap.layerObject[6][14]=21;
+			this.gameMap.layerObject[16][9]=21;
+			this.gameMap.layerObject[16][13]=21;
+			this.td+=1;
+		}
+		if(this.td==4){
+			let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+
+			let html = `
+				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
+				<td>
+					目前剩餘資金：${this.ticker.money} 元
+				</td>
+				<br>
+				<button>付錢維修</button>
+				<button>賣掉學校</button>
+				
+			`;
+			
+			$(".windowTitle").text("淹水警報");
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+			this.td=4;
+			}
 		
 
 
@@ -506,16 +585,21 @@ var MyGame = Framework.Class(Framework.Level, {
 		console.log(e.key);
 		/*颱風*/
 		 if (e.key === 'T') {
-			 
+			 this.tor = setInterval(function () {
+				self.tornado();
+				}, this.timeControl*0.7);
+			
             
         }
+				
 		/*地震*/
-		 if (e.key === 'E') {
+		 else if (e.key === 'E') {
 			 this.eqqq = setInterval(function () {
 				self.earthQuake();
 				}, this.timeControl*0.7);
-            
+			
         }
+
     },
 
     touchstart: function (e) {
