@@ -649,9 +649,35 @@ var MyGame = Framework.Class(Framework.Level, {
 		}
 		
 		if(this.buildIcon.isInClickArea(e)){
-			this.buildMode = true;
-		}
+			
+			let blackScreen = document.getElementById('blackScreen');
+            blackScreen.style.display = "block";
 
+            let favDialog = document.getElementById('favDialog');
+            favDialog.style.display = "block";
+
+            let html = `
+				<th>
+				<h4><label><input type="radio" name="bitem" class="bitem" value="15"> 一般地板 ($15)<img src="data/image/教室/地板.png" style="max-width: 32px;"></label></h4>
+				<h4><label><input type="radio" name="bitem" class="bitem" value="15"> 左側牆壁 ($15)<img src="data/image/教室/左側牆壁(深色).png" style="max-width: 32px;"></h4>
+				
+				</th>
+				<td>
+				</td>
+			`;
+			
+			$(".bitem")
+			
+			$(".windowTitle").text("建造選單");
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+			this.buildMode = true;
+			return;
+		}
+		
+		if(this.buildMode = true)
+		{
+			this.gameMap.build(event);
+		}
 		
 		
 		//顯示課表

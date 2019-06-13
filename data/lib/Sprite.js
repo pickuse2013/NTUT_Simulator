@@ -21,7 +21,8 @@ var Framework = (function (Framework) {
             this.type = undefined;
             this.texture = undefined;
             this.isDrawBoundry = false;
-            this.isDrawPace = false;            
+            this.isDrawPace = false;
+			this.isDrawBorder = false;
             if(Framework.Util.isString(options)){
                 this.id = options;
                 Framework.ResourceManager.loadImage({id:options, url:options});
@@ -110,7 +111,7 @@ var Framework = (function (Framework) {
         },    
         testDraw:function(painter)
         {
-            var painter = painter || Framework.Game._context;
+            var painter = painter || Framework.Game._context;			
             this.countAbsoluteProperty();
             var texture, tmp, realWidth, realHeight, tmpContext;
             if(Framework.Util.isUndefined(this.texture)){
@@ -181,7 +182,7 @@ var Framework = (function (Framework) {
         },
 		
 		isInClickArea: function(_clickEvent){
-			// 幹她媽X軸居然有誤差? 應該叫寫這個程式框架的人去跳樓!
+			// "這FRAMEWORK真的是有夠爛" 該叫寫這個程式框架的人去跳樓!
 			const _這個遊戲引擎有問題居然有偏差_ = 30
 			
 			/*

@@ -4,7 +4,10 @@ class MapManager {
 
         this.MW = 64;
         this.MH = 64;
-
+		
+		this.minWidth = 64;
+		this.minHeight = 64;
+		
         this.position = {
             x: 100,
             y: 100
@@ -46,6 +49,9 @@ class MapManager {
 
         this.podium_mic = new Framework.Sprite(define.imagePath + 'build/podium-mic.png');
         this.roof = new Framework.Sprite(define.imagePath + 'build/roof.png');
+		this.roof._tmpContext.fillStyle = "rgba(0, 0, 200, 0.5)";
+        this.roof._tmpContext.fillRect (0, 0, 55, 50);
+		
         this.left_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/left_wall_full_dark.png');
         this.left_wall_full_light = new Framework.Sprite(define.imagePath + 'build/left_wall_full_light.png');
         this.right_wall_full_dark = new Framework.Sprite(define.imagePath + 'build/right_wall_full_dark.png');
@@ -318,4 +324,67 @@ class MapManager {
 
         return 0;
     }
+		
+	getMouseClickBlock(e) {
+		//公式: 起始位置 + (目前格子位置 * 最小格子寬度)
+		/*
+		return {
+			x: (this.position.x * this.minWidth),
+			y: (this.position.y * this.minHeight)
+		};*/
+	}
+	
+	build(e){
+		let clickX = Math.floor((e.x - this.position.x - 30) / 64);
+		let clickY = Math.floor((e.y - this.position.y - 30)  / 64);
+		
+		if(typeof this.layerBase[clickY] != "undefined" && typeof this.layerBase[clickY][clickX] != "undefined")
+		{
+			this.layerBase[clickY][clickX] = 14;
+			
+		}
+		console.log(clickX, clickY);
+		//let currentPosition = this.getCurrPosWithoutPosFix();
+		//console.log(currentPosition)
+		return;
+		if (event.x >= currentPosition.x &&
+			event.x <= currentPosition.x + this.minWidth &&
+			event.y >= currentPosition.y &&
+			event.y <= currentPosition.y + this.minHeight
+		) {
+			console.log("teacher");
+			let blackScreen = document.getElementById('blackScreen');
+			blackScreen.style.display = "block";
+
+			let favDialog = document.getElementById('favDialog');
+			favDialog.style.display = "block";
+
+			
+			
+
+			let html = `
+			<table border="1" align="center" width="100%">
+				<tr>
+					<th>學生OOO</th>
+					<th>學生<small></small><br/> <small></small></th>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>能力值</td>
+					<td>
+						體力值: <progress max="100" value="50"></progress><br/>
+						耐心值: <progress max="100" value=${this.patient}></progress>
+					
+					</td>
+				</tr>
+			</table>
+			`;
+			//修改標題
+			$(".windowTitle").text("學生");
+			favDialog.getElementsByClassName("content")[0].innerHTML = html;
+		}
+	}
 }

@@ -256,4 +256,6 @@ var GameMap = function(){
 		}
 	};
 	
+	
+	
 };
