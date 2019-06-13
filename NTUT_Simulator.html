@@ -65,45 +65,48 @@
 	
 	<script type="text/javascript" src="data/js/astar.js"></script>
 	<script type="text/javascript" src="data/js/CourseManager.js"></script>
-	<script type="text/javascript" src="data/js/BuildManager.js"></script>
 	<script type="text/javascript" src="data/js/Course.js"></script>
 	<script type="text/javascript" src="data/js/MapManager.js"></script>
 	<script>
+		var isGameOver = false;
+		var isDialogShow = false;
 		var isStartClick = false;
 		var _CourseManager = new CourseManager();
 		function toggleFullScreen() {
-  if (!document.fullscreenElement &&    // alternative standard method
-      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
-    if (document.documentElement.requestFullscreen) {
-      document.documentElement.requestFullscreen();
-    } else if (document.documentElement.msRequestFullscreen) {
-      document.documentElement.msRequestFullscreen();
-    } else if (document.documentElement.mozRequestFullScreen) {
-      document.documentElement.mozRequestFullScreen();
-    } else if (document.documentElement.webkitRequestFullscreen) {
-      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-    }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.msExitFullscreen) {
-      document.msExitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-      document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
-  }
-}
+        if (!document.fullscreenElement &&    // alternative standard method
+			!document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+			if (document.documentElement.requestFullscreen) {
+			  document.documentElement.requestFullscreen();
+			} else if (document.documentElement.msRequestFullscreen) {
+			  document.documentElement.msRequestFullscreen();
+			} else if (document.documentElement.mozRequestFullScreen) {
+			  document.documentElement.mozRequestFullScreen();
+			} else if (document.documentElement.webkitRequestFullscreen) {
+			  document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+			}
+		} else {
+		if (document.exitFullscreen) {
+		  document.exitFullscreen();
+		} else if (document.msExitFullscreen) {
+		  document.msExitFullscreen();
+		} else if (document.mozCancelFullScreen) {
+		  document.mozCancelFullScreen();
+		} else if (document.webkitExitFullscreen) {
+		  document.webkitExitFullscreen();
+		}
+		}
+		}
 		(function () {
 			document.getElementById("closedialog").addEventListener("click", function () {
 				favDialog.style.display = "none";
 				blackScreen.style.display = "none";
+				isDialogShow = false;
 			});
 
 			document.getElementById("cancel").addEventListener("click", function () {
 				favDialog.style.display = "none";
 				blackScreen.style.display = "none";
+				isDialogShow = false;
 			});
 			
 			$(".center-point .start").click(function(){
@@ -150,7 +153,47 @@
 			$(".center-point .fullscreen").click(function(){
 				toggleFullScreen();
 			});
+			
+			$(document).on("click", ".sellSchool", function(){
+				isGameOver = true;
+				let blackScreen = document.getElementById('blackScreen');
+				blackScreen.style.display = "none";
+
+				let favDialog = document.getElementById('favDialog');
+				favDialog.style.display = "none";
+				
+				isDialogShow = false;
+				
+				Framework.Game.goToNextLevel();
+			})
+			
+			$(document).on("click", ".bitem", function(){
+				Framework.Game._levels[1].level.buildMode = true;
+			});
+			
+			$(document).on("click", ".fixproblem", function(){
+				if(Framework.Game._levels[1].level.ticker.money >= 1000000)
+				{
+					Framework.Game._levels[1].level.ticker.money -= 1000000;
+					isGameOver = true;
+					let blackScreen = document.getElementById('blackScreen');
+					blackScreen.style.display = "none";
+					
+					let favDialog = document.getElementById('favDialog');
+					favDialog.style.display = "none";
+					
+					isDialogShow = false;
+				}else{
+					alert("你的資金不夠你這麼做");
+				}
+				
+			})
+			
+			
 		})();
+		
+		
+		
 	</script>
 </body>
 </head>

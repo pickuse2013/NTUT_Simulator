@@ -47,6 +47,7 @@ var loadGameEnd;
 		{ src: 'data/js/GameMap.js',lookFor: 'GameMap'},
 		{ src: 'data/js/People.js',lookFor: 'People'},
         { src: 'data/js/myGameLevel1.js', lookFor: 'MyGame' },
+        { src: 'data/js/endGame.js', lookFor: 'endGame' },
 		{ src: 'data/js/Practice.js',lookFor: 'Practice'},
 		{ src: 'data/js/Teacher.js',lookFor: 'Teacher'},
 		{ src: 'data/js/Gui.js',lookFor: 'Gui'},

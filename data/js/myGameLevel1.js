@@ -168,91 +168,6 @@ var MyGame = Framework.Class(Framework.Level, {
         this.isPlayed = false;
 
 
-        /*this.clock = new Framework.Sprite(define.imagePath + 'clock.png');
-        this.clock.scale = 0.3;
-        this.clock.position = {
-            x: 0,
-            y: 0
-        };*/
-
-
-/*
-        let characterPosition = {
-            x: 0,
-            y: -1138 * this.clock.scale
-        };*/
-		/*
-        this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg');
-        this.firen = new Character(define.imagePath + 'firen.png', {
-            position: characterPosition,
-            run: {
-                from: 20,
-                to: 22
-            },
-            beHit: {
-                from: 30,
-                to: 35
-            },
-            hit: {
-                from: 10,
-                to: 13
-            }
-        });
-		*/
-		/*
-        this.freeze = new Character(define.imagePath + 'freeze.png', {
-            position: characterPosition,
-            scale: 1,
-            run: {
-                from: 29,
-                to: 27
-            },
-            beHit: {
-                from: 39,
-                to: 35
-            },
-            hit: {
-                from: 19,
-                to: 16
-            }
-        });
-*/
-        /*
-        this.clockCenter = new Framework.Scene();
-        this.clockCenter.position = {
-            x: -10.5 * this.clock.scale,
-            y: 51 * this.clock.scale
-        };
-
-        this.clockCenterNeg = new Framework.Scene();
-        this.clockCenterNeg.position = {
-            x: -10.5 * this.clock.scale,
-            y: 51 * this.clock.scale
-        };
-
-        this.secondHand.position = {
-            x: 0,
-            y: -100
-        };
-
-        this.wholeClock = new Framework.Scene();
-        this.wholeClock.position = {
-            x: Framework.Game.getCanvasWidth() / 2,
-            y: Framework.Game.getCanvasHeight() / 2
-        };*/
-
-        /*
-                this.secondHandRotationRate = 0.3;
-                this.wholeClock.attach(this.clock);
-                this.clockCenter.attach(this.secondHand);
-                this.clockCenter.attach(this.firen.sprite);
-                this.clockCenterNeg.attach(this.freeze.sprite);
-                this.wholeClock.attach(this.clockCenterNeg);
-                this.wholeClock.attach(this.clockCenter);*/
-
-
-        //this.rootScene.attach(this.wholeClock);
-
         //繪製Sprite的boundry (Debug用)
         //this.firen.sprite.isDrawBoundry = true;
         //this.clock.isDrawBoundry = true;
@@ -371,7 +286,8 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.eq+=1;
 			
 		}
-		if(this.eq==4){
+		if(this.eq==4 && !isGameOver && !isDialogShow){
+			isDialogShow = true;
 			let blackScreen = document.getElementById('blackScreen');
 			blackScreen.style.display = "block";
 
@@ -384,8 +300,8 @@ var MyGame = Framework.Class(Framework.Level, {
 					目前剩餘資金：${this.ticker.money} 元
 				</td>
 				<br>
-				<button>付錢維修</button>
-				<button>賣掉學校</button>
+				<button class="fixproblem">付錢維修</button>
+				<button class="sellSchool">賣掉學校</button>
 			`;
 			
 			$(".windowTitle").text("地震警報");
@@ -426,7 +342,8 @@ var MyGame = Framework.Class(Framework.Level, {
 			this.gameMap.layerObject[16][13]=21;
 			this.td+=1;
 		}
-		if(this.td==4){
+		if(this.td==4 && !isGameOver && !isDialogShow){
+			isDialogShow = true;
 			let blackScreen = document.getElementById('blackScreen');
 			blackScreen.style.display = "block";
 
@@ -439,8 +356,8 @@ var MyGame = Framework.Class(Framework.Level, {
 					目前剩餘資金：${this.ticker.money} 元
 				</td>
 				<br>
-				<button>付錢維修</button>
-				<button>賣掉學校</button>
+				<button class="fixproblem">付錢維修</button>
+				<button class="sellSchool">賣掉學校</button>
 				
 			`;
 			
@@ -653,6 +570,11 @@ var MyGame = Framework.Class(Framework.Level, {
 		}
 		
 		if(this.buildIcon.isInClickArea(e)){
+			if(this.buildMode)
+			{
+				this.buildMode = false;
+				return;
+			}
 			
 			let blackScreen = document.getElementById('blackScreen');
             blackScreen.style.display = "block";
@@ -670,15 +592,13 @@ var MyGame = Framework.Class(Framework.Level, {
 				</td>
 			`;
 			
-			$(".bitem")
 			
 			$(".windowTitle").text("建造選單");
 			favDialog.getElementsByClassName("content")[0].innerHTML = html;
-			this.buildMode = true;
 			return;
 		}
 		
-		if(this.buildMode = true)
+		if(this.buildMode)
 		{
 			this.gameMap.build(event);
 		}

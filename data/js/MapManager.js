@@ -335,8 +335,11 @@ class MapManager {
 	}
 	
 	build(e){
-		let clickX = Math.floor((e.x - this.position.x - 30) / 64);
+		
+		let clickX = Math.floor((e.x - this.position.x - 30) / 64) - 2;
 		let clickY = Math.floor((e.y - this.position.y - 30)  / 64);
+		
+		console.log(e.x, Framework.Game.getCanvasWidth(), this.position.x)
 		
 		if(typeof this.layerBase[clickY] != "undefined" && typeof this.layerBase[clickY][clickX] != "undefined")
 		{
