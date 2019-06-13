@@ -279,7 +279,7 @@ var MyGame = Framework.Class(Framework.Level, {
         });
 
         //播放時, 需要給name, 其餘參數可參考W3C
-        //this.audio.play({name: 'song2', loop: true});
+        this.audio.play({name: 'song1', loop: true});
 
         this.rectPosition = {
             x: Framework.Game.getCanvasWidth() / 2 - 130,
