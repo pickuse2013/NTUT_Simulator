@@ -1,7 +1,0 @@
-class BuildManager {
-    constructor()
-    {
-		
-    }
-	
-}
