@@ -29,9 +29,9 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
         ];
 		
 		this.menu = new Framework.Sprite(define.imagePath + 'Title.png');
-        this.scrollBar = new Framework.Sprite(define.imagePath + 'scrollBar.png');
-        this.rightArrow = new Framework.Sprite(define.imagePath + 'rightArrow.png');
-        this.photo = new Framework.AnimationSprite({url: photoLink, loop: true, speed: 0.05});
+        //this.scrollBar = new Framework.Sprite(define.imagePath + 'scrollBar.png');
+        //this.rightArrow = new Framework.Sprite(define.imagePath + 'rightArrow.png');
+        //this.photo = new Framework.AnimationSprite({url: photoLink, loop: true, speed: 0.05});
 		
 		this.isTouchArrow = false;
         this.previousTouch = { x: 0, y: 0 };
@@ -47,31 +47,32 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
         //由於scrollBar將會被attach到this.center上
         //故x設為0, 表示x也是要正中心
+		/*
         this.scrollBar.position = {
             x: Framework.Game.getCanvasWidth() / 2,
             y: Framework.Game.getCanvasHeight() / 4 * 3
-        };
-
+        };*/
+		/*
         this.photo.position = {
             x: 0,
             y: 0
-        };
+        };*/
 
         //Framework支援scale, rotation等功能
-        this.rightArrow.scale = 1;
+        /*this.rightArrow.scale = 1;
         this.rightArrow.position = {
             x: Framework.Game.getCanvasWidth() / 2 - 500,
             y: Framework.Game.getCanvasHeight() / 4 * 3
-        };
+        };*/
 		
         //this.center.attach(this.photo);
-        this.center.attach(new Framework.Sprite(define.imagePath + 'ntut_bg.jpg'));
+        //this.center.attach(new Framework.Sprite(define.imagePath + 'ntut_bg.jpg'));
 
         //rootScene為系統預設的容器, 由於其他東西都被attach到center上
         //將物件attach到center上, 順序是會影響繪製出來的效果的
         this.rootScene.attach(this.center);
-        this.rootScene.attach(this.scrollBar);
-        this.rootScene.attach(this.rightArrow);
+        //this.rootScene.attach(this.scrollBar);
+        //this.rootScene.attach(this.rightArrow);
 
         //讓AnimationSprite開始被播放
         //this.photo.start();
@@ -100,7 +101,7 @@ var MyMenu = Framework.exClass(Framework.GameMainMenu , {
 
         //目前的Framework, 當任何一個GameObject不做attach時, 則必須要自行update
         // this.center.update();        
-        this.scrollBar.update();
+        //this.scrollBar.update();
     },
 
     draw: function(parentCtx) { 

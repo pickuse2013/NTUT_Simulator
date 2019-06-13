@@ -168,18 +168,20 @@ var MyGame = Framework.Class(Framework.Level, {
         this.isPlayed = false;
 
 
-        this.clock = new Framework.Sprite(define.imagePath + 'clock.png');
+        /*this.clock = new Framework.Sprite(define.imagePath + 'clock.png');
         this.clock.scale = 0.3;
         this.clock.position = {
             x: 0,
             y: 0
-        };
+        };*/
 
 
+/*
         let characterPosition = {
             x: 0,
             y: -1138 * this.clock.scale
-        };
+        };*/
+		/*
         this.secondHand = new Framework.Sprite(define.imagePath + 'secondHand.jpg');
         this.firen = new Character(define.imagePath + 'firen.png', {
             position: characterPosition,
@@ -196,6 +198,8 @@ var MyGame = Framework.Class(Framework.Level, {
                 to: 13
             }
         });
+		*/
+		/*
         this.freeze = new Character(define.imagePath + 'freeze.png', {
             position: characterPosition,
             scale: 1,
@@ -212,7 +216,7 @@ var MyGame = Framework.Class(Framework.Level, {
                 to: 16
             }
         });
-
+*/
         /*
         this.clockCenter = new Framework.Scene();
         this.clockCenter.position = {
@@ -250,8 +254,8 @@ var MyGame = Framework.Class(Framework.Level, {
         //this.rootScene.attach(this.wholeClock);
 
         //繪製Sprite的boundry (Debug用)
-        this.firen.sprite.isDrawBoundry = true;
-        this.clock.isDrawBoundry = true;
+        //this.firen.sprite.isDrawBoundry = true;
+        //this.clock.isDrawBoundry = true;
 
         //載入要被播放的音樂清單
         //資料夾內只提供mp3檔案, 其餘的音樂檔案, 請自行轉檔測試
@@ -461,7 +465,7 @@ var MyGame = Framework.Class(Framework.Level, {
 
         this.isStop = false;
 
-        this.freeze.run();
+        //this.freeze.run();
 
         this.isPlayed = true;
 
