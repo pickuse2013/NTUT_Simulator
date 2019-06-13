@@ -80,7 +80,7 @@ class Game {
 			let html = `
 				<th><img src="data/image/UI/money-b.png" style="max-width: 130px;"></th>
 				<td>
-                結算結算結算結算結算結算結算結算結算結算結算結算結算結算結算
+                你的分數: ${Framework.Game._levels[1].level.game.inGameSecond} 分
 				</td>
 			`;
 			
